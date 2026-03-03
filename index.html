@@ -3,13 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="title">خدمه تعبئه رصيد انترنت </title>
+  <title data-i18n="title">شركة | حلول احترافية</title>
   <meta name="description" content="موقع شركة رسمي متعدد اللغات مع نموذج تواصل." />
   <style>
     :root{
       --bg:#0b1220;
-      --panel:#0f1a30;
-      --card:#0f1b33;
       --text:#eaf0ff;
       --muted:#b7c4e3;
       --line:rgba(255,255,255,.10);
@@ -67,6 +65,7 @@
       background: rgba(255,255,255,.06);
       text-decoration:none;
       transition: .2s ease;
+      cursor: pointer;
     }
     .btn.primary{
       border:none;
@@ -86,35 +85,12 @@
     }
 
     /* HERO */
-    .hero{
-  height: 380px;
-  border-radius: 22px;
-  position: relative;
-  overflow: hidden;
-  background: url("hero.png") center/contain no-repeat;
-  background-color: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.55),
-    0 0 40px rgba(0,255,180,.15);
-  transition: all .4s ease;
-} 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(circle at 50% 50%, rgba(0,255,170,.15), transparent 70%);
-  pointer-events:none;
-}
-@keyframes premiumFloat{
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-}
-
-.hero{
-  animation: premiumFloat 6s ease-in-out infinite;
-}
+    .hero{padding: 40px 0 18px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
     }
     .panel{
       background: rgba(255,255,255,.04);
@@ -168,19 +144,45 @@
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
     }
+
+    /* ✅ PREMIUM HERO IMAGE (uses hero.png) */
     .hero-img{
-      height: 280px;
-      border-radius: 18px;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(110,231,255,.18), rgba(167,139,250,.18)),
-        url("https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1400&q=60");
-      background-size: cover;
-      background-position: center;
-      filter: saturate(1.05) contrast(1.02);
-      box-shadow: 0 20px 70px rgba(0,0,0,.35);
+      height: 380px;
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+
+      background: url("hero.png") center/contain no-repeat;
+      background-color: rgba(255,255,255,.03);
+
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        0 0 40px rgba(0,255,180,.15);
+
+      animation: premiumFloat 6s ease-in-out infinite;
+      transition: transform .35s ease, box-shadow .35s ease;
       transform: translateZ(0);
     }
+    .hero-img:hover{
+      transform: translateY(-3px) scale(1.01);
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.6),
+        0 0 55px rgba(0,255,180,.20);
+    }
+    .hero-img::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at 50% 50%, rgba(0,255,170,.14), transparent 70%);
+      pointer-events:none;
+    }
+    @keyframes premiumFloat{
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
     .badge{
       position:absolute;
       bottom:18px;
@@ -261,6 +263,7 @@
       .two{grid-template-columns: 1fr}
       .mini{grid-template-columns: 1fr}
       .badge{left:12px; right:12px}
+      .hero-img{height: 340px;}
     }
   </style>
 </head>
@@ -272,8 +275,8 @@
         <div class="brand">
           <div class="logo" aria-hidden="true"></div>
           <div>
-            <div id="brandName" data-i18n="brand">اسم شركتك</div>
-            <div class="muted" style="font-size:12px" data-i18n="tagline">خدمات احترافية • جودة • التزام</div>
+            <div id="brandName" data-i18n="brand">GO.RASEED</div>
+            <div class="muted" style="font-size:12px" data-i18n="tagline">خدمة رقمية • تعبئة رصيد • بسرعة وأمان</div>
           </div>
         </div>
 
@@ -301,9 +304,9 @@
       <div class="hero-grid">
         <div class="panel hero-left reveal">
           <div class="kicker"><span class="dot"></span> <span data-i18n="kicker">حلول شركة احترافية لمشروعك</span></div>
-          <h1 data-i18n="hero_title">نحو نمو أسرع بنتائج واضحة</h1>
+          <h1 data-i18n="hero_title">تعبئة رصيد فورية وآمنة</h1>
           <p class="lead" data-i18n="hero_lead">
-            نساعدك ببناء حضور قوي، تحسين العمليات، وتقديم خدمات موثوقة بأسلوب رسمي يناسب الشركات.
+              خدمة رقمية لتعبئة رصيد الهاتف والبطاقات بسرعة، من أي مكان، وبخطوات بسيطة..
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#contact" data-i18n="hero_btn1">تواصل معنا</a>
@@ -327,7 +330,7 @@
         </div>
 
         <div class="hero-right reveal">
-          <div class="hero-img" role="img" aria-label="Business hero image"></div>
+          <div class="hero-img" role="img" aria-label="GO.RASEED banner"></div>
           <div class="badge" data-i18n="badge">جاهزون لخدمتك — استشارة أولية مجانية</div>
         </div>
       </div>
@@ -426,15 +429,12 @@
         <div class="card reveal">
           <h3 data-i18n="form_title">نموذج التواصل</h3>
 
-          <!-- ✅ اكتب رابط Formspree بدل YOUR_FORM_ID -->
+          <!-- ✅ ضع رابط Formspree بدل YOUR_FORM_ID -->
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input name="name" required data-i18n-ph="ph_name" placeholder="الاسم الكامل" />
             <input name="email" type="email" required data-i18n-ph="ph_email" placeholder="البريد الإلكتروني" />
             <textarea name="message" required data-i18n-ph="ph_msg" placeholder="اكتب رسالتك"></textarea>
-
-            <!-- يحمي من السبام بشكل بسيط -->
             <input type="text" name="_gotcha" style="display:none">
-
             <button class="btn primary" type="submit" id="sendBtn" data-i18n="send">إرسال</button>
             <div class="note" id="formMsg" role="status" aria-live="polite"></div>
           </form>
@@ -452,16 +452,13 @@
   </main>
 
   <script>
-    // سنة تلقائية
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // حركات ظهور خفيفة
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
     }, {threshold: .12});
     document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
-    // i18n بسيط (عربي/إنجليزي)
     const dict = {
       ar:{
         title:"شركة | حلول احترافية",
@@ -565,7 +562,7 @@
         ph_email:"Email address",
         ph_msg:"Write your message",
         sent_ok:"✅ Sent! We’ll reply soon.",
-        sent_err:"❌ إرسال failed. Check Formspree setup."
+        sent_err:"❌ Failed to send. Check Formspree setup."
       }
     };
 
@@ -574,19 +571,16 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = isAr ? "rtl" : "ltr";
 
-      // نصوص
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const k = el.getAttribute("data-i18n");
         if(dict[lang][k] !== undefined) el.innerHTML = dict[lang][k];
       });
 
-      // placeholders
       document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
         const k = el.getAttribute("data-i18n-ph");
         if(dict[lang][k] !== undefined) el.setAttribute("placeholder", dict[lang][k]);
       });
 
-      // عنوان الصفحة
       const titleEl = document.querySelector('title[data-i18n="title"]');
       if(titleEl) titleEl.textContent = dict[lang].title;
     }
@@ -601,7 +595,7 @@
       applyLang(langSelect.value);
     });
 
-    // إرسال النموذج (AJAX) + رسالة نجاح/فشل
+    // Form submit
     const form = document.getElementById("contactForm");
     const msg = document.getElementById("formMsg");
     const btn = document.getElementById("sendBtn");
@@ -618,12 +612,11 @@
           body: new FormData(form),
           headers: { "Accept": "application/json" }
         });
+        const lang = langSelect.value;
         if(res.ok){
           form.reset();
-          const lang = langSelect.value;
           msg.textContent = dict[lang].sent_ok;
         }else{
-          const lang = langSelect.value;
           msg.textContent = dict[lang].sent_err;
         }
       }catch(err){
