@@ -3,78 +3,98 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="title">شركة | حلول احترافية</title>
-  <meta name="description" content="موقع شركة رسمي متعدد اللغات مع نموذج تواصل." />
+  <title>GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان</title>
+  <meta name="description" content="GO.RASEED — خدمة رقمية لشحن/تحويل رصيد الإنترنت إلى سوريا بسرعة وأمان مع تأكيد بعد التنفيذ." />
+
+  <meta property="og:title" content="GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان" />
+  <meta property="og:description" content="شحن/تحويل باقات الإنترنت إلى سوريا بمتابعة فورية وتأكيد بعد الإتمام." />
+  <meta property="og:type" content="website" />
+
   <style>
     :root{
-      --bg:#0b1220;
+      --bg:#070b14;
       --text:#eaf0ff;
-      --muted:#b7c4e3;
-      --line:rgba(255,255,255,.10);
+      --muted:#b8c7ea;
+      --line: rgba(255,255,255,.10);
+      --panel: rgba(255,255,255,.05);
+      --panel2: rgba(255,255,255,.035);
       --accent:#6ee7ff;
       --accent2:#a78bfa;
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --max: 1100px;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --shadow: 0 20px 80px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1120px;
       --r: 18px;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-      background:
-        radial-gradient(1000px 500px at 85% 10%, rgba(167,139,250,.28), transparent 55%),
-        radial-gradient(900px 500px at 20% 20%, rgba(110,231,255,.22), transparent 55%),
-        linear-gradient(180deg, #070b14, var(--bg));
       color:var(--text);
-      line-height:1.75;
+      background:
+        radial-gradient(1100px 560px at 85% 10%, rgba(167,139,250,.22), transparent 60%),
+        radial-gradient(1000px 560px at 15% 15%, rgba(110,231,255,.18), transparent 60%),
+        linear-gradient(180deg, #050812, var(--bg));
+      line-height:1.85;
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:auto; padding: 18px;}
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(110,231,255,.12);
+    }
+
+    /* Header */
     header{
-      position: sticky; top:0; z-index:20;
-      backdrop-filter: blur(10px);
-      background: rgba(7,11,20,.55);
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(5,8,18,.55);
       border-bottom:1px solid var(--line);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.2px;
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
     }
     .logo{
-      width:36px;height:36px;border-radius:12px;
+      width:40px;height:40px;border-radius:14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 25px rgba(110,231,255,.15);
+      box-shadow: 0 12px 30px rgba(110,231,255,.12);
     }
-    .links{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
+    .brand strong{display:block; font-size:14px; letter-spacing:.3px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+    .links{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
     .links a{
       text-decoration:none;
       color: var(--muted);
-      padding:10px 10px;
-      border-radius:12px;
-      transition: .2s ease;
-    }
-    .links a:hover{background: rgba(255,255,255,.06); color: var(--text)}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 12px 14px;
+      padding:10px 12px;
       border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      text-decoration:none;
       transition: .2s ease;
-      cursor: pointer;
+      border:1px solid transparent;
     }
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#081022;
-      font-weight:800;
+    .links a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.08);
+      transform: translateY(-1px);
     }
-    .btn:hover{transform: translateY(-1px)}
-    .controls{display:flex; gap:10px; align-items:center}
+    .controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
     select{
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
@@ -83,187 +103,333 @@
       border-radius: 14px;
       outline:none;
     }
-
-    /* HERO */
-    .hero{padding: 40px 0 18px;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      align-items: stretch;
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      transition: .2s ease;
+      cursor:pointer;
+      font: inherit;
+      color: var(--text);
     }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#071022;
+      font-weight:800;
+      box-shadow: 0 12px 40px rgba(110,231,255,.15);
+    }
+    .btn.ghost{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    /* Sections */
+    section{padding: 26px 0}
+    .section-title{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:12px; flex-wrap:wrap;
+      margin: 6px 0 12px;
+    }
+    .section-title h2{margin:0; font-size: 22px}
+    .section-title p{margin:0; color: var(--muted); max-width: 700px}
+
+    /* Panels & cards */
     .panel{
-      background: rgba(255,255,255,.04);
+      background: var(--panel);
       border:1px solid var(--line);
       border-radius: var(--r);
       box-shadow: var(--shadow);
     }
-    .hero-left{padding: 26px;}
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      color: var(--muted);
-      background: rgba(255,255,255,.05);
+    .card{
+      background: var(--panel2);
       border:1px solid var(--line);
-      padding:8px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:99px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(110,231,255,.12);
-    }
-    h1{margin: 14px 0 10px; font-size: 40px; line-height:1.15}
-    .lead{color: var(--muted); font-size: 16px; margin: 0 0 18px}
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
-    .mini{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 12px;
-    }
-    .mini .stat{
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      transition: .2s ease;
-    }
-    .mini .stat:hover{transform: translateY(-2px)}
-    .stat b{display:block; font-size: 18px}
-    .stat span{color: var(--muted); font-size: 13px}
-
-    .hero-right{
-      position:relative;
-      overflow:hidden;
-      padding: 22px;
       border-radius: var(--r);
-      background:
-        radial-gradient(600px 280px at 80% 20%, rgba(110,231,255,.18), transparent 55%),
-        radial-gradient(700px 300px at 20% 70%, rgba(167,139,250,.18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line);
+      padding: 18px;
+      transition: .22s ease;
     }
-
-    /* ✅ PREMIUM HERO IMAGE (uses hero.png) */
-    .hero-img{
-      height: 380px;
-      border-radius: 22px;
-      position: relative;
-      overflow: hidden;
-
-      background: url("hero.png") center/contain no-repeat;
-      background-color: rgba(255,255,255,.03);
-
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        0 0 40px rgba(0,255,180,.15);
-
-      animation: premiumFloat 6s ease-in-out infinite;
-      transition: transform .35s ease, box-shadow .35s ease;
-      transform: translateZ(0);
+    .card:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.055);
     }
-    .hero-img:hover{
-      transform: translateY(-3px) scale(1.01);
-      box-shadow:
-        0 35px 90px rgba(0,0,0,.6),
-        0 0 55px rgba(0,255,180,.20);
-    }
-    .hero-img::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(circle at 50% 50%, rgba(0,255,170,.14), transparent 70%);
-      pointer-events:none;
-    }
-    @keyframes premiumFloat{
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .badge{
-      position:absolute;
-      bottom:18px;
-      left:18px;
-      padding: 10px 12px;
-      border-radius: 16px;
-      background: rgba(7,11,20,.65);
-      border:1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* SECTIONS */
-    section{padding: 18px 0}
-    .section-title{
-      display:flex; justify-content:space-between; align-items:end; gap:12px; flex-wrap:wrap;
-      margin: 10px 0 12px;
-    }
-    .section-title h2{margin:0; font-size: 22px}
-    .section-title p{margin:0; color: var(--muted); max-width: 560px}
-    .grid{
+    .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    .card{
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    /* Hero */
+    .hero{padding: 34px 0 16px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .hero-left{padding: 26px;}
+    h1{
+      margin: 14px 0 10px;
+      font-size: 44px;
+      line-height: 1.15;
+      letter-spacing: .2px;
+    }
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+    .trust{
+      margin-top: 18px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .trust .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .hero-right{
+      position:relative;
+      overflow:hidden;
       padding: 18px;
       border-radius: var(--r);
-      background: rgba(255,255,255,.04);
+      background:
+        radial-gradient(600px 280px at 85% 20%, rgba(110,231,255,.18), transparent 55%),
+        radial-gradient(700px 300px at 20% 70%, rgba(167,139,250,.18), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--line);
-      transition: .22s ease;
-      transform: translateZ(0);
+      box-shadow: var(--shadow2);
     }
-    .card:hover{transform: translateY(-3px); background: rgba(255,255,255,.06)}
+    .hero-shot{
+      height: 290px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(120px 120px at 25% 30%, rgba(110,231,255,.22), transparent 60%),
+        radial-gradient(180px 160px at 80% 65%, rgba(167,139,250,.22), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-shot::before{
+      content:"";
+      position:absolute; inset:-80px;
+      background:
+        radial-gradient(600px 260px at 60% 40%, rgba(110,231,255,.16), transparent 60%),
+        radial-gradient(700px 300px at 40% 70%, rgba(167,139,250,.16), transparent 60%);
+      filter: blur(4px);
+      opacity: .9;
+    }
+    .kpi{
+      position:absolute;
+      inset:auto 14px 14px 14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      z-index:2;
+    }
+    .kpi .k{
+      padding:12px;
+      border-radius: 16px;
+      background: rgba(7,11,20,.55);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .k b{display:block; font-size: 16px}
+    .k span{display:block; font-size: 12px; color: var(--muted)}
+    .hero-badge{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(7,11,20,.50);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Icon blocks */
     .icon{
       width:44px;height:44px;border-radius: 14px;
       background: rgba(255,255,255,.06);
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.10);
       display:flex; align-items:center; justify-content:center;
       margin-bottom: 10px;
+      font-size: 18px;
     }
-    .muted{color: var(--muted)}
-    .two{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    .card h3{margin: 6px 0 6px; font-size: 16px}
+    .card p{margin:0; color: var(--muted); font-size: 14px}
+
+    /* Steps */
+    .step{display:flex; gap:12px; align-items:flex-start;}
+    .num{
+      min-width: 34px; height:34px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-weight: 800;
     }
 
-    /* CONTACT */
+    /* Ring testimonial */
+    .testi-wrap{ padding: 24px; position:relative; overflow:hidden; }
+    .testi-bg{
+      position:absolute; inset:-50px;
+      background:
+        radial-gradient(900px 500px at 80% 30%, rgba(110,231,255,.14), transparent 60%),
+        radial-gradient(900px 500px at 25% 70%, rgba(167,139,250,.16), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .ring{
+      width: min(520px, 100%);
+      aspect-ratio: 1/1;
+      margin: 0 auto;
+      border-radius: 999px;
+      position: relative;
+      display:grid;
+      place-items:center;
+    }
+    .ring::before{
+      content:"";
+      position:absolute; inset:0;
+      border-radius:999px;
+      background: conic-gradient(from 180deg, rgba(110,231,255,.60), rgba(167,139,250,.60), rgba(110,231,255,.60));
+      opacity:.55;
+      filter: blur(.2px);
+    }
+    .ring::after{
+      content:"";
+      position:absolute; inset: 36px;
+      border-radius:999px;
+      background: rgba(7,11,20,.72);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+    .testi-card{
+      position: relative;
+      z-index: 2;
+      width: calc(100% - 72px);
+      max-width: 430px;
+      text-align:center;
+      padding: 26px 18px;
+    }
+    .quote{margin:0 0 12px; font-size: 18px; line-height:1.7;}
+    .stars{
+      display:flex; justify-content:center; gap:6px;
+      margin: 6px 0 10px;
+      font-size: 18px;
+      user-select:none;
+    }
+    .who{ color: var(--muted); font-size: 14px; }
+    .testi-controls{
+      display:flex; justify-content:center; gap:10px;
+      margin-top: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    .testi-controls button{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      font: inherit;
+      transition: .2s ease;
+    }
+    .testi-controls button:hover{transform: translateY(-1px)}
+
+    /* Pricing */
+    .price{
+      display:flex; align-items:flex-end; gap:8px;
+      margin: 10px 0 10px;
+    }
+    .price b{font-size: 26px}
+    .price span{color:var(--muted); font-size: 12px}
+    .list{
+      margin:0;
+      padding-inline-start: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tag{
+      display:inline-flex;
+      padding:8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      gap:8px;
+      align-items:center;
+    }
+    .tag.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.10); color: #c6f6df}
+    .tag.hot{border-color: rgba(110,231,255,.25); background: rgba(110,231,255,.10); color: #d7fbff}
+
+    /* Contact */
     form{display:grid; gap:10px}
-    input, textarea{
+    label{font-size: 13px; color: var(--muted)}
+    input, textarea, select.small{
       width:100%;
       background: rgba(255,255,255,.05);
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.12);
       color: var(--text);
       padding: 12px 12px;
       border-radius: 14px;
       outline:none;
       font-size: 14px;
     }
-    textarea{min-height:120px; resize: vertical}
+    textarea{min-height:130px; resize: vertical}
     .note{font-size: 13px; color: var(--muted)}
-
-    footer{
-      padding: 22px 0 40px;
+    .inline{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;}
+    .mini-box{
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .hint{
+      margin-top: 10px;
+      font-size: 13px;
       color: var(--muted);
-      border-top:1px solid var(--line);
-      margin-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 10px;
     }
 
-    /* Animations */
+    footer{
+      padding: 22px 0 42px;
+      color: var(--muted);
+      border-top:1px solid var(--line);
+      margin-top: 18px;
+    }
+
+    /* Reveal */
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
     .reveal.show{opacity:1; transform:none}
 
     /* Mobile */
-    @media (max-width: 900px){
+    @media (max-width: 980px){
       .hero-grid{grid-template-columns: 1fr}
       h1{font-size: 34px}
-      .grid{grid-template-columns: 1fr}
-      .two{grid-template-columns: 1fr}
-      .mini{grid-template-columns: 1fr}
-      .badge{left:12px; right:12px}
-      .hero-img{height: 340px;}
+      .grid-3{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1fr}
+      .kpi{grid-template-columns: 1fr}
+      .ring::after{ inset: 28px; }
+      .testi-card{ width: calc(100% - 56px); }
+      .quote{font-size: 16px}
     }
   </style>
 </head>
@@ -272,297 +438,554 @@
   <header>
     <div class="wrap">
       <div class="nav">
-        <div class="brand">
+        <a class="brand" href="#top" aria-label="GO.RASEED">
           <div class="logo" aria-hidden="true"></div>
           <div>
-            <div id="brandName" data-i18n="brand">GO.RASEED</div>
-            <div class="muted" style="font-size:12px" data-i18n="tagline">خدمة رقمية • تعبئة رصيد • بسرعة وأمان</div>
+            <strong>GO.RASEED</strong>
+            <span data-i18n="tagline">شحن إنترنت إلى سوريا • بسرعة وأمان</span>
           </div>
-        </div>
+        </a>
 
-        <div class="links">
-          <a href="#services" data-i18n="nav_services">الخدمات</a>
-          <a href="#about" data-i18n="nav_about">من نحن</a>
-          <a href="#work" data-i18n="nav_work">أعمالنا</a>
-          <a href="#contact" data-i18n="nav_contact">تواصل</a>
-        </div>
+        <nav class="links" aria-label="Primary">
+          <a href="#services" data-i18n="nav_services">الخدمة</a>
+          <a href="#process" data-i18n="nav_process">كيف تتم</a>
+          <a href="#testimonials" data-i18n="nav_reviews">الآراء</a>
+          <a href="#pricing" data-i18n="nav_pricing">الباقات</a>
+          <a href="#contact" data-i18n="nav_contact">اطلب الآن</a>
+        </nav>
 
         <div class="controls">
           <select id="lang" aria-label="Language">
             <option value="ar">العربية</option>
             <option value="en">English</option>
           </select>
-          <a class="btn" href="#contact" data-i18n="cta_quote">عرض سعر</a>
-          <a class="btn primary" href="#services" data-i18n="cta_start">ابدأ الآن</a>
+          <a class="btn ghost" href="#pricing" data-i18n="cta_pricing">عرض الباقات</a>
+          <a class="btn primary" href="#contact" data-i18n="cta_start">اشحن الآن</a>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
+  <main id="top" class="wrap">
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
         <div class="panel hero-left reveal">
-          <div class="kicker"><span class="dot"></span> <span data-i18n="kicker">حلول شركة احترافية لمشروعك</span></div>
-          <h1 data-i18n="hero_title">تعبئة رصيد فورية وآمنة</h1>
+          <div class="pill"><span class="dot"></span> <span data-i18n="kicker">خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان</span></div>
+
+          <h1 data-i18n="hero_title">اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري</h1>
+
           <p class="lead" data-i18n="hero_lead">
-              خدمة رقمية لتعبئة رصيد الهاتف والبطاقات بسرعة، من أي مكان، وبخطوات بسيطة..
+            GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام.
+            أرسل البيانات المطلوبة وسننفذ لك مباشرة.
           </p>
+
           <div class="hero-actions">
-            <a class="btn primary" href="#contact" data-i18n="hero_btn1">تواصل معنا</a>
-            <a class="btn" href="#work" data-i18n="hero_btn2">شاهد أعمالنا</a>
+            <a class="btn primary" href="#contact" data-i18n="hero_btn1">ابدأ طلب شحن</a>
+            <a class="btn" href="#process" data-i18n="hero_btn2">كيف تتم العملية؟</a>
           </div>
 
-          <div class="mini">
-            <div class="stat">
-              <b data-i18n="stat1_val">+50</b>
-              <span data-i18n="stat1_lbl">عميل سعيد</span>
-            </div>
-            <div class="stat">
-              <b data-i18n="stat2_val">24/7</b>
-              <span data-i18n="stat2_lbl">دعم و متابعة</span>
-            </div>
-            <div class="stat">
-              <b data-i18n="stat3_val">100%</b>
-              <span data-i18n="stat3_lbl">التزام بالمواعيد</span>
-            </div>
+          <div class="trust">
+            <div class="chip">⚡ <span data-i18n="trust1">تنفيذ سريع</span></div>
+            <div class="chip">🛡️ <span data-i18n="trust2">خصوصية وأمان</span></div>
+            <div class="chip">✅ <span data-i18n="trust3">تأكيد بعد الإتمام</span></div>
+            <div class="chip">💬 <span data-i18n="trust4">دعم عبر واتساب</span></div>
           </div>
         </div>
 
-        <div class="hero-right reveal">
-          <div class="hero-img" role="img" aria-label="GO.RASEED banner"></div>
-          <div class="badge" data-i18n="badge">جاهزون لخدمتك — استشارة أولية مجانية</div>
-        </div>
+        <aside class="hero-right reveal" aria-label="Highlights">
+          <div class="hero-shot" role="img" aria-label="Digital top-up visual">
+            <div class="kpi">
+              <div class="k">
+                <b data-i18n="kpi1v">سريع</b>
+                <span data-i18n="kpi1l">تنفيذ خلال وقت قصير</span>
+              </div>
+              <div class="k">
+                <b data-i18n="kpi2v">آمن</b>
+                <span data-i18n="kpi2l">بياناتك محفوظة</span>
+              </div>
+              <div class="k">
+                <b data-i18n="kpi3v">مؤكد</b>
+                <span data-i18n="kpi3l">رسالة تأكيد</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-badge" data-i18n="badge">جاهزين الآن — ارسل رقم/بيانات الخط والباقـة المطلوبة</div>
+        </aside>
       </div>
     </section>
 
+    <!-- SERVICE -->
     <section id="services">
       <div class="section-title">
-        <h2 class="reveal" data-i18n="services_title">الخدمات</h2>
-        <p class="reveal" data-i18n="services_desc">باقة خدمات رسمية تناسب الشركات والأعمال.</p>
+        <h2 class="reveal" data-i18n="services_title">ماذا نقدم؟</h2>
+        <p class="reveal" data-i18n="services_desc">
+          خدمة شحن الإنترنت إلى سوريا بشكل واضح: تحدد المزود/الرقم/الباقة — ونحن ننفذ ونرسل لك تأكيد.
+        </p>
       </div>
 
-      <div class="grid">
+      <div class="grid-3">
         <div class="card reveal">
-          <div class="icon">⚡</div>
-          <h3 data-i18n="s1_title">خدمة احترافية</h3>
-          <p class="muted" data-i18n="s1_desc">تنفيذ سريع بجودة عالية مع تقارير واضحة.</p>
+          <div class="icon">📶</div>
+          <h3 data-i18n="s1_title">شحن باقات الإنترنت</h3>
+          <p data-i18n="s1_desc">شحن باقة حسب الطلب (يتم تحديد الباقة/القيمة أثناء الطلب).</p>
         </div>
+
         <div class="card reveal">
-          <div class="icon">🛡️</div>
-          <h3 data-i18n="s2_title">موثوقية وأمان</h3>
-          <p class="muted" data-i18n="s2_desc">أفضل الممارسات للحفاظ على الجودة والخصوصية.</p>
+          <div class="icon">🔁</div>
+          <h3 data-i18n="s2_title">تحويل سريع</h3>
+          <p data-i18n="s2_desc">تنفيذ سريع بعد تأكيد البيانات ووسيلة الدفع.</p>
         </div>
+
         <div class="card reveal">
-          <div class="icon">📈</div>
-          <h3 data-i18n="s3_title">تحسين ونمو</h3>
-          <p class="muted" data-i18n="s3_desc">تحليل ورفع الأداء لتحقيق نتائج أفضل.</p>
+          <div class="icon">🧾</div>
+          <h3 data-i18n="s3_title">تأكيد وإشعار</h3>
+          <p data-i18n="s3_desc">نرسل لك رسالة تأكيد بعد نجاح العملية + تفاصيل مختصرة.</p>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <!-- PROCESS -->
+    <section id="process">
       <div class="section-title">
-        <h2 class="reveal" data-i18n="about_title">من نحن</h2>
-        <p class="reveal" data-i18n="about_desc">تعريف مختصر واحترافي يوضّح خبرتك وقيمك.</p>
+        <h2 class="reveal" data-i18n="process_title">كيف تتم العملية؟</h2>
+        <p class="reveal" data-i18n="process_desc">٤ خطوات بسيطة — بدون تعقيد.</p>
       </div>
 
-      <div class="two">
+      <div class="grid-2">
         <div class="card reveal">
-          <h3 data-i18n="about_card1_title">رؤيتنا</h3>
-          <p class="muted" data-i18n="about_card1_desc">
-            بناء شراكات طويلة المدى وتقديم حلول تضمن رضا العملاء ونجاح الأعمال.
-          </p>
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <h3 data-i18n="p1_title">إرسال البيانات</h3>
+              <p data-i18n="p1_desc">ترسل رقم الخط/الحساب داخل سوريا + مزود الخدمة + الباقة المطلوبة.</p>
+            </div>
+          </div>
         </div>
+
         <div class="card reveal">
-          <h3 data-i18n="about_card2_title">لماذا نحن؟</h3>
-          <ul class="muted" style="margin:0; padding-inline-start:18px">
-            <li data-i18n="why1">شفافية في العمل وتواصل واضح</li>
-            <li data-i18n="why2">التزام بالمواعيد والجودة</li>
-            <li data-i18n="why3">حلول مخصصة حسب احتياجك</li>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <h3 data-i18n="p2_title">تأكيد السعر والطريقة</h3>
+              <p data-i18n="p2_desc">نؤكد لك التكلفة النهائية وطريقة الدفع قبل التنفيذ.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <h3 data-i18n="p3_title">التنفيذ</h3>
+              <p data-i18n="p3_desc">ننفذ عملية الشحن مباشرة بعد التأكيد.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="step">
+            <div class="num">4</div>
+            <div>
+              <h3 data-i18n="p4_title">إرسال التأكيد</h3>
+              <p data-i18n="p4_desc">تصلك رسالة تأكيد بأن الشحن تم (مع التفاصيل إن لزم).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:14px; padding:18px">
+        <div class="muted" data-i18n="safe_note">
+          🔒 ملاحظة: لا نطلب كلمات مرور. فقط المعلومات اللازمة (الرقم/المزود/الباقة) لإتمام الشحن.
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="section-title">
+        <h2 class="reveal" data-i18n="t_title">آراء العملاء</h2>
+        <p class="reveal" data-i18n="t_desc">تقييمات مختصرة عن السرعة والوضوح.</p>
+      </div>
+
+      <div class="panel testi-wrap reveal">
+        <div class="testi-bg" aria-hidden="true"></div>
+
+        <div class="ring" aria-label="Testimonial ring">
+          <div class="testi-card">
+            <p class="quote" id="tQuote">"التنفيذ سريع والتواصل واضح… شكراً."</p>
+            <div class="stars" id="tStars" aria-label="5 stars">
+              <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+            <div class="who" id="tName">— أحمد</div>
+          </div>
+        </div>
+
+        <div class="testi-controls">
+          <button type="button" id="tPrev" aria-label="Previous">‹</button>
+          <button type="button" id="tNext" aria-label="Next">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="section-title">
+        <h2 class="reveal" data-i18n="pricing_title">الباقات</h2>
+        <p class="reveal" data-i18n="pricing_desc">
+          الأسعار تعتمد على الباقة والمزود داخل سوريا — اطلب الآن وسنرسل لك السعر النهائي قبل التنفيذ.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="tag" data-i18n="pr1_tag">طلب واحد</div>
+          <h3 data-i18n="pr1_title">شحن سريع</h3>
+          <div class="price"><b data-i18n="pr1_price">حسب الباقة</b><span data-i18n="pr1_hint">تنفيذ بعد التأكيد</span></div>
+          <ul class="list">
+            <li data-i18n="pr1_f1">طلب شحن واحد</li>
+            <li data-i18n="pr1_f2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="pr1_f3">رسالة تأكيد بعد الإتمام</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <div class="tag hot" data-i18n="pr2_tag">الأكثر طلبًا</div>
+          <h3 data-i18n="pr2_title">شحن شهري</h3>
+          <div class="price"><b data-i18n="pr2_price">حسب الباقة</b><span data-i18n="pr2_hint">تنظيم ومتابعة</span></div>
+          <ul class="list">
+            <li data-i18n="pr2_f1">تكرار شهري حسب الاتفاق</li>
+            <li data-i18n="pr2_f2">تذكير/متابعة قبل الشحن</li>
+            <li data-i18n="pr2_f3">أولوية في التنفيذ</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <div class="tag ok" data-i18n="pr3_tag">مناسب للعائلات</div>
+          <h3 data-i18n="pr3_title">عدة أرقام</h3>
+          <div class="price"><b data-i18n="pr3_price">حسب الطلب</b><span data-i18n="pr3_hint">خصم بسيط</span></div>
+          <ul class="list">
+            <li data-i18n="pr3_f1">شحن لعدة خطوط</li>
+            <li data-i18n="pr3_f2">تنسيق واحد للطلبات</li>
+            <li data-i18n="pr3_f3">متابعة وتأكيد لكل رقم</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="work">
-      <div class="section-title">
-        <h2 class="reveal" data-i18n="work_title">أعمالنا</h2>
-        <p class="reveal" data-i18n="work_desc">نماذج بسيطة (بدّلها بروابط/صور مشاريعك).</p>
-      </div>
-
-      <div class="grid">
-        <div class="card reveal">
-          <h3 data-i18n="p1">مشروع 1</h3>
-          <p class="muted" data-i18n="p1d">وصف مختصر للمشروع والنتيجة.</p>
-        </div>
-        <div class="card reveal">
-          <h3 data-i18n="p2">مشروع 2</h3>
-          <p class="muted" data-i18n="p2d">وصف مختصر للمشروع والنتيجة.</p>
-        </div>
-        <div class="card reveal">
-          <h3 data-i18n="p3">مشروع 3</h3>
-          <p class="muted" data-i18n="p3d">وصف مختصر للمشروع والنتيجة.</p>
-        </div>
-      </div>
-    </section>
-
+    <!-- CONTACT -->
     <section id="contact">
       <div class="section-title">
-        <h2 class="reveal" data-i18n="contact_title">تواصل</h2>
-        <p class="reveal" data-i18n="contact_desc">املأ النموذج وسنرد عليك بأسرع وقت.</p>
+        <h2 class="reveal" data-i18n="contact_title">اطلب شحن الآن</h2>
+        <p class="reveal" data-i18n="contact_desc">املأ الطلب بالبيانات المطلوبة وسنرد عليك فوراً.</p>
       </div>
 
-      <div class="two">
+      <div class="grid-2">
         <div class="card reveal">
-          <h3 data-i18n="contact_info_title">معلومات التواصل</h3>
-          <p class="muted" style="margin:0" data-i18n="contact_info">
-            📞 الهاتف: 000000000 <br/>
-            ✉️ البريد: info@yourdomain.com <br/>
-            📍 العنوان: المدينة، الدولة
-          </p>
-          <p class="note" style="margin-top:12px" data-i18n="contact_note">
-            * عدّل بياناتك هنا داخل الملف.
-          </p>
+          <h3 data-i18n="contact_info_title">التواصل السريع</h3>
+
+          <!-- عدّل بياناتك -->
+          <div class="mini-box muted" style="margin-top:10px">
+            📞 <span data-i18n="phone_lbl">واتساب</span>: <b>+0000000000</b><br/>
+            ✉️ <span data-i18n="email_lbl">البريد</span>: <b>info@yourdomain.com</b><br/>
+            🕒 <span data-i18n="time_lbl">الاستجابة</span>: <b data-i18n="resp_time">خلال وقت قصير</b>
+          </div>
+
+          <div class="hint" data-i18n="contact_hint">
+            نصيحة: اكتب المزود داخل سوريا + الرقم + الباقة المطلوبة (أو القيمة) لتسريع التنفيذ.
+          </div>
         </div>
 
         <div class="card reveal">
-          <h3 data-i18n="form_title">نموذج التواصل</h3>
+          <h3 data-i18n="form_title">نموذج طلب الشحن</h3>
 
-          <!-- ✅ ضع رابط Formspree بدل YOUR_FORM_ID -->
+          <!-- ضع رابط Formspree بدل YOUR_FORM_ID -->
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <input name="name" required data-i18n-ph="ph_name" placeholder="الاسم الكامل" />
-            <input name="email" type="email" required data-i18n-ph="ph_email" placeholder="البريد الإلكتروني" />
-            <textarea name="message" required data-i18n-ph="ph_msg" placeholder="اكتب رسالتك"></textarea>
-            <input type="text" name="_gotcha" style="display:none">
-            <button class="btn primary" type="submit" id="sendBtn" data-i18n="send">إرسال</button>
-            <div class="note" id="formMsg" role="status" aria-live="polite"></div>
-          </form>
 
-          <div class="note" style="margin-top:10px" data-i18n="form_hint">
-            لكي يصل الإيميل لك: أنشئ Formspree وبدّل YOUR_FORM_ID.
-          </div>
+            <div>
+              <label for="name" data-i18n="lbl_name">الاسم</label>
+              <input id="name" name="name" required data-i18n-ph="ph_name" placeholder="الاسم الكامل" />
+            </div>
+
+            <div>
+              <label for="phone" data-i18n="lbl_phone">رقمك للتواصل (واتساب)</label>
+              <input id="phone" name="phone" required placeholder="+966..." />
+            </div>
+
+            <div>
+              <label for="provider" data-i18n="lbl_provider">مزود الخدمة داخل سوريا</label>
+              <select class="small" id="provider" name="provider" required>
+                <option value="" selected disabled data-i18n="opt_pick">اختر المزود</option>
+                <option value="Syriatel">Syriatel</option>
+                <option value="MTN">MTN</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="target" data-i18n="lbl_target">رقم الخط/الحساب داخل سوريا</label>
+              <input id="target" name="target_number" required placeholder="09XXXXXXXX" />
+            </div>
+
+            <div>
+              <label for="pack" data-i18n="lbl_pack">الباقة المطلوبة أو القيمة</label>
+              <input id="pack" name="pack" required data-i18n-ph="ph_pack" placeholder="مثال: باقة 10GB أو قيمة 10000" />
+            </div>
+
+            <div>
+              <label for="msg" data-i18n="lbl_msg">ملاحظات</label>
+              <textarea id="msg" name="message" data-i18n-ph="ph_msg" placeholder="أي تفاصيل إضافية (اختياري)"></textarea>
+            </div>
+
+            <!-- anti-spam -->
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="New Syria Internet Top-Up Request (GO.RASEED)" />
+
+            <div class="inline">
+              <button class="btn primary" type="submit" id="sendBtn" data-i18n="send">إرسال الطلب</button>
+              <div class="note" id="formMsg" role="status" aria-live="polite"></div>
+            </div>
+
+            <div class="note" style="margin-top:10px" data-i18n="form_hint">
+              لتفعيل الإرسال إلى بريدك: أنشئ Formspree وبدّل YOUR_FORM_ID داخل رابط النموذج.
+            </div>
+          </form>
         </div>
       </div>
     </section>
 
     <footer class="wrap">
-      <div class="muted">© <span id="y"></span> <span data-i18n="brand">اسم شركتك</span> — <span data-i18n="rights">جميع الحقوق محفوظة</span></div>
+      <div class="muted">© <span id="y"></span> GO.RASEED — <span data-i18n="rights">جميع الحقوق محفوظة</span></div>
     </footer>
   </main>
 
   <script>
+    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    // Reveal
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
     }, {threshold: .12});
     document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
+    // i18n
     const dict = {
       ar:{
-        title:"GO.RASEED",
-        brand:"GO.RASEED",
-        tagline:"خدمة رقمية • تعبئة رصيد • بسرعة وأمان",
-        nav_services:"الخدمات",
-        nav_about:"من نحن",
-        nav_work:"أعمالنا",
-        nav_contact:"تواصل",
-        cta_quote:"عرض سعر",
-        cta_start:"ابدأ الآن",
-        kicker:"حلول شركة احترافية لمشروعك",
-        hero_title:"نحو نمو أسرع بنتائج واضحة",
-        hero_lead:"نساعدك ببناء حضور قوي، تحسين العمليات، وتقديم خدمات موثوقة بأسلوب رسمي يناسب الشركات.",
-        hero_btn1:"تواصل معنا",
-        hero_btn2:"شاهد أعمالنا",
-        stat1_val:"+50", stat1_lbl:"عميل سعيد",
-        stat2_val:"24/7", stat2_lbl:"دعم و متابعة",
-        stat3_val:"100%", stat3_lbl:"التزام بالمواعيد",
-        badge:"جاهزون لخدمتك — استشارة أولية مجانية",
-        services_title:"الخدمات",
-        services_desc:"باقة خدمات رسمية تناسب الشركات والأعمال.",
-        s1_title:"خدمة احترافية", s1_desc:"تنفيذ سريع بجودة عالية مع تقارير واضحة.",
-        s2_title:"موثوقية وأمان", s2_desc:"أفضل الممارسات للحفاظ على الجودة والخصوصية.",
-        s3_title:"تحسين ونمو", s3_desc:"تحليل ورفع الأداء لتحقيق نتائج أفضل.",
-        about_title:"من نحن",
-        about_desc:"تعريف مختصر واحترافي يوضّح خبرتك وقيمك.",
-        about_card1_title:"رؤيتنا",
-        about_card1_desc:"بناء شراكات طويلة المدى وتقديم حلول تضمن رضا العملاء ونجاح الأعمال.",
-        about_card2_title:"لماذا نحن؟",
-        why1:"شفافية في العمل وتواصل واضح",
-        why2:"التزام بالمواعيد والجودة",
-        why3:"حلول مخصصة حسب احتياجك",
-        work_title:"أعمالنا",
-        work_desc:"نماذج بسيطة (بدّلها بروابط/صور مشاريعك).",
-        p1:"مشروع 1", p1d:"وصف مختصر للمشروع والنتيجة.",
-        p2:"مشروع 2", p2d:"وصف مختصر للمشروع والنتيجة.",
-        p3:"مشروع 3", p3d:"وصف مختصر للمشروع والنتيجة.",
-        contact_title:"تواصل",
-        contact_desc:"املأ النموذج وسنرد عليك بأسرع وقت.",
-        contact_info_title:"معلومات التواصل",
-        contact_info:"📞 الهاتف: 000000000 <br/> ✉️ البريد: info@yourdomain.com <br/> 📍 العنوان: المدينة، الدولة",
-        contact_note:"* عدّل بياناتك هنا داخل الملف.",
-        form_title:"نموذج التواصل",
-        send:"إرسال",
-        form_hint:"لكي يصل الإيميل لك: أنشئ Formspree وبدّل YOUR_FORM_ID.",
+        tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
+        nav_services:"الخدمة",
+        nav_process:"كيف تتم",
+        nav_reviews:"الآراء",
+        nav_pricing:"الباقات",
+        nav_contact:"اطلب الآن",
+        cta_pricing:"عرض الباقات",
+        cta_start:"اشحن الآن",
+
+        kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
+        hero_title:"اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري",
+        hero_lead:"GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام. أرسل البيانات المطلوبة وسننفذ لك مباشرة.",
+        hero_btn1:"ابدأ طلب شحن",
+        hero_btn2:"كيف تتم العملية؟",
+        trust1:"تنفيذ سريع",
+        trust2:"خصوصية وأمان",
+        trust3:"تأكيد بعد الإتمام",
+        trust4:"دعم عبر واتساب",
+
+        kpi1v:"سريع", kpi1l:"تنفيذ خلال وقت قصير",
+        kpi2v:"آمن",  kpi2l:"بياناتك محفوظة",
+        kpi3v:"مؤكد", kpi3l:"رسالة تأكيد",
+        badge:"جاهزين الآن — ارسل رقم/بيانات الخط والباقـة المطلوبة",
+
+        services_title:"ماذا نقدم؟",
+        services_desc:"خدمة شحن الإنترنت إلى سوريا بشكل واضح: تحدد المزود/الرقم/الباقة — ونحن ننفذ ونرسل لك تأكيد.",
+        s1_title:"شحن باقات الإنترنت",
+        s1_desc:"شحن باقة حسب الطلب (يتم تحديد الباقة/القيمة أثناء الطلب).",
+        s2_title:"تحويل سريع",
+        s2_desc:"تنفيذ سريع بعد تأكيد البيانات ووسيلة الدفع.",
+        s3_title:"تأكيد وإشعار",
+        s3_desc:"نرسل لك رسالة تأكيد بعد نجاح العملية + تفاصيل مختصرة.",
+
+        process_title:"كيف تتم العملية؟",
+        process_desc:"٤ خطوات بسيطة — بدون تعقيد.",
+        p1_title:"إرسال البيانات",
+        p1_desc:"ترسل رقم الخط/الحساب داخل سوريا + مزود الخدمة + الباقة المطلوبة.",
+        p2_title:"تأكيد السعر والطريقة",
+        p2_desc:"نؤكد لك التكلفة النهائية وطريقة الدفع قبل التنفيذ.",
+        p3_title:"التنفيذ",
+        p3_desc:"ننفذ عملية الشحن مباشرة بعد التأكيد.",
+        p4_title:"إرسال التأكيد",
+        p4_desc:"تصلك رسالة تأكيد بأن الشحن تم (مع التفاصيل إن لزم).",
+        safe_note:"🔒 ملاحظة: لا نطلب كلمات مرور. فقط المعلومات اللازمة (الرقم/المزود/الباقة) لإتمام الشحن.",
+
+        t_title:"آراء العملاء",
+        t_desc:"تقييمات مختصرة عن السرعة والوضوح.",
+        t1q:'"التنفيذ سريع والتواصل واضح… شكراً."',
+        t1n:"— أحمد",
+        t2q:'"تم الشحن بسرعة ووصل التأكيد مباشرة."',
+        t2n:"— نور",
+        t3q:'"خدمة ممتازة وآمنة، أنصح بها."',
+        t3n:"— علي",
+
+        pricing_title:"الباقات",
+        pricing_desc:"الأسعار تعتمد على الباقة والمزود داخل سوريا — اطلب الآن وسنرسل لك السعر النهائي قبل التنفيذ.",
+        pr1_tag:"طلب واحد",
+        pr1_title:"شحن سريع",
+        pr1_price:"حسب الباقة",
+        pr1_hint:"تنفيذ بعد التأكيد",
+        pr1_f1:"طلب شحن واحد",
+        pr1_f2:"تأكيد قبل التنفيذ",
+        pr1_f3:"رسالة تأكيد بعد الإتمام",
+
+        pr2_tag:"الأكثر طلبًا",
+        pr2_title:"شحن شهري",
+        pr2_price:"حسب الباقة",
+        pr2_hint:"تنظيم ومتابعة",
+        pr2_f1:"تكرار شهري حسب الاتفاق",
+        pr2_f2:"تذكير/متابعة قبل الشحن",
+        pr2_f3:"أولوية في التنفيذ",
+
+        pr3_tag:"مناسب للعائلات",
+        pr3_title:"عدة أرقام",
+        pr3_price:"حسب الطلب",
+        pr3_hint:"خصم بسيط",
+        pr3_f1:"شحن لعدة خطوط",
+        pr3_f2:"تنسيق واحد للطلبات",
+        pr3_f3:"متابعة وتأكيد لكل رقم",
+
+        contact_title:"اطلب شحن الآن",
+        contact_desc:"املأ الطلب بالبيانات المطلوبة وسنرد عليك فوراً.",
+        contact_info_title:"التواصل السريع",
+        phone_lbl:"واتساب",
+        email_lbl:"البريد",
+        time_lbl:"الاستجابة",
+        resp_time:"خلال وقت قصير",
+        contact_hint:"نصيحة: اكتب المزود داخل سوريا + الرقم + الباقة المطلوبة (أو القيمة) لتسريع التنفيذ.",
+
+        form_title:"نموذج طلب الشحن",
+        lbl_name:"الاسم",
+        lbl_phone:"رقمك للتواصل (واتساب)",
+        lbl_provider:"مزود الخدمة داخل سوريا",
+        lbl_target:"رقم الخط/الحساب داخل سوريا",
+        lbl_pack:"الباقة المطلوبة أو القيمة",
+        lbl_msg:"ملاحظات",
+        opt_pick:"اختر المزود",
+        send:"إرسال الطلب",
+        form_hint:"لتفعيل الإرسال إلى بريدك: أنشئ Formspree وبدّل YOUR_FORM_ID داخل رابط النموذج.",
         rights:"جميع الحقوق محفوظة",
+
         ph_name:"الاسم الكامل",
-        ph_email:"البريد الإلكتروني",
-        ph_msg:"اكتب رسالتك",
-        sent_ok:"✅ تم الإرسال! سنرد عليك قريبًا.",
+        ph_pack:"مثال: باقة 10GB أو قيمة 10000",
+        ph_msg:"أي تفاصيل إضافية (اختياري)",
+        sent_ok:"✅ تم إرسال الطلب! سنرد عليك قريبًا لتأكيد السعر والتنفيذ.",
         sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
       },
       en:{
-        title:"GO.RASEED",
-        brand:"GO.RASEED",
-        tagline:Digital Service • Top Up • Fast & Secure",
-        nav_services:"Services",
-        nav_about:"About",
-        nav_work:"Work",
-        nav_contact:"Contact",
-        cta_quote:"Get a Quote",
-        cta_start:"Get Started",
-        kicker:"Professional company solutions for your business",
-        hero_title:"Grow faster with clear results",
-        hero_lead:"We help you build a strong presence, streamline operations, and deliver reliable services with a corporate-grade experience.",
-        hero_btn1:"Contact Us",
-        hero_btn2:"View Work",
-        stat1_val:"50+", stat1_lbl:"Happy Clients",
-        stat2_val:"24/7", stat2_lbl:"Support",
-        stat3_val:"100%", stat3_lbl:"On-time delivery",
-        badge:"Ready to help — Free initial consultation",
-        services_title:"Services",
-        services_desc:"Corporate-ready services for modern businesses.",
-        s1_title:"Professional Delivery", s1_desc:"Fast execution with high quality and clear reporting.",
-        s2_title:"Trust & Security", s2_desc:"Best practices to ensure quality and privacy.",
-        s3_title:"Optimization & Growth", s3_desc:"Analysis and improvement to reach better outcomes.",
-        about_title:"About Us",
-        about_desc:"A concise, professional overview of your experience and values.",
-        about_card1_title:"Our Vision",
-        about_card1_desc:"Building long-term partnerships and delivering solutions that drive business success.",
-        about_card2_title:"Why Choose Us?",
-        why1:"Transparent communication",
-        why2:"Quality & deadlines",
-        why3:"Tailored solutions",
-        work_title:"Our Work",
-        work_desc:"Sample projects (replace with your own links/images).",
-        p1:"Project 1", p1d:"Short description and outcome.",
-        p2:"Project 2", p2d:"Short description and outcome.",
-        p3:"Project 3", p3d:"Short description and outcome.",
-        contact_title:"Contact",
-        contact_desc:"Fill the form and we’ll get back to you quickly.",
-        contact_info_title:"Contact Info",
-        contact_info:"📞 Phone: 000000000 <br/> ✉️ Email: info@yourdomain.com <br/> 📍 Location: City, Country",
-        contact_note:"* Edit your details in this file.",
-        form_title:"Contact Form",
-        send:"Send",
-        form_hint:"To receive emails: create Formspree and replace YOUR_FORM_ID.",
+        tagline:"Syria Internet Top-Up • Fast & Secure",
+        nav_services:"Service",
+        nav_process:"How it works",
+        nav_reviews:"Reviews",
+        nav_pricing:"Packages",
+        nav_contact:"Order",
+        cta_pricing:"View packages",
+        cta_start:"Top-up now",
+
+        kicker:"Digital service for Syria internet top-ups — fast & secure",
+        hero_title:"Top-up internet in Syria…<br/>simple steps + instant confirmation",
+        hero_lead:"GO.RASEED provides fast, secure internet top-up/transfer to Syria with live follow-up and confirmation after completion. Send the required details and we’ll process it.",
+        hero_btn1:"Start a top-up request",
+        hero_btn2:"How does it work?",
+        trust1:"Fast execution",
+        trust2:"Privacy & security",
+        trust3:"Confirmation after completion",
+        trust4:"WhatsApp support",
+
+        kpi1v:"Fast", kpi1l:"Short turnaround",
+        kpi2v:"Secure", kpi2l:"Your data is safe",
+        kpi3v:"Confirmed", kpi3l:"Confirmation message",
+        badge:"Ready now — send the number/provider/package",
+
+        services_title:"What we offer",
+        services_desc:"Clear process: you provide provider/number/package — we execute and send confirmation.",
+        s1_title:"Internet packages top-up",
+        s1_desc:"Top-up any requested package/value (confirmed during order).",
+        s2_title:"Fast transfer",
+        s2_desc:"Quick processing after confirming details and payment method.",
+        s3_title:"Confirmation & notice",
+        s3_desc:"We send a confirmation message after successful completion.",
+
+        process_title:"How it works",
+        process_desc:"4 simple steps — no hassle.",
+        p1_title:"Send details",
+        p1_desc:"Send Syria number/account + provider + requested package/value.",
+        p2_title:"Confirm cost & method",
+        p2_desc:"We confirm final cost and payment method before executing.",
+        p3_title:"Execution",
+        p3_desc:"We process the top-up right after confirmation.",
+        p4_title:"Send confirmation",
+        p4_desc:"You receive a confirmation once the top-up is completed.",
+        safe_note:"🔒 Note: We never ask for passwords. Only the necessary info (number/provider/package) to complete the top-up.",
+
+        t_title:"Testimonials",
+        t_desc:"Short feedback on speed and clarity.",
+        t1q:'"Fast and clear communication… thank you."',
+        t1n:"— Ahmad",
+        t2q:'"Top-up was done quickly and confirmation arrived immediately."',
+        t2n:"— Nour",
+        t3q:'"Excellent and secure service. Highly recommended."',
+        t3n:"— Ali",
+
+        pricing_title:"Packages",
+        pricing_desc:"Pricing depends on the provider and package in Syria — request now and we’ll confirm the final cost before execution.",
+        pr1_tag:"Single request",
+        pr1_title:"Quick Top-Up",
+        pr1_price:"Based on package",
+        pr1_hint:"After confirmation",
+        pr1_f1:"One top-up request",
+        pr1_f2:"Confirm before execution",
+        pr1_f3:"Confirmation after completion",
+
+        pr2_tag:"Most popular",
+        pr2_title:"Monthly Top-Up",
+        pr2_price:"Based on package",
+        pr2_hint:"Organized follow-up",
+        pr2_f1:"Recurring monthly as agreed",
+        pr2_f2:"Reminder/follow-up before top-up",
+        pr2_f3:"Priority execution",
+
+        pr3_tag:"For families",
+        pr3_title:"Multiple Numbers",
+        pr3_price:"On request",
+        pr3_hint:"Small discount",
+        pr3_f1:"Top-up for multiple lines",
+        pr3_f2:"One format for orders",
+        pr3_f3:"Confirmation for each number",
+
+        contact_title:"Place an order",
+        contact_desc:"Fill the form and we’ll respond quickly.",
+        contact_info_title:"Fast contact",
+        phone_lbl:"WhatsApp",
+        email_lbl:"Email",
+        time_lbl:"Response",
+        resp_time:"Short turnaround",
+        contact_hint:"Tip: Include provider + number + package/value to speed up processing.",
+
+        form_title:"Top-Up Request Form",
+        lbl_name:"Name",
+        lbl_phone:"Your WhatsApp number",
+        lbl_provider:"Syria provider",
+        lbl_target:"Syria number/account",
+        lbl_pack:"Requested package/value",
+        lbl_msg:"Notes",
+        opt_pick:"Pick a provider",
+        send:"Send request",
+        form_hint:"To receive emails: create Formspree and replace YOUR_FORM_ID in the form action.",
         rights:"All rights reserved",
+
         ph_name:"Full name",
-        ph_email:"Email address",
-        ph_msg:"Write your message",
-        sent_ok:"✅ Sent! We’ll reply soon.",
-        sent_err:"❌ Failed to send. Check Formspree setup."
+        ph_pack:"e.g., 10GB package or value 10000",
+        ph_msg:"Any additional details (optional)",
+        sent_ok:"✅ Request sent! We’ll reply soon to confirm price and proceed.",
+        sent_err:"❌ Failed to send. Please check Formspree setup."
       }
     };
 
@@ -570,6 +993,10 @@
       const isAr = (lang === "ar");
       document.documentElement.lang = lang;
       document.documentElement.dir = isAr ? "rtl" : "ltr";
+
+      document.title = isAr
+        ? "GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان"
+        : "GO.RASEED | Syria Internet Top-Up (Fast & Secure)";
 
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const k = el.getAttribute("data-i18n");
@@ -581,8 +1008,9 @@
         if(dict[lang][k] !== undefined) el.setAttribute("placeholder", dict[lang][k]);
       });
 
-      const titleEl = document.querySelector('title[data-i18n="title"]');
-      if(titleEl) titleEl.textContent = dict[lang].title;
+      // re-render testimonial in selected language
+      tIndex = 0;
+      renderTestimonial();
     }
 
     const langSelect = document.getElementById("lang");
@@ -595,7 +1023,61 @@
       applyLang(langSelect.value);
     });
 
-    // Form submit
+    // Testimonials slider
+    const tData = {
+      ar: [
+        { q: dict.ar.t1q, n: dict.ar.t1n, stars: 5 },
+        { q: dict.ar.t2q, n: dict.ar.t2n, stars: 5 },
+        { q: dict.ar.t3q, n: dict.ar.t3n, stars: 5 },
+      ],
+      en: [
+        { q: dict.en.t1q, n: dict.en.t1n, stars: 5 },
+        { q: dict.en.t2q, n: dict.en.t2n, stars: 5 },
+        { q: dict.en.t3q, n: dict.en.t3n, stars: 5 },
+      ],
+    };
+
+    let tIndex = 0;
+    const tQuote = document.getElementById("tQuote");
+    const tName  = document.getElementById("tName");
+    const tStars = document.getElementById("tStars");
+    const tPrev  = document.getElementById("tPrev");
+    const tNext  = document.getElementById("tNext");
+
+    function renderStars(n){
+      tStars.innerHTML = "";
+      for(let i=0;i<n;i++){
+        const s = document.createElement("span");
+        s.textContent = "⭐";
+        tStars.appendChild(s);
+      }
+    }
+
+    function renderTestimonial(){
+      const lang = langSelect.value || "ar";
+      const items = tData[lang];
+      const item = items[tIndex % items.length];
+      tQuote.textContent = item.q;
+      tName.textContent = item.n;
+      renderStars(item.stars || 5);
+    }
+
+    tPrev?.addEventListener("click", ()=>{
+      const lang = langSelect.value || "ar";
+      const items = tData[lang];
+      tIndex = (tIndex - 1 + items.length) % items.length;
+      renderTestimonial();
+    });
+    tNext?.addEventListener("click", ()=>{
+      const lang = langSelect.value || "ar";
+      const items = tData[lang];
+      tIndex = (tIndex + 1) % items.length;
+      renderTestimonial();
+    });
+
+    renderTestimonial();
+
+    // Contact form (AJAX)
     const form = document.getElementById("contactForm");
     const msg = document.getElementById("formMsg");
     const btn = document.getElementById("sendBtn");
@@ -604,7 +1086,7 @@
       e.preventDefault();
       msg.textContent = "";
       btn.disabled = true;
-      btn.style.opacity = ".8";
+      btn.style.opacity = ".85";
 
       try{
         const res = await fetch(form.action, {
@@ -612,7 +1094,8 @@
           body: new FormData(form),
           headers: { "Accept": "application/json" }
         });
-        const lang = langSelect.value;
+
+        const lang = langSelect.value || "ar";
         if(res.ok){
           form.reset();
           msg.textContent = dict[lang].sent_ok;
@@ -620,7 +1103,7 @@
           msg.textContent = dict[lang].sent_err;
         }
       }catch(err){
-        const lang = langSelect.value;
+        const lang = langSelect.value || "ar";
         msg.textContent = dict[lang].sent_err;
       }finally{
         btn.disabled = false;
