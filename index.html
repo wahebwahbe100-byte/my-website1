@@ -572,7 +572,7 @@
             <div class="terms-row" id="termsRow">
               <input type="checkbox" id="agreeTerms">
               <label for="agreeTerms" style="margin:0; color:var(--muted)">
-                <span id="termsPrefix" data-i18n="terms_prefix">أوافق على</span>
+                <span id="termsPrefix" data-i18n="terms_prefix">أقرّ بأن هذه خدمة رقمية وأوافق على</span>
                 <a href="#terms" id="termsLink" data-i18n="terms_link">الشروط والأحكام</a>
               </label>
             </div>
@@ -589,7 +589,7 @@
       </div>
     </section>
 
-    <!-- ✅ قسم الشروط داخل نفس الصفحة -->
+    <!-- ✅ قسم الشروط داخل نفس الصفحة (محدّث بالكامل بدون كلمة سوريا) -->
     <section id="terms">
       <div class="section-title">
         <h2 class="reveal" data-i18n="terms_title">الشروط والأحكام</h2>
@@ -598,14 +598,15 @@
 
       <div class="card reveal">
         <ul class="list" style="font-size:14px">
-          <li data-i18n="t1">العميل مسؤول عن إدخال الرقم/الحساب داخل سوريا بشكل صحيح.</li>
-          <li data-i18n="t2">بعد فتح الدفع وإتمامه، يرجى إرسال لقطة شاشة/إثبات الدفع عبر واتساب.</li>
-          <li data-i18n="t3">قد يختلف وقت التنفيذ حسب توفر الخدمة لدى المزود داخل سوريا.</li>
-          <li data-i18n="t4">في حال إدخال رقم خاطئ أو بيانات ناقصة قد يتأخر التنفيذ.</li>
-          <li data-i18n="t5">الدفع يعتبر موافقة على تنفيذ الطلب وفق البيانات المرسلة.</li>
+          <li data-i18n="t1">هذه خدمة رقمية تتعلق بتفعيل أو شحن باقة إنترنت على رقم هاتف.</li>
+          <li data-i18n="t2">عند الضغط على “ادفع الآن” وإتمام الدفع، فأنت تؤكد موافقتك على تنفيذ الطلب وفق البيانات التي أدخلتها.</li>
+          <li data-i18n="t3">يتحمل العميل المسؤولية الكاملة عن صحة الرقم وبيانات المزود المدخلة في الطلب.</li>
+          <li data-i18n="t4">بعد إتمام الدفع، يُفضل إرسال إثبات الدفع (لقطة شاشة/رقم العملية) عبر واتساب لتأكيد الطلب وتسريع المتابعة.</li>
+          <li data-i18n="t5">نظرًا لطبيعة الخدمات الرقمية، لا يمكن إلغاء الطلب أو استرداد المبلغ بعد بدء تنفيذ الخدمة.</li>
+          <li data-i18n="t6">يرجى التأكد من صحة جميع البيانات قبل إتمام عملية الدفع.</li>
         </ul>
         <div class="hint muted" data-i18n="terms_note">
-          ملاحظة: إذا تريد نص شروطك الحقيقي، أرسله لي وأنا أبدله لك مكان هذا النص.
+          ملاحظة: يرجى الاحتفاظ بإثبات الدفع إلى حين تأكيد إتمام الطلب.
         </div>
       </div>
     </section>
@@ -675,16 +676,21 @@
         loyalty_progress_label:"تقدّمك الحالي:",
         loyalty_done:"✅ تم التنفيذ (للإدارة)",
         loyalty_hint:"الخصم يُطبق بعد التأكيد. (زر “تم التنفيذ” ظاهر للإدارة فقط).",
-        terms_prefix:"أوافق على",
+
+        /* ✅ تحديث نص الموافقة */
+        terms_prefix:"أقرّ بأن هذه خدمة رقمية وأوافق على",
         terms_link:"الشروط والأحكام",
+
+        /* ✅ الشروط بدون كلمة سوريا */
         terms_title:"الشروط والأحكام",
         terms_desc:"يرجى قراءة الشروط قبل الدفع.",
-        t1:"العميل مسؤول عن إدخال الرقم/الحساب داخل سوريا بشكل صحيح.",
-        t2:"بعد فتح الدفع وإتمامه، يرجى إرسال لقطة شاشة/إثبات الدفع عبر واتساب.",
-        t3:"قد يختلف وقت التنفيذ حسب توفر الخدمة لدى المزود داخل سوريا.",
-        t4:"في حال إدخال رقم خاطئ أو بيانات ناقصة قد يتأخر التنفيذ.",
-        t5:"الدفع يعتبر موافقة على تنفيذ الطلب وفق البيانات المرسلة.",
-        terms_note:"ملاحظة: إذا تريد نص شروطك الحقيقي، أرسله لي وأنا أبدله لك مكان هذا النص."
+        t1:"هذه خدمة رقمية تتعلق بتفعيل أو شحن باقة إنترنت على رقم هاتف.",
+        t2:"عند الضغط على “ادفع الآن” وإتمام الدفع، فأنت تؤكد موافقتك على تنفيذ الطلب وفق البيانات التي أدخلتها.",
+        t3:"يتحمل العميل المسؤولية الكاملة عن صحة الرقم وبيانات المزود المدخلة في الطلب.",
+        t4:"بعد إتمام الدفع، يُفضل إرسال إثبات الدفع (لقطة شاشة/رقم العملية) عبر واتساب لتأكيد الطلب وتسريع المتابعة.",
+        t5:"نظرًا لطبيعة الخدمات الرقمية، لا يمكن إلغاء الطلب أو استرداد المبلغ بعد بدء تنفيذ الخدمة.",
+        t6:"يرجى التأكد من صحة جميع البيانات قبل إتمام عملية الدفع.",
+        terms_note:"ملاحظة: يرجى الاحتفاظ بإثبات الدفع إلى حين تأكيد إتمام الطلب."
       },
       en:{
         tagline:"Syria Internet Top-Up • Fast & Secure",
@@ -717,16 +723,21 @@
         loyalty_progress_label:"Your progress:",
         loyalty_done:"✅ Completed (admin)",
         loyalty_hint:"Discount is applied after confirmation. (Admin-only “Completed” button).",
-        terms_prefix:"I agree to the",
+
+        /* ✅ updated consent */
+        terms_prefix:"I acknowledge this is a digital service and agree to the",
         terms_link:"Terms & Conditions",
+
+        /* ✅ terms without Syria */
         terms_title:"Terms & Conditions",
         terms_desc:"Please read the terms before paying.",
-        t1:"You are responsible for providing the correct Syria number/account details.",
-        t2:"After completing payment, please send a screenshot/proof via WhatsApp.",
-        t3:"Execution time may vary depending on the Syria provider availability.",
-        t4:"Incorrect or incomplete details may delay execution.",
-        t5:"Payment is considered acceptance to process the request with the submitted details.",
-        terms_note:"Note: Send me your real terms text and I will replace this for you."
+        t1:"This is a digital service related to activating or topping up an internet package on a phone number.",
+        t2:"By clicking “Pay now” and completing payment, you confirm acceptance to process your request using the details you provided.",
+        t3:"You are fully responsible for the accuracy of the phone number and provider details submitted.",
+        t4:"After payment, please send proof of payment (screenshot/transaction reference) via WhatsApp to confirm and speed up processing.",
+        t5:"Due to the nature of digital services, cancellations or refunds are not available once processing has started.",
+        t6:"Please review all details carefully before completing payment.",
+        terms_note:"Note: Keep your payment proof until completion is confirmed."
       }
     };
 
@@ -784,7 +795,6 @@
     }
 
     function syncTermsGateText(){
-      // النص نفسه يأتي من data-i18n، لكن نحتاج نمسح رسالة التحذير عند تغيير اللغة
       if(termsMsg) termsMsg.textContent = "";
     }
 
@@ -837,7 +847,6 @@
 
     // Open payment new tab (blocked if terms not accepted)
     payBtn.addEventListener("click", (e)=>{
-      // إذا لم تتم الموافقة: امنع
       if(payBtn.dataset.termsOk !== "1"){
         e.preventDefault();
         const lang = langSelect.value || "ar";
@@ -850,7 +859,6 @@
         return;
       }
 
-      // موافق: افتح الدفع
       e.preventDefault();
       const link = e.currentTarget.dataset.link || e.currentTarget.getAttribute("href");
       if(!link){ setDebug("❌ اختر باقة أولاً."); return; }
@@ -913,7 +921,7 @@
 Name: ${name}
 WhatsApp: ${phone}
 Provider: ${provider}
-Syria number: ${target}
+Number: ${target}
 Package: ${pack}
 
 Loyalty: ${Math.min(loyaltyCount,5)} / 5
@@ -929,7 +937,7 @@ Notes: ${notes}`
 الاسم: ${name}
 رقم واتساب: ${phone}
 المزود: ${provider}
-الرقم داخل سوريا: ${target}
+الرقم: ${target}
 الباقة: ${pack}
 
 الولاء: ${Math.min(loyaltyCount,5)} / 5
