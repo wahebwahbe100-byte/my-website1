@@ -57,7 +57,6 @@
       box-shadow: 0 0 0 4px rgba(110,231,255,.12);
     }
 
-    /* Header */
     header{
       position: sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
@@ -128,7 +127,6 @@
       border: 1px solid rgba(255,255,255,.14);
     }
 
-    /* Sections */
     section{padding: 26px 0}
     .section-title{
       display:flex; justify-content:space-between; align-items:flex-end;
@@ -138,7 +136,6 @@
     .section-title h2{margin:0; font-size: 22px}
     .section-title p{margin:0; color: var(--muted); max-width: 700px}
 
-    /* Panels & cards */
     .panel{
       background: var(--panel);
       border:1px solid var(--line);
@@ -167,7 +164,6 @@
       gap: 14px;
     }
 
-    /* Hero */
     .hero{padding: 34px 0 16px;}
     .hero-grid{
       display:grid;
@@ -259,7 +255,6 @@
       font-size: 13px;
     }
 
-    /* Icon blocks */
     .icon{
       width:44px;height:44px;border-radius: 14px;
       background: rgba(255,255,255,.06);
@@ -271,7 +266,6 @@
     .card h3{margin: 6px 0 6px; font-size: 16px}
     .card p{margin:0; color: var(--muted); font-size: 14px}
 
-    /* Steps */
     .step{display:flex; gap:12px; align-items:flex-start;}
     .num{
       min-width: 34px; height:34px;
@@ -283,7 +277,6 @@
       font-weight: 800;
     }
 
-    /* Ring testimonial */
     .testi-wrap{ padding: 24px; position:relative; overflow:hidden; }
     .testi-bg{
       position:absolute; inset:-50px;
@@ -352,7 +345,6 @@
     }
     .testi-controls button:hover{transform: translateY(-1px)}
 
-    /* Pricing */
     .price{
       display:flex; align-items:flex-end; gap:8px;
       margin: 10px 0 10px;
@@ -379,7 +371,6 @@
     .tag.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.10); color: #c6f6df}
     .tag.hot{border-color: rgba(110,231,255,.25); background: rgba(110,231,255,.10); color: #d7fbff}
 
-    /* Contact */
     form{display:grid; gap:10px}
     label{font-size: 13px; color: var(--muted)}
     input, textarea, select.small{
@@ -416,11 +407,9 @@
       margin-top: 18px;
     }
 
-    /* Reveal */
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
     .reveal.show{opacity:1; transform:none}
 
-    /* Mobile */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns: 1fr}
       h1{font-size: 34px}
@@ -467,7 +456,6 @@
   </header>
 
   <main id="top" class="wrap">
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
         <div class="panel hero-left reveal">
@@ -515,7 +503,6 @@
       </div>
     </section>
 
-    <!-- SERVICE -->
     <section id="services">
       <div class="section-title">
         <h2 class="reveal" data-i18n="services_title">ماذا نقدم؟</h2>
@@ -545,7 +532,6 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
     <section id="process">
       <div class="section-title">
         <h2 class="reveal" data-i18n="process_title">كيف تتم العملية؟</h2>
@@ -601,7 +587,6 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section id="testimonials">
       <div class="section-title">
         <h2 class="reveal" data-i18n="t_title">آراء العملاء</h2>
@@ -628,7 +613,6 @@
       </div>
     </section>
 
-    <!-- PRICING -->
     <section id="pricing">
       <div class="section-title">
         <h2 class="reveal" data-i18n="pricing_title">الباقات</h2>
@@ -673,7 +657,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="section-title">
         <h2 class="reveal" data-i18n="contact_title">اطلب شحن الآن</h2>
@@ -684,7 +667,6 @@
         <div class="card reveal">
           <h3 data-i18n="contact_info_title">التواصل السريع</h3>
 
-          <!-- عدّل بياناتك -->
           <div class="mini-box muted" style="margin-top:10px">
             📞 <span data-i18n="phone_lbl">واتساب</span>: <b>+0000000000</b><br/>
             ✉️ <span data-i18n="email_lbl">البريد</span>: <b>info@yourdomain.com</b><br/>
@@ -699,9 +681,7 @@
         <div class="card reveal">
           <h3 data-i18n="form_title">نموذج طلب الشحن</h3>
 
-          <!-- ضع رابط Formspree بدل YOUR_FORM_ID -->
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
             <div>
               <label for="name" data-i18n="lbl_name">الاسم</label>
               <input id="name" name="name" required data-i18n-ph="ph_name" placeholder="الاسم الكامل" />
@@ -737,7 +717,6 @@
               <textarea id="msg" name="message" data-i18n-ph="ph_msg" placeholder="أي تفاصيل إضافية (اختياري)"></textarea>
             </div>
 
-            <!-- anti-spam -->
             <input type="text" name="_gotcha" style="display:none">
             <input type="hidden" name="_subject" value="New Syria Internet Top-Up Request (GO.RASEED)" />
 
@@ -759,365 +738,359 @@
     </footer>
   </main>
 
-<script>
-  // Year
-  document.getElementById("y").textContent = new Date().getFullYear();
+  <script>
+    // Year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-  // Reveal
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
-  }, {threshold: .12});
-  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    // Reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
+    }, {threshold: .12});
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
-  // i18n
-  const dict = {
-    ar:{
-      tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
-      nav_services:"الخدمة",
-      nav_process:"كيف تتم",
-      nav_reviews:"الآراء",
-      nav_pricing:"الباقات",
-      nav_contact:"اطلب الآن",
-      cta_pricing:"عرض الباقات",
-      cta_start:"اشحن الآن",
+    // i18n dictionary (FIXED quotes: removed &quot;)
+    const dict = {
+      ar:{
+        tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
+        nav_services:"الخدمة",
+        nav_process:"كيف تتم",
+        nav_reviews:"الآراء",
+        nav_pricing:"الباقات",
+        nav_contact:"اطلب الآن",
+        cta_pricing:"عرض الباقات",
+        cta_start:"اشحن الآن",
 
-      kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
-      hero_title:"اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري",
-      hero_lead:"GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام. أرسل البيانات المطلوبة وسننفذ لك مباشرة.",
-      hero_btn1:"ابدأ طلب شحن",
-      hero_btn2:"كيف تتم العملية؟",
-      trust1:"تنفيذ سريع",
-      trust2:"خصوصية وأمان",
-      trust3:"تأكيد بعد الإتمام",
-      trust4:"دعم عبر واتساب",
+        kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
+        hero_title:"اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري",
+        hero_lead:"GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام. أرسل البيانات المطلوبة وسننفذ لك مباشرة.",
+        hero_btn1:"ابدأ طلب شحن",
+        hero_btn2:"كيف تتم العملية؟",
+        trust1:"تنفيذ سريع",
+        trust2:"خصوصية وأمان",
+        trust3:"تأكيد بعد الإتمام",
+        trust4:"دعم عبر واتساب",
 
-      kpi1v:"سريع", kpi1l:"تنفيذ خلال وقت قصير",
-      kpi2v:"آمن",  kpi2l:"بياناتك محفوظة",
-      kpi3v:"مؤكد", kpi3l:"رسالة تأكيد",
-      badge:"جاهزين الآن — ارسل رقم/بيانات الخط والباقـة المطلوبة",
+        kpi1v:"سريع", kpi1l:"تنفيذ خلال وقت قصير",
+        kpi2v:"آمن",  kpi2l:"بياناتك محفوظة",
+        kpi3v:"مؤكد", kpi3l:"رسالة تأكيد",
+        badge:"جاهزين الآن — ارسل رقم/بيانات الخط والباقـة المطلوبة",
 
-      services_title:"ماذا نقدم؟",
-      services_desc:"خدمة شحن الإنترنت إلى سوريا بشكل واضح: تحدد المزود/الرقم/الباقة — ونحن ننفذ ونرسل لك تأكيد.",
-      s1_title:"شحن باقات الإنترنت",
-      s1_desc:"شحن باقة حسب الطلب (يتم تحديد الباقة/القيمة أثناء الطلب).",
-      s2_title:"تحويل سريع",
-      s2_desc:"تنفيذ سريع بعد تأكيد البيانات ووسيلة الدفع.",
-      s3_title:"تأكيد وإشعار",
-      s3_desc:"نرسل لك رسالة تأكيد بعد نجاح العملية + تفاصيل مختصرة.",
+        services_title:"ماذا نقدم؟",
+        services_desc:"خدمة شحن الإنترنت إلى سوريا بشكل واضح: تحدد المزود/الرقم/الباقة — ونحن ننفذ ونرسل لك تأكيد.",
+        s1_title:"شحن باقات الإنترنت",
+        s1_desc:"شحن باقة حسب الطلب (يتم تحديد الباقة/القيمة أثناء الطلب).",
+        s2_title:"تحويل سريع",
+        s2_desc:"تنفيذ سريع بعد تأكيد البيانات ووسيلة الدفع.",
+        s3_title:"تأكيد وإشعار",
+        s3_desc:"نرسل لك رسالة تأكيد بعد نجاح العملية + تفاصيل مختصرة.",
 
-      process_title:"كيف تتم العملية؟",
-      process_desc:"٤ خطوات بسيطة — بدون تعقيد.",
-      p1_title:"إرسال البيانات",
-      p1_desc:"ترسل رقم الخط/الحساب داخل سوريا + مزود الخدمة + الباقة المطلوبة.",
-      p2_title:"تأكيد السعر والطريقة",
-      p2_desc:"نؤكد لك التكلفة النهائية وطريقة الدفع قبل التنفيذ.",
-      p3_title:"التنفيذ",
-      p3_desc:"ننفذ عملية الشحن مباشرة بعد التأكيد.",
-      p4_title:"إرسال التأكيد",
-      p4_desc:"تصلك رسالة تأكيد بأن الشحن تم (مع التفاصيل إن لزم).",
-      safe_note:"🔒 ملاحظة: لا نطلب كلمات مرور. فقط المعلومات اللازمة (الرقم/المزود/الباقة) لإتمام الشحن.",
+        process_title:"كيف تتم العملية؟",
+        process_desc:"٤ خطوات بسيطة — بدون تعقيد.",
+        p1_title:"إرسال البيانات",
+        p1_desc:"ترسل رقم الخط/الحساب داخل سوريا + مزود الخدمة + الباقة المطلوبة.",
+        p2_title:"تأكيد السعر والطريقة",
+        p2_desc:"نؤكد لك التكلفة النهائية وطريقة الدفع قبل التنفيذ.",
+        p3_title:"التنفيذ",
+        p3_desc:"ننفذ عملية الشحن مباشرة بعد التأكيد.",
+        p4_title:"إرسال التأكيد",
+        p4_desc:"تصلك رسالة تأكيد بأن الشحن تم (مع التفاصيل إن لزم).",
+        safe_note:"🔒 ملاحظة: لا نطلب كلمات مرور. فقط المعلومات اللازمة (الرقم/المزود/الباقة) لإتمام الشحن.",
 
-      t_title:"آراء العملاء",
-      t_desc:"تقييمات مختصرة عن السرعة والوضوح.",
-      t1q:'"التنفيذ سريع والتواصل واضح… شكراً."',
-      t1n:"— أحمد",
-      t2q:'"تم الشحن بسرعة ووصل التأكيد مباشرة."',
-      t2n:"— نور",
-      t3q:'"خدمة ممتازة وآمنة، أنصح بها."',
-      t3n:"— علي",
+        t_title:"آراء العملاء",
+        t_desc:"تقييمات مختصرة عن السرعة والوضوح.",
+        t1q:'"التنفيذ سريع والتواصل واضح… شكراً."',
+        t1n:"— أحمد",
+        t2q:'"تم الشحن بسرعة ووصل التأكيد مباشرة."',
+        t2n:"— نور",
+        t3q:'"خدمة ممتازة وآمنة، أنصح بها."',
+        t3n:"— علي",
 
-      pricing_title:"الباقات",
-      pricing_desc:"الأسعار تعتمد على الباقة والمزود داخل سوريا — اطلب الآن وسنرسل لك السعر النهائي قبل التنفيذ.",
-      pr1_tag:"طلب واحد",
-      pr1_title:"شحن سريع",
-      pr1_price:"حسب الباقة",
-      pr1_hint:"تنفيذ بعد التأكيد",
-      pr1_f1:"طلب شحن واحد",
-      pr1_f2:"تأكيد قبل التنفيذ",
-      pr1_f3:"رسالة تأكيد بعد الإتمام",
+        pricing_title:"الباقات",
+        pricing_desc:"الأسعار تعتمد على الباقة والمزود داخل سوريا — اطلب الآن وسنرسل لك السعر النهائي قبل التنفيذ.",
+        pr1_tag:"طلب واحد",
+        pr1_title:"شحن سريع",
+        pr1_price:"حسب الباقة",
+        pr1_hint:"تنفيذ بعد التأكيد",
+        pr1_f1:"طلب شحن واحد",
+        pr1_f2:"تأكيد قبل التنفيذ",
+        pr1_f3:"رسالة تأكيد بعد الإتمام",
 
-      pr2_tag:"الأكثر طلبًا",
-      pr2_title:"شحن شهري",
-      pr2_price:"حسب الباقة",
-      pr2_hint:"تنظيم ومتابعة",
-      pr2_f1:"تكرار شهري حسب الاتفاق",
-      pr2_f2:"تذكير/متابعة قبل الشحن",
-      pr2_f3:"أولوية في التنفيذ",
+        pr2_tag:"الأكثر طلبًا",
+        pr2_title:"شحن شهري",
+        pr2_price:"حسب الباقة",
+        pr2_hint:"تنظيم ومتابعة",
+        pr2_f1:"تكرار شهري حسب الاتفاق",
+        pr2_f2:"تذكير/متابعة قبل الشحن",
+        pr2_f3:"أولوية في التنفيذ",
 
-      pr3_tag:"مناسب للعائلات",
-      pr3_title:"عدة أرقام",
-      pr3_price:"حسب الطلب",
-      pr3_hint:"خصم بسيط",
-      pr3_f1:"شحن لعدة خطوط",
-      pr3_f2:"تنسيق واحد للطلبات",
-      pr3_f3:"متابعة وتأكيد لكل رقم",
+        pr3_tag:"مناسب للعائلات",
+        pr3_title:"عدة أرقام",
+        pr3_price:"حسب الطلب",
+        pr3_hint:"خصم بسيط",
+        pr3_f1:"شحن لعدة خطوط",
+        pr3_f2:"تنسيق واحد للطلبات",
+        pr3_f3:"متابعة وتأكيد لكل رقم",
 
-      contact_title:"اطلب شحن الآن",
-      contact_desc:"املأ الطلب بالبيانات المطلوبة وسنرد عليك فوراً.",
-      contact_info_title:"التواصل السريع",
-      phone_lbl:"واتساب",
-      email_lbl:"البريد",
-      time_lbl:"الاستجابة",
-      resp_time:"خلال وقت قصير",
-      contact_hint:"نصيحة: اكتب المزود داخل سوريا + الرقم + الباقة المطلوبة (أو القيمة) لتسريع التنفيذ.",
+        contact_title:"اطلب شحن الآن",
+        contact_desc:"املأ الطلب بالبيانات المطلوبة وسنرد عليك فوراً.",
+        contact_info_title:"التواصل السريع",
+        phone_lbl:"واتساب",
+        email_lbl:"البريد",
+        time_lbl:"الاستجابة",
+        resp_time:"خلال وقت قصير",
+        contact_hint:"نصيحة: اكتب المزود داخل سوريا + الرقم + الباقة المطلوبة (أو القيمة) لتسريع التنفيذ.",
 
-      form_title:"نموذج طلب الشحن",
-      lbl_name:"الاسم",
-      lbl_phone:"رقمك للتواصل (واتساب)",
-      lbl_provider:"مزود الخدمة داخل سوريا",
-      lbl_target:"رقم الخط/الحساب داخل سوريا",
-      lbl_pack:"الباقة المطلوبة أو القيمة",
-      lbl_msg:"ملاحظات",
-      opt_pick:"اختر المزود",
-      send:"إرسال الطلب",
-      form_hint:"لتفعيل الإرسال إلى بريدك: أنشئ Formspree وبدّل YOUR_FORM_ID داخل رابط النموذج.",
-      rights:"جميع الحقوق محفوظة",
+        form_title:"نموذج طلب الشحن",
+        lbl_name:"الاسم",
+        lbl_phone:"رقمك للتواصل (واتساب)",
+        lbl_provider:"مزود الخدمة داخل سوريا",
+        lbl_target:"رقم الخط/الحساب داخل سوريا",
+        lbl_pack:"الباقة المطلوبة أو القيمة",
+        lbl_msg:"ملاحظات",
+        opt_pick:"اختر المزود",
+        send:"إرسال الطلب",
+        form_hint:"لتفعيل الإرسال إلى بريدك: أنشئ Formspree وبدّل YOUR_FORM_ID داخل رابط النموذج.",
+        rights:"جميع الحقوق محفوظة",
 
-      ph_name:"الاسم الكامل",
-      ph_pack:"مثال: باقة 10GB أو قيمة 10000",
-      ph_msg:"أي تفاصيل إضافية (اختياري)",
-      sent_ok:"✅ تم إرسال الطلب! سنرد عليك قريبًا لتأكيد السعر والتنفيذ.",
-      sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
-    },
-    en:{
-      tagline:"Syria Internet Top-Up • Fast & Secure",
-      nav_services:"Service",
-      nav_process:"How it works",
-      nav_reviews:"Reviews",
-      nav_pricing:"Packages",
-      nav_contact:"Order",
-      cta_pricing:"View packages",
-      cta_start:"Top-up now",
+        ph_name:"الاسم الكامل",
+        ph_pack:"مثال: باقة 10GB أو قيمة 10000",
+        ph_msg:"أي تفاصيل إضافية (اختياري)",
+        sent_ok:"✅ تم إرسال الطلب! سنرد عليك قريبًا لتأكيد السعر والتنفيذ.",
+        sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
+      },
+      en:{
+        tagline:"Syria Internet Top-Up • Fast & Secure",
+        nav_services:"Service",
+        nav_process:"How it works",
+        nav_reviews:"Reviews",
+        nav_pricing:"Packages",
+        nav_contact:"Order",
+        cta_pricing:"View packages",
+        cta_start:"Top-up now",
 
-      kicker:"Digital service for Syria internet top-ups — fast & secure",
-      hero_title:"Top-up internet in Syria…<br/>simple steps + instant confirmation",
-      hero_lead:"GO.RASEED provides fast, secure internet top-up/transfer to Syria with follow-up and confirmation after completion. Send the required details and we’ll process it.",
-      hero_btn1:"Start a top-up request",
-      hero_btn2:"How does it work?",
-      trust1:"Fast execution",
-      trust2:"Privacy & security",
-      trust3:"Confirmation after completion",
-      trust4:"WhatsApp support",
+        kicker:"Digital service for Syria internet top-ups — fast & secure",
+        hero_title:"Top-up internet in Syria…<br/>simple steps + instant confirmation",
+        hero_lead:"GO.RASEED provides fast, secure internet top-up/transfer to Syria with live follow-up and confirmation after completion. Send the required details and we’ll process it.",
+        hero_btn1:"Start a top-up request",
+        hero_btn2:"How does it work?",
+        trust1:"Fast execution",
+        trust2:"Privacy & security",
+        trust3:"Confirmation after completion",
+        trust4:"WhatsApp support",
 
-      kpi1v:"Fast", kpi1l:"Short turnaround",
-      kpi2v:"Secure", kpi2l:"Your data is safe",
-      kpi3v:"Confirmed", kpi3l:"Confirmation message",
-      badge:"Ready now — send the number/provider/package",
+        kpi1v:"Fast", kpi1l:"Short turnaround",
+        kpi2v:"Secure", kpi2l:"Your data is safe",
+        kpi3v:"Confirmed", kpi3l:"Confirmation message",
+        badge:"Ready now — send the number/provider/package",
 
-      services_title:"What we offer",
-      services_desc:"Clear process: you provide provider/number/package — we execute and send confirmation.",
-      s1_title:"Internet packages top-up",
-      s1_desc:"Top-up any requested package/value (confirmed during order).",
-      s2_title:"Fast transfer",
-      s2_desc:"Quick processing after confirming details and payment method.",
-      s3_title:"Confirmation & notice",
-      s3_desc:"We send a confirmation message after successful completion.",
+        services_title:"What we offer",
+        services_desc:"Clear process: you provide provider/number/package — we execute and send confirmation.",
+        s1_title:"Internet packages top-up",
+        s1_desc:"Top-up any requested package/value (confirmed during order).",
+        s2_title:"Fast transfer",
+        s2_desc:"Quick processing after confirming details and payment method.",
+        s3_title:"Confirmation & notice",
+        s3_desc:"We send a confirmation message after successful completion.",
 
-      process_title:"How it works",
-      process_desc:"4 simple steps — no hassle.",
-      p1_title:"Send details",
-      p1_desc:"Send Syria number/account + provider + requested package/value.",
-      p2_title:"Confirm cost & method",
-      p2_desc:"We confirm final cost and payment method before executing.",
-      p3_title:"Execution",
-      p3_desc:"We process the top-up right after confirmation.",
-      p4_title:"Send confirmation",
-      p4_desc:"You receive a confirmation once the top-up is completed.",
-      safe_note:"🔒 Note: We never ask for passwords. Only the necessary info (number/provider/package) to complete the top-up.",
+        process_title:"How it works",
+        process_desc:"4 simple steps — no hassle.",
+        p1_title:"Send details",
+        p1_desc:"Send Syria number/account + provider + requested package/value.",
+        p2_title:"Confirm cost & method",
+        p2_desc:"We confirm final cost and payment method before executing.",
+        p3_title:"Execution",
+        p3_desc:"We process the top-up right after confirmation.",
+        p4_title:"Send confirmation",
+        p4_desc:"You receive a confirmation once the top-up is completed.",
+        safe_note:"🔒 Note: We never ask for passwords. Only the necessary info (number/provider/package) to complete the top-up.",
 
-      t_title:"Testimonials",
-      t_desc:"Short feedback on speed and clarity.",
-      t1q:'"Fast and clear communication… thank you."',
-      t1n:"— Ahmad",
-      t2q:'"Top-up was done quickly and confirmation arrived immediately."',
-      t2n:"— Nour",
-      t3q:'"Excellent and secure service. Highly recommended."',
-      t3n:"— Ali",
+        t_title:"Testimonials",
+        t_desc:"Short feedback on speed and clarity.",
+        t1q:'"Fast and clear communication… thank you."',
+        t1n:"— Ahmad",
+        t2q:'"Top-up was done quickly and confirmation arrived immediately."',
+        t2n:"— Nour",
+        t3q:'"Excellent and secure service. Highly recommended."',
+        t3n:"— Ali",
 
-      pricing_title:"Packages",
-      pricing_desc:"Pricing depends on the provider and package in Syria — request now and we’ll confirm the final cost before execution.",
-      pr1_tag:"Single request",
-      pr1_title:"Quick Top-Up",
-      pr1_price:"Based on package",
-      pr1_hint:"After confirmation",
-      pr1_f1:"One top-up request",
-      pr1_f2:"Confirm before execution",
-      pr1_f3:"Confirmation after completion",
+        pricing_title:"Packages",
+        pricing_desc:"Pricing depends on the provider and package in Syria — request now and we’ll confirm the final cost before execution.",
+        pr1_tag:"Single request",
+        pr1_title:"Quick Top-Up",
+        pr1_price:"Based on package",
+        pr1_hint:"After confirmation",
+        pr1_f1:"One top-up request",
+        pr1_f2:"Confirm before execution",
+        pr1_f3:"Confirmation after completion",
 
-      pr2_tag:"Most popular",
-      pr2_title:"Monthly Top-Up",
-      pr2_price:"Based on package",
-      pr2_hint:"Organized follow-up",
-      pr2_f1:"Recurring monthly as agreed",
-      pr2_f2:"Reminder/follow-up before top-up",
-      pr2_f3:"Priority execution",
+        pr2_tag:"Most popular",
+        pr2_title:"Monthly Top-Up",
+        pr2_price:"Based on package",
+        pr2_hint:"Organized follow-up",
+        pr2_f1:"Recurring monthly as agreed",
+        pr2_f2:"Reminder/follow-up before top-up",
+        pr2_f3:"Priority execution",
 
-      pr3_tag:"For families",
-      pr3_title:"Multiple Numbers",
-      pr3_price:"On request",
-      pr3_hint:"Small discount",
-      pr3_f1:"Top-up for multiple lines",
-      pr3_f2:"One format for orders",
-      pr3_f3:"Confirmation for each number",
+        pr3_tag:"For families",
+        pr3_title:"Multiple Numbers",
+        pr3_price:"On request",
+        pr3_hint:"Small discount",
+        pr3_f1:"Top-up for multiple lines",
+        pr3_f2:"One format for orders",
+        pr3_f3:"Confirmation for each number",
 
-      contact_title:"Place an order",
-      contact_desc:"Fill the form and we’ll respond quickly.",
-      contact_info_title:"Fast contact",
-      phone_lbl:"WhatsApp",
-      email_lbl:"Email",
-      time_lbl:"Response",
-      resp_time:"Short turnaround",
-      contact_hint:"Tip: Include provider + number + package/value to speed up processing.",
+        contact_title:"Place an order",
+        contact_desc:"Fill the form and we’ll respond quickly.",
+        contact_info_title:"Fast contact",
+        phone_lbl:"WhatsApp",
+        email_lbl:"Email",
+        time_lbl:"Response",
+        resp_time:"Short turnaround",
+        contact_hint:"Tip: Include provider + number + package/value to speed up processing.",
 
-      form_title:"Top-Up Request Form",
-      lbl_name:"Name",
-      lbl_phone:"Your WhatsApp number",
-      lbl_provider:"Syria provider",
-      lbl_target:"Syria number/account",
-      lbl_pack:"Requested package/value",
-      lbl_msg:"Notes",
-      opt_pick:"Pick a provider",
-      send:"Send request",
-      form_hint:"To receive emails: create Formspree and replace YOUR_FORM_ID in the form action.",
-      rights:"All rights reserved",
+        form_title:"Top-Up Request Form",
+        lbl_name:"Name",
+        lbl_phone:"Your WhatsApp number",
+        lbl_provider:"Syria provider",
+        lbl_target:"Syria number/account",
+        lbl_pack:"Requested package/value",
+        lbl_msg:"Notes",
+        opt_pick:"Pick a provider",
+        send:"Send request",
+        form_hint:"To receive emails: create Formspree and replace YOUR_FORM_ID in the form action.",
+        rights:"All rights reserved",
 
-      ph_name:"Full name",
-      ph_pack:"e.g., 10GB package or value 10000",
-      ph_msg:"Any additional details (optional)",
-      sent_ok:"✅ Request sent! We’ll reply soon to confirm price and proceed.",
-      sent_err:"❌ Failed to send. Please check Formspree setup."
+        ph_name:"Full name",
+        ph_pack:"e.g., 10GB package or value 10000",
+        ph_msg:"Any additional details (optional)",
+        sent_ok:"✅ Request sent! We’ll reply soon to confirm price and proceed.",
+        sent_err:"❌ Failed to send. Please check Formspree setup."
+      }
+    };
+
+    // Testimonials slider data (uses dict above)
+    const tData = {
+      ar: [
+        { q: dict.ar.t1q, n: dict.ar.t1n, stars: 5 },
+        { q: dict.ar.t2q, n: dict.ar.t2n, stars: 5 },
+        { q: dict.ar.t3q, n: dict.ar.t3n, stars: 5 },
+      ],
+      en: [
+        { q: dict.en.t1q, n: dict.en.t1n, stars: 5 },
+        { q: dict.en.t2q, n: dict.en.t2n, stars: 5 },
+        { q: dict.en.t3q, n: dict.en.t3n, stars: 5 },
+      ],
+    };
+
+    let tIndex = 0;
+    const tQuote = document.getElementById("tQuote");
+    const tName  = document.getElementById("tName");
+    const tStars = document.getElementById("tStars");
+    const tPrev  = document.getElementById("tPrev");
+    const tNext  = document.getElementById("tNext");
+
+    function renderStars(n){
+      tStars.innerHTML = "";
+      for(let i=0;i<n;i++){
+        const s = document.createElement("span");
+        s.textContent = "⭐";
+        tStars.appendChild(s);
+      }
     }
-  };
 
-  // ===== Testimonials slider =====
-  const tData = {
-    ar: [
-      { q: dict.ar.t1q, n: dict.ar.t1n, stars: 5 },
-      { q: dict.ar.t2q, n: dict.ar.t2n, stars: 5 },
-      { q: dict.ar.t3q, n: dict.ar.t3n, stars: 5 },
-    ],
-    en: [
-      { q: dict.en.t1q, n: dict.en.t1n, stars: 5 },
-      { q: dict.en.t2q, n: dict.en.t2n, stars: 5 },
-      { q: dict.en.t3q, n: dict.en.t3n, stars: 5 },
-    ],
-  };
+    function renderTestimonial(){
+      const lang = (langSelect.value || "ar");
+      const items = tData[lang] || tData.ar;
+      const item = items[tIndex % items.length];
 
-  let tIndex = 0;
-  const langSelect = document.getElementById("lang");
-
-  const tQuote = document.getElementById("tQuote");
-  const tName  = document.getElementById("tName");
-  const tStars = document.getElementById("tStars");
-  const tPrev  = document.getElementById("tPrev");
-  const tNext  = document.getElementById("tNext");
-
-  function renderStars(n){
-    if(!tStars) return;
-    tStars.innerHTML = "";
-    for(let i=0;i<n;i++){
-      const s = document.createElement("span");
-      s.textContent = "⭐";
-      tStars.appendChild(s);
+      // FIX: use innerHTML so quotes render correctly and consistent with your site usage
+      tQuote.innerHTML = item.q;
+      tName.textContent = item.n;
+      renderStars(item.stars || 5);
     }
-  }
 
-  function renderTestimonial(){
-    const lang = (langSelect?.value || "ar");
-    const items = tData[lang] || tData.ar;
-    const item = items[tIndex % items.length];
-    if(tQuote) tQuote.textContent = item.q;
-    if(tName)  tName.textContent  = item.n;
-    renderStars(item.stars || 5);
-  }
+    function applyLang(lang){
+      const isAr = (lang === "ar");
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isAr ? "rtl" : "ltr";
 
-  // ===== Language apply (بعد تعريف كل شيء) =====
-  function applyLang(lang){
-    const isAr = (lang === "ar");
-    document.documentElement.lang = lang;
-    document.documentElement.dir  = isAr ? "rtl" : "ltr";
+      document.title = isAr
+        ? "GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان"
+        : "GO.RASEED | Syria Internet Top-Up (Fast & Secure)";
 
-    document.title = isAr
-      ? "GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان"
-      : "GO.RASEED | Syria Internet Top-Up (Fast & Secure)";
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(dict[lang] && dict[lang][k] !== undefined) el.innerHTML = dict[lang][k];
+      });
 
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const k = el.getAttribute("data-i18n");
-      if(dict[lang]?.[k] !== undefined) el.innerHTML = dict[lang][k];
-    });
+      document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+        const k = el.getAttribute("data-i18n-ph");
+        if(dict[lang] && dict[lang][k] !== undefined) el.setAttribute("placeholder", dict[lang][k]);
+      });
 
-    document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
-      const k = el.getAttribute("data-i18n-ph");
-      if(dict[lang]?.[k] !== undefined) el.setAttribute("placeholder", dict[lang][k]);
-    });
+      // re-render testimonial in selected language
+      tIndex = 0;
+      renderTestimonial();
+    }
 
-    // تحديث التقييم بعد تغيير اللغة
-    tIndex = 0;
-    renderTestimonial();
-  }
-
-  // init language
-  const saved = localStorage.getItem("lang") || "ar";
-  if(langSelect){
+    const langSelect = document.getElementById("lang");
+    const saved = localStorage.getItem("lang") || "ar";
     langSelect.value = saved;
     applyLang(saved);
 
-    langSelect.addEventListener("change", (e)=>{
-      const lang = e.target.value;
-      localStorage.setItem("lang", lang);
-      applyLang(lang);
+    langSelect.addEventListener("change", ()=>{
+      localStorage.setItem("lang", langSelect.value);
+      applyLang(langSelect.value);
     });
-  }
 
-  // testimonial buttons
-  tPrev?.addEventListener("click", ()=>{
-    const lang = (langSelect?.value || "ar");
-    const items = tData[lang] || tData.ar;
-    tIndex = (tIndex - 1 + items.length) % items.length;
+    tPrev?.addEventListener("click", ()=>{
+      const lang = (langSelect.value || "ar");
+      const items = tData[lang] || tData.ar;
+      tIndex = (tIndex - 1 + items.length) % items.length;
+      renderTestimonial();
+    });
+    tNext?.addEventListener("click", ()=>{
+      const lang = (langSelect.value || "ar");
+      const items = tData[lang] || tData.ar;
+      tIndex = (tIndex + 1) % items.length;
+      renderTestimonial();
+    });
+
     renderTestimonial();
-  });
 
-  tNext?.addEventListener("click", ()=>{
-    const lang = (langSelect?.value || "ar");
-    const items = tData[lang] || tData.ar;
-    tIndex = (tIndex + 1) % items.length;
-    renderTestimonial();
-  });
+    // Contact form (AJAX)
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("formMsg");
+    const btn = document.getElementById("sendBtn");
 
-  renderTestimonial();
+    form.addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      msg.textContent = "";
+      btn.disabled = true;
+      btn.style.opacity = ".85";
 
-  // Contact form (AJAX)
-  const form = document.getElementById("contactForm");
-  const msg = document.getElementById("formMsg");
-  const btn = document.getElementById("sendBtn");
+      try{
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
 
-  form?.addEventListener("submit", async (e)=>{
-    e.preventDefault();
-    if(msg) msg.textContent = "";
-    if(btn){ btn.disabled = true; btn.style.opacity = ".85"; }
-
-    try{
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      });
-
-      const lang = (langSelect?.value || "ar");
-      if(res.ok){
-        form.reset();
-        if(msg) msg.textContent = dict[lang].sent_ok;
-      }else{
-        if(msg) msg.textContent = dict[lang].sent_err;
+        const lang = langSelect.value || "ar";
+        if(res.ok){
+          form.reset();
+          msg.textContent = dict[lang].sent_ok;
+        }else{
+          msg.textContent = dict[lang].sent_err;
+        }
+      }catch(err){
+        const lang = langSelect.value || "ar";
+        msg.textContent = dict[lang].sent_err;
+      }finally{
+        btn.disabled = false;
+        btn.style.opacity = "1";
       }
-    }catch(err){
-      const lang = (langSelect?.value || "ar");
-      if(msg) msg.textContent = dict[lang].sent_err;
-    }finally{
-      if(btn){ btn.disabled = false; btn.style.opacity = "1"; }
-    }
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
-
