@@ -126,6 +126,14 @@
     }
 
     section{padding: 26px 0}
+    .section-title{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:12px; flex-wrap:wrap;
+      margin: 6px 0 12px;
+    }
+    .section-title h2{margin:0; font-size: 22px}
+    .section-title p{margin:0; color: var(--muted); max-width: 700px}
+
     .panel{
       background: rgba(255,255,255,.05);
       border:1px solid var(--line);
@@ -179,7 +187,7 @@
       box-shadow: var(--shadow2);
     }
 
-    /* ✅ HERO IMAGE BOX */
+    /* HERO IMAGE BOX */
     .hero-shot{
       height: 290px;
       border-radius: 18px;
@@ -236,7 +244,6 @@
     }
     .k b{display:block; font-size: 16px}
     .k span{display:block; font-size: 12px; color: var(--muted)}
-
     .hero-badge{
       margin-top: 12px;
       padding: 12px 14px;
@@ -247,6 +254,69 @@
       font-size: 13px;
     }
 
+    /* Pricing helpers */
+    .price{
+      display:flex; align-items:flex-end; gap:8px;
+      margin: 10px 0 10px;
+    }
+    .price b{font-size: 26px}
+    .price span{color:var(--muted); font-size: 12px}
+    .list{
+      margin:0;
+      padding-inline-start: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tag{
+      display:inline-flex;
+      padding:8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      gap:8px;
+      align-items:center;
+    }
+    .tag.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.10); color: #c6f6df}
+    .tag.hot{border-color: rgba(110,231,255,.25); background: rgba(110,231,255,.10); color: #d7fbff}
+
+    /* Form */
+    form{display:grid; gap:10px}
+    label{font-size: 13px; color: var(--muted)}
+    input, textarea, select.small{
+      width:100%;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      padding: 12px 12px;
+      border-radius: 14px;
+      outline:none;
+      font-size: 14px;
+    }
+    textarea{min-height:130px; resize: vertical}
+    .inline{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;}
+    .note{font-size: 13px; color: var(--muted)}
+    .mini-box{
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .hint{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 10px;
+    }
+    .card .btn.full{
+      width:100%;
+      justify-content:center;
+      margin-top: 14px;
+      font-weight: 800;
+    }
+
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
     .reveal.show{opacity:1; transform:none}
 
@@ -254,7 +324,7 @@
       .hero-grid{grid-template-columns: 1fr}
       h1{font-size: 34px}
       .grid-3{grid-template-columns: 1fr}
-      .grid-2{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1 fr}
       .kpi{grid-template-columns: 1fr}
     }
   </style>
@@ -273,8 +343,6 @@
         </a>
 
         <nav class="links" aria-label="Primary">
-          <a href="#services" data-i18n="nav_services">الخدمة</a>
-          <a href="#process" data-i18n="nav_process">كيف تتم</a>
           <a href="#pricing" data-i18n="nav_pricing">الباقات</a>
           <a href="#contact" data-i18n="nav_contact">اطلب الآن</a>
         </nav>
@@ -292,6 +360,7 @@
   </header>
 
   <main id="top" class="wrap">
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
         <div class="panel hero-left reveal" style="padding:26px;">
@@ -305,8 +374,8 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#contact" data-i18n="hero_btn1">ابدأ طلب شحن</a>
-            <a class="btn" href="#process" data-i18n="hero_btn2">كيف تتم العملية؟</a>
+            <a class="btn primary" href="#pricing" data-i18n="hero_btn1">اختر باقة</a>
+            <a class="btn" href="#contact" data-i18n="hero_btn2">اذهب للنموذج</a>
           </div>
 
           <div class="trust">
@@ -319,9 +388,7 @@
 
         <aside class="hero-right reveal" aria-label="Highlights">
           <div class="hero-shot" aria-label="Hero image">
-            <!-- ✅ الصورة من نفس مجلد index.html -->
             <img src="hero.png" class="hero-img" alt="GO.RASEED hero">
-
             <div class="kpi">
               <div class="k">
                 <b data-i18n="kpi1v">سريع</b>
@@ -337,30 +404,161 @@
               </div>
             </div>
           </div>
-
-          <div class="hero-badge" data-i18n="badge">جاهزين الآن — ارسل رقم/بيانات الخط والباقـة المطلوبة</div>
+          <div class="hero-badge" data-i18n="badge">اختر الباقة ثم املأ الطلب — بعدها ادفع عبر Revolut</div>
         </aside>
       </div>
     </section>
 
-    <section id="services" class="muted">
-      <p style="margin:0; opacity:.85">باقي الصفحة عندك موجودة — إذا بدك أدمجها كاملة مع كل الأقسام (الخدمة/الباقات/النموذج) قولّي وسأرسل لك النسخة الكاملة 100%.</p>
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="section-title">
+        <h2 class="reveal" data-i18n="pricing_title">الباقات</h2>
+        <p class="reveal" data-i18n="pricing_desc">اختر الباقة المناسبة، وسيتم توجيهك للنموذج مع زر الدفع المناسب.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="tag" data-i18n="p18_tag">أساسي</div>
+          <h3 data-i18n="p18_title">باقة 18€</h3>
+          <div class="price"><b>18€</b><span class="muted" data-i18n="after_confirm">تنفيذ بعد التأكيد</span></div>
+          <ul class="list">
+            <li data-i18n="common1">طلب واحد</li>
+            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+          </ul>
+          <a href="#contact" class="btn primary full" onclick="selectPlan(18)" data-i18n="choose">اختيار الباقة</a>
+        </div>
+
+        <div class="card reveal">
+          <div class="tag hot" data-i18n="p25_tag">الأكثر طلبًا</div>
+          <h3 data-i18n="p25_title">باقة 25€</h3>
+          <div class="price"><b>25€</b><span class="muted" data-i18n="after_confirm">تنفيذ بعد التأكيد</span></div>
+          <ul class="list">
+            <li data-i18n="common1">طلب واحد</li>
+            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+          </ul>
+          <a href="#contact" class="btn primary full" onclick="selectPlan(25)" data-i18n="choose">اختيار الباقة</a>
+        </div>
+
+        <div class="card reveal">
+          <div class="tag ok" data-i18n="p35_tag">مميز</div>
+          <h3 data-i18n="p35_title">باقة 35€</h3>
+          <div class="price"><b>35€</b><span class="muted" data-i18n="after_confirm">تنفيذ بعد التأكيد</span></div>
+          <ul class="list">
+            <li data-i18n="common1">طلب واحد</li>
+            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+          </ul>
+          <a href="#contact" class="btn primary full" onclick="selectPlan(35)" data-i18n="choose">اختيار الباقة</a>
+        </div>
+      </div>
     </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        <h2 class="reveal" data-i18n="contact_title">نموذج الطلب</h2>
+        <p class="reveal" data-i18n="contact_desc">املأ البيانات. بعد اختيار الباقة سيظهر زر الدفع بالمبلغ الصحيح.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card reveal">
+          <h3 data-i18n="contact_info_title">التواصل السريع</h3>
+          <div class="mini-box muted" style="margin-top:10px">
+            📞 واتساب: <b>+0000000000</b><br/>
+            ✉️ البريد: <b>info@yourdomain.com</b><br/>
+            🕒 الاستجابة: <b data-i18n="resp_time">خلال وقت قصير</b>
+          </div>
+          <div class="hint" data-i18n="contact_hint">
+            نصيحة: اختر الباقة أولاً ليتم تعبئتها تلقائياً.
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3 data-i18n="form_title">بيانات الطلب</h3>
+
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div>
+              <label for="name" data-i18n="lbl_name">الاسم</label>
+              <input id="name" name="name" required placeholder="الاسم الكامل" />
+            </div>
+
+            <div>
+              <label for="phone" data-i18n="lbl_phone">رقمك للتواصل (واتساب)</label>
+              <input id="phone" name="phone" required placeholder="+49..." />
+            </div>
+
+            <div>
+              <label for="provider" data-i18n="lbl_provider">مزود الخدمة داخل سوريا</label>
+              <select class="small" id="provider" name="provider" required>
+                <option value="" selected disabled data-i18n="opt_pick">اختر المزود</option>
+                <option value="Syriatel">Syriatel</option>
+                <option value="MTN">MTN</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="target" data-i18n="lbl_target">رقم الخط/الحساب داخل سوريا</label>
+              <input id="target" name="target_number" required placeholder="09XXXXXXXX" />
+            </div>
+
+            <div>
+              <label for="pack" data-i18n="lbl_pack">الباقة</label>
+              <input id="pack" name="pack" required placeholder="اختر باقة من الأعلى" />
+            </div>
+
+            <div>
+              <label for="msg" data-i18n="lbl_msg">ملاحظات</label>
+              <textarea id="msg" name="message" placeholder="أي تفاصيل إضافية (اختياري)"></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="New Syria Internet Top-Up Request (GO.RASEED)" />
+
+            <div class="inline">
+              <button class="btn primary" type="submit" id="sendBtn" data-i18n="send">إرسال الطلب</button>
+              <div class="note" id="formMsg" role="status" aria-live="polite"></div>
+            </div>
+          </form>
+
+          <!-- Pay box -->
+          <div id="payBox" class="mini-box" style="margin-top:14px; display:none;">
+            <div class="inline">
+              <div class="muted">
+                <b data-i18n="pay_selected">المبلغ المختار:</b> <span id="payLabel">—</span>
+              </div>
+              <a id="payBtn" class="btn primary" href="#" target="_blank" rel="noopener">
+                ادفع الآن
+              </a>
+            </div>
+            <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية للتأكيد.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap" style="padding: 22px 0 42px; color: var(--muted); border-top:1px solid var(--line); margin-top: 18px;">
+      © <span id="y"></span> GO.RASEED — <span data-i18n="rights">جميع الحقوق محفوظة</span>
+    </footer>
   </main>
 
   <script>
-    // Year (if you have footer later)
+    // Year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
     // Reveal
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
     }, {threshold: .12});
     document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
+    // ====== i18n ======
     const dict = {
       ar:{
         tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
-        nav_services:"الخدمة",
-        nav_process:"كيف تتم",
         nav_pricing:"الباقات",
         nav_contact:"اطلب الآن",
         cta_pricing:"عرض الباقات",
@@ -368,8 +566,8 @@
         kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
         hero_title:"اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري",
         hero_lead:"GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام. أرسل البيانات المطلوبة وسننفذ لك مباشرة.",
-        hero_btn1:"ابدأ طلب شحن",
-        hero_btn2:"كيف تتم العملية؟",
+        hero_btn1:"اختر باقة",
+        hero_btn2:"اذهب للنموذج",
         trust1:"تنفيذ سريع",
         trust2:"خصوصية وأمان",
         trust3:"تأكيد بعد الإتمام",
@@ -377,21 +575,50 @@
         kpi1v:"سريع", kpi1l:"تنفيذ خلال وقت قصير",
         kpi2v:"آمن",  kpi2l:"بياناتك محفوظة",
         kpi3v:"مؤكد", kpi3l:"رسالة تأكيد",
-        badge:"جاهزين الآن — ارسل رقم/بيانات الخط والباقـة المطلوبة",
+        badge:"اختر الباقة ثم املأ الطلب — بعدها ادفع عبر Revolut",
+
+        pricing_title:"الباقات",
+        pricing_desc:"اختر الباقة المناسبة، وسيظهر زر الدفع بالمبلغ الصحيح.",
+        p18_tag:"أساسي", p18_title:"باقة 18€",
+        p25_tag:"الأكثر طلبًا", p25_title:"باقة 25€",
+        p35_tag:"مميز", p35_title:"باقة 35€",
+        after_confirm:"تنفيذ بعد التأكيد",
+        common1:"طلب واحد",
+        common2:"تأكيد قبل التنفيذ",
+        common3:"تأكيد بعد الإتمام",
+        choose:"اختيار الباقة",
+
+        contact_title:"نموذج الطلب",
+        contact_desc:"املأ البيانات. بعد اختيار الباقة سيظهر زر الدفع بالمبلغ الصحيح.",
+        contact_info_title:"التواصل السريع",
+        resp_time:"خلال وقت قصير",
+        contact_hint:"نصيحة: اختر الباقة أولاً ليتم تعبئتها تلقائياً.",
+        form_title:"بيانات الطلب",
+        lbl_name:"الاسم",
+        lbl_phone:"رقمك للتواصل (واتساب)",
+        lbl_provider:"مزود الخدمة داخل سوريا",
+        opt_pick:"اختر المزود",
+        lbl_target:"رقم الخط/الحساب داخل سوريا",
+        lbl_pack:"الباقة",
+        lbl_msg:"ملاحظات",
+        send:"إرسال الطلب",
+        pay_selected:"المبلغ المختار:",
+        pay_hint:"بعد الدفع أرسل لقطة شاشة/رقم العملية للتأكيد.",
+        rights:"جميع الحقوق محفوظة",
+        sent_ok:"✅ تم إرسال الطلب! يمكنك الآن الدفع.",
+        sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
       },
       en:{
         tagline:"Syria Internet Top-Up • Fast & Secure",
-        nav_services:"Service",
-        nav_process:"How it works",
         nav_pricing:"Packages",
         nav_contact:"Order",
         cta_pricing:"View packages",
         cta_start:"Top-up now",
         kicker:"Digital service for Syria internet top-ups — fast & secure",
         hero_title:"Top-up internet in Syria…<br/>simple steps + instant confirmation",
-        hero_lead:"GO.RASEED provides fast, secure internet top-up/transfer to Syria with live follow-up and confirmation after completion. Send the required details and we’ll process it.",
-        hero_btn1:"Start a top-up request",
-        hero_btn2:"How does it work?",
+        hero_lead:"GO.RASEED provides fast, secure internet top-up/transfer to Syria. Send the details and we’ll process it.",
+        hero_btn1:"Choose a package",
+        hero_btn2:"Go to form",
         trust1:"Fast execution",
         trust2:"Privacy & security",
         trust3:"Confirmation after completion",
@@ -399,29 +626,130 @@
         kpi1v:"Fast", kpi1l:"Short turnaround",
         kpi2v:"Secure", kpi2l:"Your data is safe",
         kpi3v:"Confirmed", kpi3l:"Confirmation message",
-        badge:"Ready now — send the number/provider/package",
+        badge:"Choose a package, fill the form, then pay via Revolut",
+
+        pricing_title:"Packages",
+        pricing_desc:"Choose a package and the correct payment button will appear.",
+        p18_tag:"Basic", p18_title:"Package 18€",
+        p25_tag:"Most popular", p25_title:"Package 25€",
+        p35_tag:"Premium", p35_title:"Package 35€",
+        after_confirm:"After confirmation",
+        common1:"Single request",
+        common2:"Confirm before execution",
+        common3:"Confirmation after completion",
+        choose:"Select package",
+
+        contact_title:"Order form",
+        contact_desc:"Fill the details. After selecting a package you will see the correct payment button.",
+        contact_info_title:"Fast contact",
+        resp_time:"Short turnaround",
+        contact_hint:"Tip: select a package first to auto-fill the form.",
+        form_title:"Request details",
+        lbl_name:"Name",
+        lbl_phone:"WhatsApp number",
+        lbl_provider:"Syria provider",
+        opt_pick:"Pick a provider",
+        lbl_target:"Syria number/account",
+        lbl_pack:"Package",
+        lbl_msg:"Notes",
+        send:"Send request",
+        pay_selected:"Selected amount:",
+        pay_hint:"After paying, send a screenshot/transaction ID to confirm.",
+        rights:"All rights reserved",
+        sent_ok:"✅ Request sent! You can now pay.",
+        sent_err:"❌ Failed to send. Check Formspree setup."
       }
     };
 
     const langSelect = document.getElementById("lang");
-
     function applyLang(lang){
-      const isAr = (lang === "ar");
       document.documentElement.lang = lang;
-      document.documentElement.dir = isAr ? "rtl" : "ltr";
+      document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const k = el.getAttribute("data-i18n");
         if(dict[lang] && dict[lang][k] !== undefined) el.innerHTML = dict[lang][k];
       });
     }
-
     const saved = localStorage.getItem("lang") || "ar";
     langSelect.value = saved;
     applyLang(saved);
-
     langSelect.addEventListener("change", ()=>{
       localStorage.setItem("lang", langSelect.value);
       applyLang(langSelect.value);
+    });
+
+    // ====== Revolut pay links ======
+    const payLinks = {
+      18: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92",
+      25: "https://checkout.revolut.com/pay/7c510098-c099-47d8-977b-6da2901385ac",
+      35: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92" // ضع رابط 35 الصحيح هنا إذا مختلف
+    };
+
+    function selectPlan(amount){
+      const link = payLinks[amount];
+      if(!link){
+        alert("رابط الدفع غير متوفر لهذه الباقة");
+        return;
+      }
+
+      // Fill pack input
+      const packInput = document.getElementById("pack");
+      if(packInput) packInput.value = (langSelect.value === "en")
+        ? `Package ${amount}€`
+        : `باقة بقيمة ${amount}€`;
+
+      // Show pay box
+      const box = document.getElementById("payBox");
+      const btn = document.getElementById("payBtn");
+      const label = document.getElementById("payLabel");
+
+      label.textContent = `${amount}€`;
+      btn.href = link;
+      btn.textContent = (langSelect.value === "en")
+        ? `Pay now ${amount}€`
+        : `ادفع الآن ${amount}€`;
+
+      box.style.display = "block";
+      localStorage.setItem("selected_plan_amount", String(amount));
+    }
+
+    // Restore selection
+    document.addEventListener("DOMContentLoaded", ()=>{
+      const savedPlan = localStorage.getItem("selected_plan_amount");
+      if(savedPlan && payLinks[Number(savedPlan)]) selectPlan(Number(savedPlan));
+    });
+
+    // Optional: show pay box after successful form submit (Formspree AJAX)
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("formMsg");
+    const btn = document.getElementById("sendBtn");
+    form.addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      msg.textContent = "";
+      btn.disabled = true;
+      btn.style.opacity = ".85";
+
+      try{
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        const lang = langSelect.value || "ar";
+        if(res.ok){
+          msg.textContent = dict[lang].sent_ok;
+          // لا نعمل reset حتى لا تختفي الباقة المختارة
+        }else{
+          msg.textContent = dict[lang].sent_err;
+        }
+      }catch(err){
+        const lang = langSelect.value || "ar";
+        msg.textContent = dict[lang].sent_err;
+      }finally{
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      }
     });
   </script>
 </body>
