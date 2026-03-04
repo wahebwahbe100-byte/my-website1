@@ -254,6 +254,17 @@
       font-size: 13px;
     }
 
+    /* ✅ صورة الباقة داخل الكارد */
+    .plan-img{
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:12px;
+      border:1px solid rgba(255,255,255,.10);
+      display:block;
+    }
+
     /* Pricing helpers */
     .price{
       display:flex; align-items:flex-end; gap:8px;
@@ -324,18 +335,9 @@
       .hero-grid{grid-template-columns: 1fr}
       h1{font-size: 34px}
       .grid-3{grid-template-columns: 1fr}
-      .grid-2{grid-template-columns: 1 fr}
+      .grid-2{grid-template-columns: 1fr}
       .kpi{grid-template-columns: 1fr}
     }
-
-    .plan-img{
-width:100%;
-height:140px;
-object-fit:cover;
-border-radius:14px;
-margin-bottom:12px;
-border:1px solid rgba(255,255,255,.1);
-}
   </style>
 </head>
 
@@ -426,88 +428,48 @@ border:1px solid rgba(255,255,255,.1);
       </div>
 
       <div class="grid-3">
+        <!-- 18 -->
+        <div class="card reveal">
+          <img src="hero18.png" class="plan-img" alt="18€">
+          <div class="tag" data-i18n="p18_tag">أساسي</div>
+          <h3 data-i18n="p18_title">باقة 18€</h3>
+          <div class="price"><b>18€</b></div>
+          <ul class="list">
+            <li data-i18n="common1">طلب واحد</li>
+            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+          </ul>
+          <a href="#contact" class="btn primary full" onclick="selectPlan(18)" data-i18n="choose">اختيار الباقة</a>
+        </div>
 
-<!-- باقة 18 -->
-        <div class="grid-3">
+        <!-- 25 -->
+        <div class="card reveal">
+          <img src="hero25.png" class="plan-img" alt="25€">
+          <div class="tag hot" data-i18n="p25_tag">الأكثر طلبًا</div>
+          <h3 data-i18n="p25_title">باقة 25€</h3>
+          <div class="price"><b>25€</b></div>
+          <ul class="list">
+            <li data-i18n="common1">طلب واحد</li>
+            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+          </ul>
+          <a href="#contact" class="btn primary full" onclick="selectPlan(25)" data-i18n="choose">اختيار الباقة</a>
+        </div>
 
-<!-- باقة 18 -->
-<div class="card reveal">
-
-<img src="hero18.png" class="plan-img">
-
-<div class="tag">أساسي</div>
-
-<h3>باقة 18€</h3>
-
-<div class="price">
-<b>18€</b>
-</div>
-
-<ul class="list">
-<li>طلب واحد</li>
-<li>تأكيد قبل التنفيذ</li>
-<li>تأكيد بعد الإتمام</li>
-</ul>
-
-<a href="#contact" class="btn primary full" onclick="selectPlan(18)">
-اختيار الباقة
-</a>
-
-</div>
-
-
-<!-- باقة 25 -->
-<div class="card reveal">
-
-<img src="hero25.png" class="plan-img">
-
-<div class="tag hot">الأكثر طلبًا</div>
-
-<h3>باقة 25€</h3>
-
-<div class="price">
-<b>25€</b>
-</div>
-
-<ul class="list">
-<li>طلب واحد</li>
-<li>تأكيد قبل التنفيذ</li>
-<li>تأكيد بعد الإتمام</li>
-</ul>
-
-<a href="#contact" class="btn primary full" onclick="selectPlan(25)">
-اختيار الباقة
-</a>
-
-</div>
-
-
-<!-- باقة 35 -->
-<div class="card reveal">
-
-<img src="hero35.png" class="plan-img">
-
-<div class="tag ok">مميز</div>
-
-<h3>باقة 35€</h3>
-
-<div class="price">
-<b>35€</b>
-</div>
-
-<ul class="list">
-<li>طلب واحد</li>
-<li>تأكيد قبل التنفيذ</li>
-<li>تأكيد بعد الإتمام</li>
-</ul>
-
-<a href="#contact" class="btn primary full" onclick="selectPlan(35)">
-اختيار الباقة
-</a>
-
-</div>
-
-</div>
+        <!-- 35 -->
+        <div class="card reveal">
+          <img src="hero35.png" class="plan-img" alt="35€">
+          <div class="tag ok" data-i18n="p35_tag">مميز</div>
+          <h3 data-i18n="p35_title">باقة 35€</h3>
+          <div class="price"><b>35€</b></div>
+          <ul class="list">
+            <li data-i18n="common1">طلب واحد</li>
+            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+          </ul>
+          <a href="#contact" class="btn primary full" onclick="selectPlan(35)" data-i18n="choose">اختيار الباقة</a>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
@@ -633,11 +595,10 @@ border:1px solid rgba(255,255,255,.1);
         badge:"اختر الباقة ثم املأ الطلب — بعدها ادفع عبر Revolut",
 
         pricing_title:"الباقات",
-        pricing_desc:"اختر الباقة المناسبة، وسيظهر زر الدفع بالمبلغ الصحيح.",
+        pricing_desc:"اختر الباقة المناسبة، وسيتم توجيهك للنموذج مع زر الدفع المناسب.",
         p18_tag:"أساسي", p18_title:"باقة 18€",
         p25_tag:"الأكثر طلبًا", p25_title:"باقة 25€",
         p35_tag:"مميز", p35_title:"باقة 35€",
-        after_confirm:"تنفيذ بعد التأكيد",
         common1:"طلب واحد",
         common2:"تأكيد قبل التنفيذ",
         common3:"تأكيد بعد الإتمام",
@@ -684,11 +645,10 @@ border:1px solid rgba(255,255,255,.1);
         badge:"Choose a package, fill the form, then pay via Revolut",
 
         pricing_title:"Packages",
-        pricing_desc:"Choose a package and the correct payment button will appear.",
+        pricing_desc:"Choose a package and you will be directed to the form with the correct payment link.",
         p18_tag:"Basic", p18_title:"Package 18€",
         p25_tag:"Most popular", p25_title:"Package 25€",
         p35_tag:"Premium", p35_title:"Package 35€",
-        after_confirm:"After confirmation",
         common1:"Single request",
         common2:"Confirm before execution",
         common3:"Confirmation after completion",
@@ -747,13 +707,11 @@ border:1px solid rgba(255,255,255,.1);
         return;
       }
 
-      // Fill pack input
       const packInput = document.getElementById("pack");
       if(packInput) packInput.value = (langSelect.value === "en")
         ? `Package ${amount}€`
         : `باقة بقيمة ${amount}€`;
 
-      // Show pay box
       const box = document.getElementById("payBox");
       const btn = document.getElementById("payBtn");
       const label = document.getElementById("payLabel");
@@ -774,7 +732,7 @@ border:1px solid rgba(255,255,255,.1);
       if(savedPlan && payLinks[Number(savedPlan)]) selectPlan(Number(savedPlan));
     });
 
-    // Optional: show pay box after successful form submit (Formspree AJAX)
+    // Formspree AJAX
     const form = document.getElementById("contactForm");
     const msg = document.getElementById("formMsg");
     const btn = document.getElementById("sendBtn");
@@ -794,7 +752,6 @@ border:1px solid rgba(255,255,255,.1);
         const lang = langSelect.value || "ar";
         if(res.ok){
           msg.textContent = dict[lang].sent_ok;
-          // لا نعمل reset حتى لا تختفي الباقة المختارة
         }else{
           msg.textContent = dict[lang].sent_err;
         }
@@ -809,4 +766,3 @@ border:1px solid rgba(255,255,255,.1);
   </script>
 </body>
 </html>
-
