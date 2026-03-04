@@ -327,6 +327,15 @@
       .grid-2{grid-template-columns: 1 fr}
       .kpi{grid-template-columns: 1fr}
     }
+
+    .plan-img{
+width:100%;
+height:140px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:12px;
+border:1px solid rgba(255,255,255,.1);
+}
   </style>
 </head>
 
@@ -417,42 +426,88 @@
       </div>
 
       <div class="grid-3">
-        <div class="card reveal">
-          <div class="tag" data-i18n="p18_tag">أساسي</div>
-          <h3 data-i18n="p18_title">باقة 18€</h3>
-          <div class="price"><b>18€</b><span class="muted" data-i18n="after_confirm">تنفيذ بعد التأكيد</span></div>
-          <ul class="list">
-            <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
-            <li data-i18n="common3">تأكيد بعد الإتمام</li>
-          </ul>
-          <a href="#contact" class="btn primary full" onclick="selectPlan(18)" data-i18n="choose">اختيار الباقة</a>
-        </div>
 
-        <div class="card reveal">
-          <div class="tag hot" data-i18n="p25_tag">الأكثر طلبًا</div>
-          <h3 data-i18n="p25_title">باقة 25€</h3>
-          <div class="price"><b>25€</b><span class="muted" data-i18n="after_confirm">تنفيذ بعد التأكيد</span></div>
-          <ul class="list">
-            <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
-            <li data-i18n="common3">تأكيد بعد الإتمام</li>
-          </ul>
-          <a href="#contact" class="btn primary full" onclick="selectPlan(25)" data-i18n="choose">اختيار الباقة</a>
-        </div>
+<!-- باقة 18 -->
+        <div class="grid-3">
 
-        <div class="card reveal">
-          <div class="tag ok" data-i18n="p35_tag">مميز</div>
-          <h3 data-i18n="p35_title">باقة 35€</h3>
-          <div class="price"><b>35€</b><span class="muted" data-i18n="after_confirm">تنفيذ بعد التأكيد</span></div>
-          <ul class="list">
-            <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
-            <li data-i18n="common3">تأكيد بعد الإتمام</li>
-          </ul>
-          <a href="#contact" class="btn primary full" onclick="selectPlan(35)" data-i18n="choose">اختيار الباقة</a>
-        </div>
-      </div>
+<!-- باقة 18 -->
+<div class="card reveal">
+
+<img src="hero18.png" class="plan-img">
+
+<div class="tag">أساسي</div>
+
+<h3>باقة 18€</h3>
+
+<div class="price">
+<b>18€</b>
+</div>
+
+<ul class="list">
+<li>طلب واحد</li>
+<li>تأكيد قبل التنفيذ</li>
+<li>تأكيد بعد الإتمام</li>
+</ul>
+
+<a href="#contact" class="btn primary full" onclick="selectPlan(18)">
+اختيار الباقة
+</a>
+
+</div>
+
+
+<!-- باقة 25 -->
+<div class="card reveal">
+
+<img src="hero25.png" class="plan-img">
+
+<div class="tag hot">الأكثر طلبًا</div>
+
+<h3>باقة 25€</h3>
+
+<div class="price">
+<b>25€</b>
+</div>
+
+<ul class="list">
+<li>طلب واحد</li>
+<li>تأكيد قبل التنفيذ</li>
+<li>تأكيد بعد الإتمام</li>
+</ul>
+
+<a href="#contact" class="btn primary full" onclick="selectPlan(25)">
+اختيار الباقة
+</a>
+
+</div>
+
+
+<!-- باقة 35 -->
+<div class="card reveal">
+
+<img src="hero35.png" class="plan-img">
+
+<div class="tag ok">مميز</div>
+
+<h3>باقة 35€</h3>
+
+<div class="price">
+<b>35€</b>
+</div>
+
+<ul class="list">
+<li>طلب واحد</li>
+<li>تأكيد قبل التنفيذ</li>
+<li>تأكيد بعد الإتمام</li>
+</ul>
+
+<a href="#contact" class="btn primary full" onclick="selectPlan(35)">
+اختيار الباقة
+</a>
+
+</div>
+
+</div>
     </section>
 
     <!-- CONTACT -->
@@ -754,3 +809,4 @@
   </script>
 </body>
 </html>
+
