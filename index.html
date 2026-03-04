@@ -311,7 +311,6 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#top" aria-label="GO.RASEED">
-          <!-- ✅ اللوجو من GitHub: assets/logo.png -->
           <img src="assets/logo.png" class="logo-img" alt="GO.RASEED logo" />
           <div>
             <strong>GO.RASEED</strong>
@@ -455,7 +454,6 @@
         <div class="card reveal">
           <h3 data-i18n="form_title">بيانات الطلب</h3>
 
-          <!-- ✅ ضع رابط Formspree الحقيقي بدل YOUR_FORM_ID -->
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div>
               <label for="name" data-i18n="lbl_name">الاسم</label>
@@ -512,6 +510,32 @@
             <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.</div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ FACEBOOK GROUP SECTION (added) -->
+    <section id="community">
+      <div class="section-title">
+        <h2 class="reveal" data-i18n="community_title">مجتمعنا على فيسبوك</h2>
+        <p class="reveal" data-i18n="community_desc">انضم إلى أكثر من 7000+ عضو في مجموعتنا.</p>
+      </div>
+
+      <div class="card reveal" style="text-align:center; padding: 30px;">
+        <div style="font-size:48px; margin-bottom:12px;">👥</div>
+        <h3 style="margin-top:0" data-i18n="community_big">+7000 عضو في المجتمع</h3>
+        <p class="muted" style="max-width:560px; margin:auto" data-i18n="community_text">
+          تابع آخر التحديثات، اسأل بحرية، وشاهد تجارب المستخدمين الآخرين.
+        </p>
+
+        <div style="margin-top:18px;">
+          <a class="btn primary"
+             href="https://www.facebook.com/groups/1660921344375083/"
+             target="_blank"
+             rel="noopener"
+             data-i18n="community_btn">
+            الانضمام إلى المجموعة
+          </a>
         </div>
       </div>
     </section>
@@ -587,7 +611,14 @@
         pay_hint:"بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.",
         rights:"جميع الحقوق محفوظة",
         sent_ok:"✅ تم إرسال الطلب! يمكنك الآن الدفع.",
-        sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
+        sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree.",
+
+        // ✅ Community section
+        community_title:"مجتمعنا على فيسبوك",
+        community_desc:"انضم إلى أكثر من 7000+ عضو في مجموعتنا.",
+        community_big:"+7000 عضو في المجتمع",
+        community_text:"تابع آخر التحديثات، اسأل بحرية، وشاهد تجارب المستخدمين الآخرين.",
+        community_btn:"الانضمام إلى المجموعة"
       },
       en:{
         tagline:"Syria Internet Top-Up • Fast & Secure",
@@ -643,7 +674,14 @@
         pay_hint:"After paying, send a screenshot/transaction ID to confirm.",
         rights:"All rights reserved",
         sent_ok:"✅ Request sent! You can now pay.",
-        sent_err:"❌ Failed to send. Check Formspree setup."
+        sent_err:"❌ Failed to send. Check Formspree setup.",
+
+        // ✅ Community section
+        community_title:"Our Facebook community",
+        community_desc:"Join 7000+ members in our group.",
+        community_big:"7000+ community members",
+        community_text:"Get updates, ask questions, and see other users' experiences.",
+        community_btn:"Join the group"
       }
     };
 
@@ -748,4 +786,3 @@
   </script>
 </body>
 </html>
-
