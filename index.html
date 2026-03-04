@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان</title>
   <meta name="description" content="GO.RASEED — خدمة رقمية لشحن/تحويل رصيد الإنترنت إلى سوريا بسرعة وأمان مع تأكيد بعد التنفيذ." />
+
+  <!-- Favicon (اختياري) -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
 
   <style>
     :root{
@@ -71,12 +75,12 @@
       gap:12px; flex-wrap:wrap;
     }
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
-    ..logo{
-      width:40px;
-      height:40px;
-      border-radius:10px;
+    .logo-img{
+      width:40px;height:40px;border-radius:14px;
       object-fit:cover;
-}
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 30px rgba(110,231,255,.12);
+      background: rgba(255,255,255,.06);
     }
     .brand strong{display:block; font-size:14px; letter-spacing:.3px}
     .brand span{display:block; font-size:12px; color:var(--muted)}
@@ -307,7 +311,8 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="#top" aria-label="GO.RASEED">
-          <img src="logo3.png" class="logo" alt="logo">
+          <!-- ✅ اللوجو من GitHub: assets/logo.png -->
+          <img src="assets/logo.png" class="logo-img" alt="GO.RASEED logo" />
           <div>
             <strong>GO.RASEED</strong>
             <span data-i18n="tagline">شحن إنترنت إلى سوريا • بسرعة وأمان</span>
@@ -359,7 +364,7 @@
 
         <aside class="hero-right reveal" aria-label="Highlights">
           <div class="hero-shot" aria-label="Hero image">
-            <img src="hero3.png" class="hero-img" alt="GO.RASEED hero">
+            <img src="hero.png" class="hero-img" alt="GO.RASEED hero">
             <div class="kpi">
               <div class="k">
                 <b data-i18n="kpi1v">سريع</b>
@@ -440,7 +445,7 @@
         <div class="card reveal">
           <h3 data-i18n="contact_info_title">التواصل السريع</h3>
           <div class="mini-box muted" style="margin-top:10px">
-            📞 <span data-i18n="wa_lbl">واتساب</span>: <b>+0000000000</b><br/>
+            📞 <span data-i18n="wa_lbl">واتساب</span>: <b><a href="https://wa.me/0000000000" target="_blank" rel="noopener">+0000000000</a></b><br/>
             ✉️ <span data-i18n="mail_lbl">البريد</span>: <b>info@yourdomain.com</b><br/>
             🕒 <span data-i18n="resp_lbl">الاستجابة</span>: <b data-i18n="resp_time">خلال وقت قصير</b>
           </div>
@@ -450,6 +455,7 @@
         <div class="card reveal">
           <h3 data-i18n="form_title">بيانات الطلب</h3>
 
+          <!-- ✅ ضع رابط Formspree الحقيقي بدل YOUR_FORM_ID -->
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div>
               <label for="name" data-i18n="lbl_name">الاسم</label>
@@ -478,7 +484,7 @@
 
             <div>
               <label for="pack" data-i18n="lbl_pack">الباقة</label>
-              <input id="pack" name="pack" required data-i18n-ph="ph_pack" placeholder="اختر باقة من الأعلى" />
+              <input id="pack" name="pack" required data-i18n-ph="ph_pack" placeholder="اختر باقة من الأعلى" readonly />
             </div>
 
             <div>
@@ -505,6 +511,7 @@
             </div>
             <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.</div>
           </div>
+
         </div>
       </div>
     </section>
@@ -659,7 +666,6 @@
         }
       });
 
-      // refresh pay button text if selected
       const savedPlan = localStorage.getItem("selected_plan_amount");
       if(savedPlan) selectPlan(Number(savedPlan), true);
     }
@@ -673,7 +679,7 @@
       applyLang(langSelect.value);
     });
 
-    // Revolut pay links
+    // Revolut pay links (ضع روابطك)
     const payLinks = {
       18: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92",
       25: "https://checkout.revolut.com/pay/7c510098-c099-47d8-977b-6da2901385ac",
@@ -687,14 +693,12 @@
         return;
       }
 
-      // fill pack input
       const packInput = document.getElementById("pack");
       const lang = langSelect.value || "ar";
       if(packInput){
         packInput.value = (lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
       }
 
-      // show pay box
       const box = document.getElementById("payBox");
       const btn = document.getElementById("payBtn");
       const label = document.getElementById("payLabel");
@@ -713,7 +717,7 @@
       if(savedPlan && payLinks[Number(savedPlan)]) selectPlan(Number(savedPlan), true);
     });
 
-    // Formspree AJAX (keeps selected plan)
+    // Formspree AJAX
     const form = document.getElementById("contactForm");
     const msg = document.getElementById("formMsg");
     const sendBtn = document.getElementById("sendBtn");
@@ -744,6 +748,3 @@
   </script>
 </body>
 </html>
-
-
-
