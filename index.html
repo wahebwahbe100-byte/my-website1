@@ -116,6 +116,14 @@
     .btn.full{width:100%; margin-top:14px; font-weight:900;}
     .btn:disabled{opacity:.55; cursor:not-allowed; transform:none}
 
+    /* منع الدفع قبل الموافقة */
+    .btn.is-disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      pointer-events:none;
+      transform:none !important;
+    }
+
     select{
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
@@ -333,6 +341,27 @@
       .wa-wrap{right: 14px; bottom: 14px;}
       .wa-btn{width: 58px; height: 58px;}
     }
+
+    /* ===== Terms checkbox UI ===== */
+    .terms-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .terms-row input[type="checkbox"]{
+      width:18px; height:18px;
+      accent-color: #6ee7ff;
+    }
+    .terms-row a{
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
   </style>
 </head>
 
@@ -351,6 +380,7 @@
         <nav class="links" aria-label="Primary">
           <a href="#pricing" data-i18n="nav_pricing">الباقات</a>
           <a href="#contact" data-i18n="nav_contact">اطلب الآن</a>
+          <a href="#terms" data-i18n="nav_terms">الشروط</a>
         </nav>
 
         <div class="controls">
@@ -479,13 +509,12 @@
             ✉️ بريد: <b>info@yourdomain.com</b><br/>
             🕒 الاستجابة: <b>خلال وقت قصير</b>
           </div>
-          <div class="hint">اختر الباقة أولاً ثم ادفع، وبعدها أرسل التفاصيل واتساب.</div>
+          <div class="hint">اختر الباقة أولاً ثم وافق على الشروط ثم ادفع، وبعدها أرسل التفاصيل واتساب.</div>
         </div>
 
         <div class="card reveal">
           <h3 data-i18n="form_title">بيانات الطلب</h3>
 
-          <!-- ✅ لا يوجد formspree هنا -->
           <form id="contactForm" action="#" method="POST" novalidate>
             <div>
               <label for="name" data-i18n="lbl_name">الاسم</label>
@@ -536,8 +565,18 @@
           <div id="payBox" class="mini-box" style="margin-top:14px; display:none;">
             <div class="inline" style="gap:10px;">
               <div class="muted"><b data-i18n="pay_selected">المبلغ المختار:</b> <span id="payLabel">—</span></div>
-              <a id="payBtn" class="btn primary" href="" rel="noopener">ادفع الآن</a>
+              <a id="payBtn" class="btn primary is-disabled" href="" rel="noopener" aria-disabled="true" data-terms-ok="0">ادفع الآن</a>
             </div>
+
+            <!-- ✅ شرط الموافقة -->
+            <div class="terms-row" id="termsRow">
+              <input type="checkbox" id="agreeTerms">
+              <label for="agreeTerms" style="margin:0; color:var(--muted)">
+                <span id="termsPrefix" data-i18n="terms_prefix">أوافق على</span>
+                <a href="#terms" id="termsLink" data-i18n="terms_link">الشروط والأحكام</a>
+              </label>
+            </div>
+            <div class="note" id="termsMsg" style="margin-top:8px"></div>
 
             <div class="inline" style="margin-top:10px; gap:10px;">
               <button type="button" class="btn" id="waSendBtn">إرسال التفاصيل إلى واتساب</button>
@@ -546,6 +585,27 @@
 
             <div class="hint" data-i18n="pay_hint">بعد الدفع اضغط زر واتساب لإرسال التفاصيل (يمكنك إرفاق لقطة شاشة).</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ قسم الشروط داخل نفس الصفحة -->
+    <section id="terms">
+      <div class="section-title">
+        <h2 class="reveal" data-i18n="terms_title">الشروط والأحكام</h2>
+        <p class="reveal" data-i18n="terms_desc">يرجى قراءة الشروط قبل الدفع.</p>
+      </div>
+
+      <div class="card reveal">
+        <ul class="list" style="font-size:14px">
+          <li data-i18n="t1">العميل مسؤول عن إدخال الرقم/الحساب داخل سوريا بشكل صحيح.</li>
+          <li data-i18n="t2">بعد فتح الدفع وإتمامه، يرجى إرسال لقطة شاشة/إثبات الدفع عبر واتساب.</li>
+          <li data-i18n="t3">قد يختلف وقت التنفيذ حسب توفر الخدمة لدى المزود داخل سوريا.</li>
+          <li data-i18n="t4">في حال إدخال رقم خاطئ أو بيانات ناقصة قد يتأخر التنفيذ.</li>
+          <li data-i18n="t5">الدفع يعتبر موافقة على تنفيذ الطلب وفق البيانات المرسلة.</li>
+        </ul>
+        <div class="hint muted" data-i18n="terms_note">
+          ملاحظة: إذا تريد نص شروطك الحقيقي، أرسله لي وأنا أبدله لك مكان هذا النص.
         </div>
       </div>
     </section>
@@ -586,7 +646,7 @@
     const dict = {
       ar:{
         tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
-        nav_pricing:"الباقات", nav_contact:"اطلب الآن",
+        nav_pricing:"الباقات", nav_contact:"اطلب الآن", nav_terms:"الشروط",
         cta_pricing:"عرض الباقات", cta_start:"اطلب الآن",
         kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
         hero_title:"اختر باقتك…<br/>ثم املأ الطلب وادفع فورًا",
@@ -614,11 +674,21 @@
         loyalty_desc:"بعد <b>5 عمليات شحن مكتملة</b> من GO.RASEED ستحصل على <b>خصم 5€</b> على الطلب القادم.",
         loyalty_progress_label:"تقدّمك الحالي:",
         loyalty_done:"✅ تم التنفيذ (للإدارة)",
-        loyalty_hint:"الخصم يُطبق بعد التأكيد. (زر “تم التنفيذ” ظاهر للإدارة فقط)."
+        loyalty_hint:"الخصم يُطبق بعد التأكيد. (زر “تم التنفيذ” ظاهر للإدارة فقط).",
+        terms_prefix:"أوافق على",
+        terms_link:"الشروط والأحكام",
+        terms_title:"الشروط والأحكام",
+        terms_desc:"يرجى قراءة الشروط قبل الدفع.",
+        t1:"العميل مسؤول عن إدخال الرقم/الحساب داخل سوريا بشكل صحيح.",
+        t2:"بعد فتح الدفع وإتمامه، يرجى إرسال لقطة شاشة/إثبات الدفع عبر واتساب.",
+        t3:"قد يختلف وقت التنفيذ حسب توفر الخدمة لدى المزود داخل سوريا.",
+        t4:"في حال إدخال رقم خاطئ أو بيانات ناقصة قد يتأخر التنفيذ.",
+        t5:"الدفع يعتبر موافقة على تنفيذ الطلب وفق البيانات المرسلة.",
+        terms_note:"ملاحظة: إذا تريد نص شروطك الحقيقي، أرسله لي وأنا أبدله لك مكان هذا النص."
       },
       en:{
         tagline:"Syria Internet Top-Up • Fast & Secure",
-        nav_pricing:"Packages", nav_contact:"Order",
+        nav_pricing:"Packages", nav_contact:"Order", nav_terms:"Terms",
         cta_pricing:"View packages", cta_start:"Order now",
         kicker:"Digital service for Syria internet top-ups — fast & secure",
         hero_title:"Choose your package…<br/>fill the form and pay instantly",
@@ -646,7 +716,17 @@
         loyalty_desc:"After <b>5 completed top-ups</b> with GO.RASEED, you’ll get <b>5€ off</b> your next order.",
         loyalty_progress_label:"Your progress:",
         loyalty_done:"✅ Completed (admin)",
-        loyalty_hint:"Discount is applied after confirmation. (Admin-only “Completed” button)."
+        loyalty_hint:"Discount is applied after confirmation. (Admin-only “Completed” button).",
+        terms_prefix:"I agree to the",
+        terms_link:"Terms & Conditions",
+        terms_title:"Terms & Conditions",
+        terms_desc:"Please read the terms before paying.",
+        t1:"You are responsible for providing the correct Syria number/account details.",
+        t2:"After completing payment, please send a screenshot/proof via WhatsApp.",
+        t3:"Execution time may vary depending on the Syria provider availability.",
+        t4:"Incorrect or incomplete details may delay execution.",
+        t5:"Payment is considered acceptance to process the request with the submitted details.",
+        terms_note:"Note: Send me your real terms text and I will replace this for you."
       }
     };
 
@@ -669,6 +749,7 @@
       const saved = localStorage.getItem("selected_plan_amount");
       if(saved) applyPlan(Number(saved), true);
       updateLoyaltyUI();
+      syncTermsGateText();
     });
 
     // Payment links
@@ -683,6 +764,37 @@
       if(d) d.textContent = t;
     }
 
+    // ===== Terms Gate helpers =====
+    const agreeTerms = document.getElementById("agreeTerms");
+    const payBtn = document.getElementById("payBtn");
+    const termsMsg = document.getElementById("termsMsg");
+
+    function setPayEnabled(enabled){
+      if(!payBtn) return;
+      if(enabled){
+        payBtn.classList.remove("is-disabled");
+        payBtn.setAttribute("aria-disabled","false");
+        payBtn.dataset.termsOk = "1";
+        if(termsMsg) termsMsg.textContent = "";
+      }else{
+        payBtn.classList.add("is-disabled");
+        payBtn.setAttribute("aria-disabled","true");
+        payBtn.dataset.termsOk = "0";
+      }
+    }
+
+    function syncTermsGateText(){
+      // النص نفسه يأتي من data-i18n، لكن نحتاج نمسح رسالة التحذير عند تغيير اللغة
+      if(termsMsg) termsMsg.textContent = "";
+    }
+
+    // default: disabled until user agrees
+    setPayEnabled(false);
+
+    agreeTerms?.addEventListener("change", ()=>{
+      setPayEnabled(agreeTerms.checked);
+    });
+
     function applyPlan(amount, silent=false){
       const link = payLinks[amount];
       if(!link){ setDebug("❌ رابط الدفع غير موجود لهذه الباقة: " + amount); return; }
@@ -690,20 +802,25 @@
       const lang = langSelect.value || "ar";
       const packInput = document.getElementById("pack");
       const box = document.getElementById("payBox");
-      const btn = document.getElementById("payBtn");
       const label = document.getElementById("payLabel");
 
       packInput.value = (lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
       label.textContent = `${amount}€`;
 
-      btn.setAttribute("href", link);
-      btn.dataset.link = link;
-      btn.textContent = (lang === "en") ? `Pay now ${amount}€` : `ادفع الآن ${amount}€`;
+      payBtn.setAttribute("href", link);
+      payBtn.dataset.link = link;
+      payBtn.textContent = (lang === "en") ? `Pay now ${amount}€` : `ادفع الآن ${amount}€`;
 
       box.style.display = "block";
       localStorage.setItem("selected_plan_amount", String(amount));
 
-      if(!silent) setDebug("✅ تم اختيار الباقة. الآن ادفع ثم اضغط زر واتساب لإرسال التفاصيل.");
+      // reset terms gate each time a plan is chosen
+      if(agreeTerms){
+        agreeTerms.checked = false;
+        setPayEnabled(false);
+      }
+
+      if(!silent) setDebug("✅ تم اختيار الباقة. وافق على الشروط ثم ادفع، وبعدها اضغط زر واتساب لإرسال التفاصيل.");
 
       document.getElementById("contact")?.scrollIntoView({behavior:"smooth", block:"start"});
       setTimeout(()=> box.scrollIntoView({behavior:"smooth", block:"center"}), 320);
@@ -718,8 +835,22 @@
     const savedPlan = localStorage.getItem("selected_plan_amount");
     if(savedPlan && payLinks[Number(savedPlan)]) applyPlan(Number(savedPlan), true);
 
-    // Open payment new tab
-    document.getElementById("payBtn").addEventListener("click", (e)=>{
+    // Open payment new tab (blocked if terms not accepted)
+    payBtn.addEventListener("click", (e)=>{
+      // إذا لم تتم الموافقة: امنع
+      if(payBtn.dataset.termsOk !== "1"){
+        e.preventDefault();
+        const lang = langSelect.value || "ar";
+        if(termsMsg){
+          termsMsg.textContent = (lang === "en")
+            ? "❌ Please agree to the Terms & Conditions before paying."
+            : "❌ يجب الموافقة على الشروط والأحكام قبل الدفع.";
+        }
+        document.getElementById("termsRow")?.scrollIntoView({behavior:"smooth", block:"center"});
+        return;
+      }
+
+      // موافق: افتح الدفع
       e.preventDefault();
       const link = e.currentTarget.dataset.link || e.currentTarget.getAttribute("href");
       if(!link){ setDebug("❌ اختر باقة أولاً."); return; }
@@ -822,15 +953,11 @@ Notes: ${notes}`
       openWhatsApp();
     });
 
-    // ✅ Formspree (works + shows error details)
-    // ضع معرفك هنا فقط:
+    // Formspree
     const FORM_ENDPOINT = "https://formspree.io/f/mqedrbgd";
-
     const form = document.getElementById("contactForm");
     const formMsg = document.getElementById("formMsg");
     const sendBtn = document.getElementById("sendBtn");
-
-    // لا يظهر الرابط في HTML — نضعه هنا
     form.action = FORM_ENDPOINT;
 
     function clientValidate(){
