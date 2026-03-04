@@ -457,7 +457,7 @@
             ✉️ بريد: <b>info@yourdomain.com</b><br/>
             🕒 الاستجابة: <b>خلال وقت قصير</b>
           </div>
-          <div class="hint">اختر الباقة أولاً لتظهر لك خطوة الدفع.</div>
+          <div class="hint">اختر الباقة أولاً لتظهر لك خطوة الدفع، وبعد الدفع اضغط زر واتساب لإرسال التفاصيل.</div>
         </div>
 
         <div class="card reveal">
@@ -514,11 +514,21 @@
 
           <!-- ✅ PayBox -->
           <div id="payBox" class="mini-box" style="margin-top:14px; display:none;">
-            <div class="inline">
+            <div class="inline" style="gap:10px;">
               <div class="muted"><b data-i18n="pay_selected">المبلغ المختار:</b> <span id="payLabel">—</span></div>
-              <!-- مهم: href فاضي + فتح قسري بالـ JS -->
               <a id="payBtn" class="btn primary" href="" rel="noopener">ادفع الآن</a>
             </div>
+
+            <div style="margin-top:10px">
+              <label for="txid" class="note">رقم العملية / Transaction ID (اختياري)</label>
+              <input id="txid" placeholder="اكتب رقم العملية إن وجد" />
+            </div>
+
+            <div class="inline" style="margin-top:10px; gap:10px;">
+              <button type="button" class="btn" id="waSendBtn">إرسال التفاصيل إلى واتساب</button>
+              <div class="note" id="waMsg"></div>
+            </div>
+
             <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.</div>
           </div>
         </div>
@@ -530,7 +540,7 @@
     </footer>
   </main>
 
-  <!-- WhatsApp -->
+  <!-- WhatsApp Floating -->
   <div class="wa-wrap" aria-label="WhatsApp Support">
     <div class="wa-bubble" id="waBubble">
       <button class="x" id="waClose" type="button" aria-label="إغلاق">×</button>
@@ -538,7 +548,7 @@
     </div>
 
     <a class="wa-btn"
-       href="https://wa.me/4915213873166?text=ممكن مساعده%20"
+       href="https://wa.me/4915213873166?text=ممكن%20مساعدة"
        target="_blank" rel="noopener"
        aria-label="WhatsApp">
       <svg viewBox="0 0 32 32" aria-hidden="true">
@@ -557,7 +567,7 @@
     }, {threshold: .12});
     document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
-    // i18n (مختصر)
+    // i18n
     const dict = {
       ar:{
         tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
@@ -584,7 +594,7 @@
         opt_pick:"اختر المزود", lbl_target:"رقم الخط/الحساب داخل سوريا", lbl_pack:"الباقة", lbl_msg:"ملاحظات",
         send:"إرسال الطلب",
         pay_selected:"المبلغ المختار:",
-        pay_hint:"بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب."
+        pay_hint:"بعد الدفع اضغط زر واتساب لإرسال التفاصيل + لقطة شاشة/رقم العملية لتأكيد الطلب."
       },
       en:{
         tagline:"Syria Internet Top-Up • Fast & Secure",
@@ -611,7 +621,7 @@
         opt_pick:"Pick a provider", lbl_target:"Syria number/account", lbl_pack:"Package", lbl_msg:"Notes",
         send:"Send request",
         pay_selected:"Selected amount:",
-        pay_hint:"After paying, send a screenshot/transaction ID to confirm."
+        pay_hint:"After paying, click WhatsApp button to send details + screenshot/transaction ID to confirm."
       }
     };
 
@@ -627,13 +637,6 @@
     const savedLang = localStorage.getItem("lang") || "ar";
     langSelect.value = savedLang;
     applyLang(savedLang);
-    langSelect.addEventListener("change", ()=>{
-      localStorage.setItem("lang", langSelect.value);
-      applyLang(langSelect.value);
-      // تحديث نص زر الدفع عند تغيير اللغة إن كانت باقة مختارة
-      const saved = localStorage.getItem("selected_plan_amount");
-      if(saved) applyPlan(Number(saved), true);
-    });
 
     // ✅ عدّل روابطك هنا
     const payLinks = {
@@ -666,7 +669,6 @@
       packInput.value = (lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
       label.textContent = `${amount}€`;
 
-      // ✅ تحديث href + تخزينه كـ data
       btn.setAttribute("href", link);
       btn.dataset.link = link;
       btn.textContent = (lang === "en") ? `Pay now ${amount}€` : `ادفع الآن ${amount}€`;
@@ -674,13 +676,21 @@
       box.style.display = "block";
       localStorage.setItem("selected_plan_amount", String(amount));
 
-      if(!silent) setDebug("✅ تم اختيار الباقة. رابط الدفع جاهز.");
+      if(!silent) setDebug("✅ تم اختيار الباقة. الآن ادفع ثم أرسل التفاصيل على واتساب.");
 
       document.getElementById("contact")?.scrollIntoView({behavior:"smooth", block:"start"});
       setTimeout(()=> box.scrollIntoView({behavior:"smooth", block:"center"}), 320);
     }
 
-    // ✅ فتح مضمون عند الضغط على زر الدفع (حل نهائي)
+    // ✅ تحديث اللغة + إعادة تطبيق الباقة لو موجودة
+    langSelect.addEventListener("change", ()=>{
+      localStorage.setItem("lang", langSelect.value);
+      applyLang(langSelect.value);
+      const saved = localStorage.getItem("selected_plan_amount");
+      if(saved) applyPlan(Number(saved), true);
+    });
+
+    // ✅ فتح Revolut عند الضغط على زر الدفع
     document.getElementById("payBtn").addEventListener("click", (e)=>{
       e.preventDefault();
       const link = e.currentTarget.dataset.link || e.currentTarget.getAttribute("href");
@@ -688,8 +698,8 @@
         setDebug("❌ لا يوجد رابط داخل زر الدفع. اختر باقة أولاً.");
         return;
       }
-      setDebug("🚀 فتح رابط Revolut...");
-      window.location.href = link; // فتح مباشر (لا يتم حظره غالبًا)
+      setDebug("🚀 فتح رابط Revolut... بعد الدفع ارجع واضغط زر واتساب لإرسال التفاصيل.");
+      window.location.href = link;
     });
 
     // ربط أزرار الباقات
@@ -702,6 +712,67 @@
     // استرجاع الباقة عند فتح الصفحة
     const savedPlan = localStorage.getItem("selected_plan_amount");
     if(savedPlan && payLinks[Number(savedPlan)]) applyPlan(Number(savedPlan), true);
+
+    // ✅ WhatsApp إرسال التفاصيل بعد الدفع (رسالة جاهزة)
+    const WA_NUMBER = "4915213873166"; // بدون +
+
+    function buildWaText(){
+      const lang = langSelect.value || "ar";
+      const name = document.getElementById("name")?.value?.trim() || "-";
+      const phone = document.getElementById("phone")?.value?.trim() || "-";
+      const provider = document.getElementById("provider")?.value || "-";
+      const target = document.getElementById("target")?.value?.trim() || "-";
+      const pack = document.getElementById("pack")?.value?.trim() || "-";
+      const notes = document.getElementById("msg")?.value?.trim() || "-";
+      const txid = document.getElementById("txid")?.value?.trim() || "-";
+
+      if(lang === "en"){
+        return (
+`GO.RASEED Top-up Request ✅
+Name: ${name}
+WhatsApp: ${phone}
+Provider: ${provider}
+Syria number: ${target}
+Package: ${pack}
+Transaction ID: ${txid}
+Notes: ${notes}
+
+I have paid via Revolut. (Screenshot/TxID attached if available)`
+        );
+      }
+
+      return (
+`طلب شحن GO.RASEED ✅
+الاسم: ${name}
+رقم واتساب: ${phone}
+المزود: ${provider}
+الرقم داخل سوريا: ${target}
+الباقة: ${pack}
+رقم العملية: ${txid}
+ملاحظات: ${notes}
+
+تم الدفع عبر Revolut. (سأرسل لقطة شاشة/رقم العملية إن وجد)`
+      );
+    }
+
+    function openWhatsApp(){
+      const text = buildWaText();
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank", "noopener");
+    }
+
+    const waSendBtn = document.getElementById("waSendBtn");
+    const waMsg = document.getElementById("waMsg");
+
+    waSendBtn.addEventListener("click", ()=>{
+      const saved = localStorage.getItem("selected_plan_amount");
+      if(!saved){
+        if(waMsg) waMsg.textContent = "❌ اختر باقة أولاً.";
+        return;
+      }
+      if(waMsg) waMsg.textContent = "✅ فتح واتساب برسالة جاهزة...";
+      openWhatsApp();
+    });
 
     // Formspree AJAX
     const form = document.getElementById("contactForm");
@@ -744,4 +815,3 @@
   </script>
 </body>
 </html>
-
