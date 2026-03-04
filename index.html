@@ -7,7 +7,6 @@
   <title>GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان</title>
   <meta name="description" content="GO.RASEED — خدمة رقمية لشحن/تحويل رصيد الإنترنت إلى سوريا بسرعة وأمان مع تأكيد بعد التنفيذ." />
 
-  <!-- Favicon (اختياري) -->
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
   <style>
@@ -63,7 +62,6 @@
       .hero-grid{grid-template-columns:1fr !important}
     }
 
-    /* Header */
     header{
       position: sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
@@ -101,7 +99,6 @@
     }
     .controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 12px 14px;
@@ -125,7 +122,6 @@
     .btn.ghost{background: transparent; border: 1px solid rgba(255,255,255,.14);}
     .btn.full{width:100%; margin-top:14px; font-weight:900;}
 
-    /* Language select (dark) */
     select{
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
@@ -139,7 +135,6 @@
       color:#fff;
     }
 
-    /* Sections */
     section{padding: 26px 0}
     .section-title{
       display:flex; justify-content:space-between; align-items:flex-end;
@@ -149,7 +144,6 @@
     .section-title h2{margin:0; font-size: 22px}
     .section-title p{margin:0; color: var(--muted); max-width: 700px}
 
-    /* Hero */
     .pill{
       display:inline-flex; align-items:center; gap:10px;
       padding:8px 12px;
@@ -243,7 +237,6 @@
       font-size: 13px;
     }
 
-    /* Pricing */
     .tag{
       display:inline-flex;
       padding:8px 10px;
@@ -270,7 +263,6 @@
       border:1px solid rgba(255,255,255,.10);
     }
 
-    /* Contact */
     form{display:grid; gap:10px}
     label{font-size: 13px; color: var(--muted)}
     input, textarea, select.small{
@@ -300,11 +292,9 @@
       padding-top: 10px;
     }
 
-    /* Reveal */
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
     .reveal.show{opacity:1; transform:none}
 
-    /* ✅ Community background (World Map) */
     #community{
       position: relative;
       background: url("assets/world-map-bg.png") center/cover no-repeat;
@@ -325,7 +315,6 @@
       z-index: 2;
     }
 
-    /* ✅ WhatsApp Floating Button (يمين الصفحة) */
     .wa-wrap{
       position: fixed;
       right: 18px;
@@ -419,7 +408,6 @@
   </header>
 
   <main id="top" class="wrap">
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
         <div class="panel hero-left reveal">
@@ -446,7 +434,8 @@
 
         <aside class="hero-right reveal" aria-label="Highlights">
           <div class="hero-shot" aria-label="Hero image">
-            <img src="hero.png" class="hero-img" alt="GO.RASEED hero">
+            <!-- ✅ تم تعديل المسار إلى assets -->
+            <img src="assets/hero.png" class="hero-img" alt="GO.RASEED hero">
             <div class="kpi">
               <div class="k">
                 <b data-i18n="kpi1v">سريع</b>
@@ -467,7 +456,6 @@
       </div>
     </section>
 
-    <!-- PRICING -->
     <section id="pricing">
       <div class="section-title">
         <h2 class="reveal" data-i18n="pricing_title">الباقات</h2>
@@ -485,7 +473,9 @@
             <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
             <li data-i18n="common3">تأكيد بعد الإتمام</li>
           </ul>
-          <a href="#contact" class="btn primary full" onclick="selectPlan(18)" data-i18n="choose">اختيار الباقة</a>
+
+          <!-- ✅ زر بدل رابط: مضمون التشغيل -->
+          <button type="button" class="btn primary full" onclick="selectPlan(18)" data-i18n="choose">اختيار الباقة</button>
         </div>
 
         <div class="card reveal">
@@ -498,7 +488,8 @@
             <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
             <li data-i18n="common3">تأكيد بعد الإتمام</li>
           </ul>
-          <a href="#contact" class="btn primary full" onclick="selectPlan(25)" data-i18n="choose">اختيار الباقة</a>
+
+          <button type="button" class="btn primary full" onclick="selectPlan(25)" data-i18n="choose">اختيار الباقة</button>
         </div>
 
         <div class="card reveal">
@@ -511,12 +502,12 @@
             <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
             <li data-i18n="common3">تأكيد بعد الإتمام</li>
           </ul>
-          <a href="#contact" class="btn primary full" onclick="selectPlan(35)" data-i18n="choose">اختيار الباقة</a>
+
+          <button type="button" class="btn primary full" onclick="selectPlan(35)" data-i18n="choose">اختيار الباقة</button>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="section-title">
         <h2 class="reveal" data-i18n="contact_title">نموذج الطلب</h2>
@@ -545,7 +536,7 @@
 
             <div>
               <label for="phone" data-i18n="lbl_phone">رقمك للتواصل (واتساب)</label>
-              <input id="phone" name="phone" required placeholder="+49..." />
+              <input id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="+49..." />
             </div>
 
             <div>
@@ -560,7 +551,7 @@
 
             <div>
               <label for="target" data-i18n="lbl_target">رقم الخط/الحساب داخل سوريا</label>
-              <input id="target" name="target_number" required placeholder="09XXXXXXXX" />
+              <input id="target" name="target_number" required inputmode="numeric" autocomplete="off" placeholder="09XXXXXXXX" />
             </div>
 
             <div>
@@ -582,13 +573,12 @@
             </div>
           </form>
 
-          <!-- Pay box -->
           <div id="payBox" class="mini-box" style="margin-top:14px; display:none;">
             <div class="inline">
               <div class="muted">
                 <b data-i18n="pay_selected">المبلغ المختار:</b> <span id="payLabel">—</span>
               </div>
-              <a id="payBtn" class="btn primary" href="#" target="_blank" rel="noopener">ادفع الآن</a>
+              <a id="payBtn" class="btn primary" href="#" target="_blank" rel="noopener" aria-label="Revolut payment">ادفع الآن</a>
             </div>
             <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.</div>
           </div>
@@ -597,7 +587,6 @@
       </div>
     </section>
 
-    <!-- ✅ FACEBOOK GROUP SECTION -->
     <section id="community">
       <div class="section-title">
         <h2 class="reveal" data-i18n="community_title">مجتمعنا على فيسبوك</h2>
@@ -628,7 +617,6 @@
     </footer>
   </main>
 
-  <!-- ✅ WhatsApp Floating Widget (يمين) -->
   <div class="wa-wrap" aria-label="WhatsApp Support">
     <div class="wa-bubble" id="waBubble">
       <button class="x" id="waClose" type="button" aria-label="إغلاق">×</button>
@@ -636,10 +624,9 @@
     </div>
 
     <a class="wa-btn"
-       href="https://wa.me/4915213873166?text=مرحبا%20اريد%20شحن%20انترنت%20الى%20سوريا"
+       href="https://wa.me/4915213873166?text=مرحبا%20"
        target="_blank" rel="noopener"
        aria-label="WhatsApp">
-      <!-- WhatsApp icon (SVG) -->
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="M19.11 17.41c-.27-.14-1.57-.77-1.82-.86-.25-.09-.43-.14-.61.14-.18.27-.7.86-.86 1.04-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.82c.14.18 1.91 2.92 4.63 4.09.65.28 1.15.45 1.54.58.65.21 1.24.18 1.7.11.52-.08 1.57-.64 1.79-1.26.22-.62.22-1.15.16-1.26-.07-.11-.25-.18-.52-.32zM16 28.8c-2.2 0-4.23-.64-5.95-1.75L6 28.8l1.78-3.89A12.72 12.72 0 0 1 3.2 16C3.2 8.93 8.93 3.2 16 3.2S28.8 8.93 28.8 16 23.07 28.8 16 28.8zm0-23.2C10.38 5.6 5.6 10.38 5.6 16c0 2.22.7 4.28 1.9 5.98l-.98 2.16 2.22-.94A10.36 10.36 0 0 0 16 26.4c5.62 0 10.4-4.78 10.4-10.4S21.62 5.6 16 5.6z"/>
       </svg>
@@ -785,6 +772,7 @@
     };
 
     const langSelect = document.getElementById("lang");
+
     function applyLang(lang){
       document.documentElement.lang = lang;
       document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
@@ -803,16 +791,17 @@
         }
       });
 
-      const savedPlan = localStorage.getItem("selected_plan_amount");
-      if(savedPlan) selectPlan(Number(savedPlan), true);
-
-      // Bubble text by language
+      // Update WhatsApp bubble text
       const bubbleText = document.getElementById("waBubbleText");
       if(bubbleText){
         bubbleText.textContent = (lang === "en")
           ? "Need help? Chat with us on WhatsApp"
           : "تحتاج مساعدة؟ تواصل معنا واتساب";
       }
+
+      // Restore plan selection
+      const savedPlan = localStorage.getItem("selected_plan_amount");
+      if(savedPlan) selectPlan(Number(savedPlan), true);
     }
 
     const savedLang = localStorage.getItem("lang") || "ar";
@@ -824,13 +813,14 @@
       applyLang(langSelect.value);
     });
 
-    // Revolut pay links (ضع روابطك)
+    // Revolut pay links
     const payLinks = {
       18: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92",
       25: "https://checkout.revolut.com/pay/7c510098-c099-47d8-977b-6da2901385ac",
       35: "https://checkout.revolut.com/pay/8f42d09d-b794-4ac0-81e1-9be5aa6189fc"
     };
 
+    // ✅ FIX: selectPlan shows payBox + scroll to it
     function selectPlan(amount, silent=false){
       const link = payLinks[amount];
       if(!link){
@@ -840,6 +830,7 @@
 
       const packInput = document.getElementById("pack");
       const lang = langSelect.value || "ar";
+
       if(packInput){
         packInput.value = (lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
       }
@@ -848,12 +839,22 @@
       const btn = document.getElementById("payBtn");
       const label = document.getElementById("payLabel");
 
+      if(!box || !btn || !label){
+        if(!silent) alert("Pay box elements not found. Check IDs: payBox, payBtn, payLabel");
+        return;
+      }
+
       label.textContent = `${amount}€`;
       btn.href = link;
       btn.textContent = (lang === "en") ? `Pay now ${amount}€` : `ادفع الآن ${amount}€`;
 
       box.style.display = "block";
       localStorage.setItem("selected_plan_amount", String(amount));
+
+      // نزول لقسم النموذج ثم لصندوق الدفع
+      const contactSection = document.getElementById("contact");
+      if(contactSection) contactSection.scrollIntoView({behavior:"smooth", block:"start"});
+      setTimeout(()=> box.scrollIntoView({behavior:"smooth", block:"center"}), 350);
     }
 
     // Restore selection on load
@@ -891,7 +892,7 @@
       }
     });
 
-    // ✅ WhatsApp bubble close + auto hide
+    // WhatsApp bubble close + auto hide
     const waClose = document.getElementById("waClose");
     const waBubble = document.getElementById("waBubble");
     if(waClose && waBubble){
@@ -900,11 +901,9 @@
         localStorage.setItem("wa_bubble_closed", "1");
       });
 
-      // Restore user preference
       const closed = localStorage.getItem("wa_bubble_closed");
       if(closed === "1") waBubble.style.display = "none";
 
-      // Auto hide after 12s (if not closed)
       if(closed !== "1"){
         setTimeout(()=>{ waBubble.style.display = "none"; }, 12000);
       }
@@ -912,4 +911,3 @@
   </script>
 </body>
 </html>
-
