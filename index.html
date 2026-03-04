@@ -6,13 +6,10 @@
   <title>GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان</title>
   <meta name="description" content="GO.RASEED — خدمة رقمية لشحن/تحويل رصيد الإنترنت إلى سوريا بسرعة وأمان مع تأكيد بعد التنفيذ." />
 
-  <meta property="og:title" content="GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان" />
-  <meta property="og:description" content="شحن/تحويل باقات الإنترنت إلى سوريا بمتابعة فورية وتأكيد بعد الإتمام." />
-  <meta property="og:type" content="website" />
-
   <style>
     :root{
       --bg:#070b14;
+      --bg2:#050812;
       --text:#eaf0ff;
       --muted:#b8c7ea;
       --line: rgba(255,255,255,.10);
@@ -34,27 +31,35 @@
       background:
         radial-gradient(1100px 560px at 85% 10%, rgba(167,139,250,.22), transparent 60%),
         radial-gradient(1000px 560px at 15% 15%, rgba(110,231,255,.18), transparent 60%),
-        linear-gradient(180deg, #050812, var(--bg));
+        linear-gradient(180deg, var(--bg2), var(--bg));
       line-height:1.85;
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:auto; padding: 18px;}
     .muted{color:var(--muted)}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.05);
+    .panel{
+      background: var(--panel);
       border:1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
     }
-    .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(110,231,255,.12);
+    .card{
+      background: var(--panel2);
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      padding: 18px;
+      transition: .22s ease;
+    }
+    .card:hover{transform: translateY(-3px); background: rgba(255,255,255,.055);}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+    @media (max-width: 980px){
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      h1{font-size:34px !important}
+      .hero-grid{grid-template-columns:1fr !important}
     }
 
+    /* Header */
     header{
       position: sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
@@ -65,10 +70,7 @@
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; flex-wrap:wrap;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      text-decoration:none;
-    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
     .logo{
       width:40px;height:40px;border-radius:14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -92,14 +94,8 @@
       transform: translateY(-1px);
     }
     .controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-    select{
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      color: var(--text);
-      padding:10px 12px;
-      border-radius: 14px;
-      outline:none;
-    }
+
+    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 12px 14px;
@@ -120,11 +116,24 @@
       font-weight:800;
       box-shadow: 0 12px 40px rgba(110,231,255,.15);
     }
-    .btn.ghost{
-      background: transparent;
-      border: 1px solid rgba(255,255,255,.14);
+    .btn.ghost{background: transparent; border: 1px solid rgba(255,255,255,.14);}
+    .btn.full{width:100%; margin-top:14px; font-weight:900;}
+
+    /* Language select (dark) */
+    select{
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color: var(--text);
+      padding:10px 12px;
+      border-radius: 14px;
+      outline:none;
+    }
+    select option{
+      background:#0b1220;
+      color:#fff;
     }
 
+    /* Sections */
     section{padding: 26px 0}
     .section-title{
       display:flex; justify-content:space-between; align-items:flex-end;
@@ -134,26 +143,21 @@
     .section-title h2{margin:0; font-size: 22px}
     .section-title p{margin:0; color: var(--muted); max-width: 700px}
 
-    .panel{
+    /* Hero */
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
       background: rgba(255,255,255,.05);
       border:1px solid var(--line);
-      border-radius: var(--r);
-      box-shadow: var(--shadow);
+      color: var(--muted);
+      font-size: 13px;
     }
-    .card{
-      background: rgba(255,255,255,.035);
-      border:1px solid var(--line);
-      border-radius: var(--r);
-      padding: 18px;
-      transition: .22s ease;
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(110,231,255,.12);
     }
-    .card:hover{
-      transform: translateY(-3px);
-      background: rgba(255,255,255,.055);
-    }
-    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;}
-    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px;}
-
     .hero{padding: 34px 0 16px;}
     .hero-grid{
       display:grid;
@@ -168,12 +172,13 @@
     .trust{margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap;}
     .trust .chip{
       display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius: 14px;
+      padding:10px 12px;
+      border-radius: 14px;
       background: rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.10);
-      color: var(--muted); font-size: 13px;
+      color: var(--muted);
+      font-size: 13px;
     }
-
     .hero-right{
       position:relative;
       overflow:hidden;
@@ -186,46 +191,24 @@
       border:1px solid var(--line);
       box-shadow: var(--shadow2);
     }
-
-    /* HERO IMAGE BOX */
     .hero-shot{
       height: 290px;
       border-radius: 18px;
       border:1px solid rgba(255,255,255,.10);
       position:relative;
       overflow:hidden;
-      background:
-        radial-gradient(120px 120px at 25% 30%, rgba(110,231,255,.22), transparent 60%),
-        radial-gradient(180px 160px at 80% 65%, rgba(167,139,250,.22), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    }
-    .hero-shot::before{
-      content:"";
-      position:absolute;
-      inset:-80px;
-      background:
-        radial-gradient(600px 260px at 60% 40%, rgba(110,231,255,.16), transparent 60%),
-        radial-gradient(700px 300px at 40% 70%, rgba(167,139,250,.16), transparent 60%);
-      filter: blur(4px);
-      opacity: .9;
-      z-index:0;
-      pointer-events:none;
+      background: rgba(255,255,255,.02);
     }
     .hero-img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
+      position:absolute; inset:0;
+      width:100%; height:100%;
       object-fit:cover;
       border-radius:18px;
-      z-index:1;
     }
     .hero-shot::after{
       content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(7,11,20,.12), rgba(7,11,20,.58));
-      z-index:1;
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(7,11,20,.12), rgba(7,11,20,.62));
       pointer-events:none;
     }
     .kpi{
@@ -254,30 +237,7 @@
       font-size: 13px;
     }
 
-    /* ✅ صورة الباقة داخل الكارد */
-    .plan-img{
-      width:100%;
-      height:140px;
-      object-fit:cover;
-      border-radius:14px;
-      margin-bottom:12px;
-      border:1px solid rgba(255,255,255,.10);
-      display:block;
-    }
-
-    /* Pricing helpers */
-    .price{
-      display:flex; align-items:flex-end; gap:8px;
-      margin: 10px 0 10px;
-    }
-    .price b{font-size: 26px}
-    .price span{color:var(--muted); font-size: 12px}
-    .list{
-      margin:0;
-      padding-inline-start: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    /* Pricing */
     .tag{
       display:inline-flex;
       padding:8px 10px;
@@ -291,8 +251,20 @@
     }
     .tag.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.10); color: #c6f6df}
     .tag.hot{border-color: rgba(110,231,255,.25); background: rgba(110,231,255,.10); color: #d7fbff}
+    .price{display:flex; align-items:flex-end; gap:8px; margin: 10px 0 10px;}
+    .price b{font-size: 30px}
+    .list{margin:0; padding-inline-start: 18px; color: var(--muted); font-size: 14px;}
 
-    /* Form */
+    .plan-img{
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:12px;
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    /* Contact */
     form{display:grid; gap:10px}
     label{font-size: 13px; color: var(--muted)}
     input, textarea, select.small{
@@ -321,23 +293,10 @@
       border-top: 1px solid rgba(255,255,255,.10);
       padding-top: 10px;
     }
-    .card .btn.full{
-      width:100%;
-      justify-content:center;
-      margin-top: 14px;
-      font-weight: 800;
-    }
 
+    /* Reveal */
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
     .reveal.show{opacity:1; transform:none}
-
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      h1{font-size: 34px}
-      .grid-3{grid-template-columns: 1fr}
-      .grid-2{grid-template-columns: 1fr}
-      .kpi{grid-template-columns: 1fr}
-    }
   </style>
 </head>
 
@@ -364,7 +323,7 @@
             <option value="en">English</option>
           </select>
           <a class="btn ghost" href="#pricing" data-i18n="cta_pricing">عرض الباقات</a>
-          <a class="btn primary" href="#contact" data-i18n="cta_start">اشحن الآن</a>
+          <a class="btn primary" href="#contact" data-i18n="cta_start">اطلب الآن</a>
         </div>
       </div>
     </div>
@@ -374,14 +333,13 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
-        <div class="panel hero-left reveal" style="padding:26px;">
+        <div class="panel hero-left reveal">
           <div class="pill"><span class="dot"></span> <span data-i18n="kicker">خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان</span></div>
 
-          <h1 data-i18n="hero_title">اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري</h1>
+          <h1 data-i18n="hero_title">اختر باقتك…<br/>ثم املأ الطلب وادفع فورًا</h1>
 
           <p class="lead" data-i18n="hero_lead">
-            GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام.
-            أرسل البيانات المطلوبة وسننفذ لك مباشرة.
+            حدّد الباقة المناسبة ثم اكتب بيانات الرقم داخل سوريا. بعد ذلك يظهر زر الدفع عبر Revolut بالمبلغ الصحيح.
           </p>
 
           <div class="hero-actions">
@@ -403,7 +361,7 @@
             <div class="kpi">
               <div class="k">
                 <b data-i18n="kpi1v">سريع</b>
-                <span data-i18n="kpi1l">تنفيذ خلال وقت قصير</span>
+                <span data-i18n="kpi1l">خلال وقت قصير</span>
               </div>
               <div class="k">
                 <b data-i18n="kpi2v">آمن</b>
@@ -411,11 +369,11 @@
               </div>
               <div class="k">
                 <b data-i18n="kpi3v">مؤكد</b>
-                <span data-i18n="kpi3l">رسالة تأكيد</span>
+                <span data-i18n="kpi3l">إشعار بعد الإتمام</span>
               </div>
             </div>
           </div>
-          <div class="hero-badge" data-i18n="badge">اختر الباقة ثم املأ الطلب — بعدها ادفع عبر Revolut</div>
+          <div class="hero-badge" data-i18n="badge">اختر الباقة ثم املأ الطلب — وسيظهر زر الدفع المناسب</div>
         </aside>
       </div>
     </section>
@@ -424,47 +382,44 @@
     <section id="pricing">
       <div class="section-title">
         <h2 class="reveal" data-i18n="pricing_title">الباقات</h2>
-        <p class="reveal" data-i18n="pricing_desc">اختر الباقة المناسبة، وسيتم توجيهك للنموذج مع زر الدفع المناسب.</p>
+        <p class="reveal" data-i18n="pricing_desc">اضغط “اختيار الباقة” وسيتم تعبئة النموذج وإظهار زر الدفع.</p>
       </div>
 
       <div class="grid-3">
-        <!-- 18 -->
         <div class="card reveal">
-          <img src="hero18.png" class="plan-img" alt="18€">
+          <img class="plan-img" src="hero18.png" alt="18">
           <div class="tag" data-i18n="p18_tag">أساسي</div>
           <h3 data-i18n="p18_title">باقة 18€</h3>
           <div class="price"><b>18€</b></div>
           <ul class="list">
             <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
             <li data-i18n="common3">تأكيد بعد الإتمام</li>
           </ul>
           <a href="#contact" class="btn primary full" onclick="selectPlan(18)" data-i18n="choose">اختيار الباقة</a>
         </div>
 
-        <!-- 25 -->
         <div class="card reveal">
-          <img src="hero25.png" class="plan-img" alt="25€">
+          <img class="plan-img" src="hero25.png" alt="25">
           <div class="tag hot" data-i18n="p25_tag">الأكثر طلبًا</div>
           <h3 data-i18n="p25_title">باقة 25€</h3>
           <div class="price"><b>25€</b></div>
           <ul class="list">
             <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
             <li data-i18n="common3">تأكيد بعد الإتمام</li>
           </ul>
           <a href="#contact" class="btn primary full" onclick="selectPlan(25)" data-i18n="choose">اختيار الباقة</a>
         </div>
 
-        <!-- 35 -->
         <div class="card reveal">
-          <img src="hero35.png" class="plan-img" alt="35€">
+          <img class="plan-img" src="hero35.png" alt="35">
           <div class="tag ok" data-i18n="p35_tag">مميز</div>
           <h3 data-i18n="p35_title">باقة 35€</h3>
           <div class="price"><b>35€</b></div>
           <ul class="list">
             <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد قبل التنفيذ</li>
+            <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
             <li data-i18n="common3">تأكيد بعد الإتمام</li>
           </ul>
           <a href="#contact" class="btn primary full" onclick="selectPlan(35)" data-i18n="choose">اختيار الباقة</a>
@@ -476,20 +431,18 @@
     <section id="contact">
       <div class="section-title">
         <h2 class="reveal" data-i18n="contact_title">نموذج الطلب</h2>
-        <p class="reveal" data-i18n="contact_desc">املأ البيانات. بعد اختيار الباقة سيظهر زر الدفع بالمبلغ الصحيح.</p>
+        <p class="reveal" data-i18n="contact_desc">املأ البيانات. زر الدفع سيظهر بعد اختيار الباقة.</p>
       </div>
 
       <div class="grid-2">
         <div class="card reveal">
           <h3 data-i18n="contact_info_title">التواصل السريع</h3>
           <div class="mini-box muted" style="margin-top:10px">
-            📞 واتساب: <b>+0000000000</b><br/>
-            ✉️ البريد: <b>info@yourdomain.com</b><br/>
-            🕒 الاستجابة: <b data-i18n="resp_time">خلال وقت قصير</b>
+            📞 <span data-i18n="wa_lbl">واتساب</span>: <b>+0000000000</b><br/>
+            ✉️ <span data-i18n="mail_lbl">البريد</span>: <b>info@yourdomain.com</b><br/>
+            🕒 <span data-i18n="resp_lbl">الاستجابة</span>: <b data-i18n="resp_time">خلال وقت قصير</b>
           </div>
-          <div class="hint" data-i18n="contact_hint">
-            نصيحة: اختر الباقة أولاً ليتم تعبئتها تلقائياً.
-          </div>
+          <div class="hint" data-i18n="contact_hint">اختر الباقة أولاً لتظهر لك خطوة الدفع.</div>
         </div>
 
         <div class="card reveal">
@@ -498,7 +451,7 @@
           <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div>
               <label for="name" data-i18n="lbl_name">الاسم</label>
-              <input id="name" name="name" required placeholder="الاسم الكامل" />
+              <input id="name" name="name" required data-i18n-ph="ph_name" placeholder="الاسم الكامل" />
             </div>
 
             <div>
@@ -523,12 +476,12 @@
 
             <div>
               <label for="pack" data-i18n="lbl_pack">الباقة</label>
-              <input id="pack" name="pack" required placeholder="اختر باقة من الأعلى" />
+              <input id="pack" name="pack" required data-i18n-ph="ph_pack" placeholder="اختر باقة من الأعلى" />
             </div>
 
             <div>
               <label for="msg" data-i18n="lbl_msg">ملاحظات</label>
-              <textarea id="msg" name="message" placeholder="أي تفاصيل إضافية (اختياري)"></textarea>
+              <textarea id="msg" name="message" data-i18n-ph="ph_msg" placeholder="أي تفاصيل إضافية (اختياري)"></textarea>
             </div>
 
             <input type="text" name="_gotcha" style="display:none">
@@ -546,13 +499,10 @@
               <div class="muted">
                 <b data-i18n="pay_selected">المبلغ المختار:</b> <span id="payLabel">—</span>
               </div>
-              <a id="payBtn" class="btn primary" href="#" target="_blank" rel="noopener">
-                ادفع الآن
-              </a>
+              <a id="payBtn" class="btn primary" href="#" target="_blank" rel="noopener">ادفع الآن</a>
             </div>
-            <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية للتأكيد.</div>
+            <div class="hint" data-i18n="pay_hint">بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.</div>
           </div>
-
         </div>
       </div>
     </section>
@@ -572,43 +522,46 @@
     }, {threshold: .12});
     document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
-    // ====== i18n ======
+    // i18n
     const dict = {
       ar:{
         tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
         nav_pricing:"الباقات",
         nav_contact:"اطلب الآن",
         cta_pricing:"عرض الباقات",
-        cta_start:"اشحن الآن",
+        cta_start:"اطلب الآن",
         kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
-        hero_title:"اشحن الإنترنت إلى سوريا…<br/>بخطوات بسيطة وتأكيد فوري",
-        hero_lead:"GO.RASEED توفر شحن/تحويل رصيد وباقات الإنترنت إلى سوريا بسرعة، مع متابعة لحظية وتأكيد بعد الإتمام. أرسل البيانات المطلوبة وسننفذ لك مباشرة.",
+        hero_title:"اختر باقتك…<br/>ثم املأ الطلب وادفع فورًا",
+        hero_lead:"حدّد الباقة المناسبة ثم اكتب بيانات الرقم داخل سوريا. بعد ذلك يظهر زر الدفع عبر Revolut بالمبلغ الصحيح.",
         hero_btn1:"اختر باقة",
         hero_btn2:"اذهب للنموذج",
         trust1:"تنفيذ سريع",
         trust2:"خصوصية وأمان",
         trust3:"تأكيد بعد الإتمام",
         trust4:"دعم عبر واتساب",
-        kpi1v:"سريع", kpi1l:"تنفيذ خلال وقت قصير",
+        kpi1v:"سريع", kpi1l:"خلال وقت قصير",
         kpi2v:"آمن",  kpi2l:"بياناتك محفوظة",
-        kpi3v:"مؤكد", kpi3l:"رسالة تأكيد",
-        badge:"اختر الباقة ثم املأ الطلب — بعدها ادفع عبر كل طرق دفع",
+        kpi3v:"مؤكد", kpi3l:"إشعار بعد الإتمام",
+        badge:"اختر الباقة ثم املأ الطلب — وسيظهر زر الدفع المناسب",
 
         pricing_title:"الباقات",
-        pricing_desc:"اختر الباقة المناسبة، وسيتم توجيهك للنموذج مع زر الدفع المناسب.",
+        pricing_desc:"اضغط “اختيار الباقة” وسيتم تعبئة النموذج وإظهار زر الدفع.",
         p18_tag:"أساسي", p18_title:"باقة 18€",
         p25_tag:"الأكثر طلبًا", p25_title:"باقة 25€",
         p35_tag:"مميز", p35_title:"باقة 35€",
         common1:"طلب واحد",
-        common2:"تأكيد قبل التنفيذ",
+        common2:"تأكيد تفاصيل الطلب",
         common3:"تأكيد بعد الإتمام",
         choose:"اختيار الباقة",
 
         contact_title:"نموذج الطلب",
-        contact_desc:"املأ البيانات. بعد اختيار الباقة سيظهر زر الدفع بالمبلغ الصحيح.",
+        contact_desc:"املأ البيانات. زر الدفع سيظهر بعد اختيار الباقة.",
         contact_info_title:"التواصل السريع",
+        wa_lbl:"واتساب",
+        mail_lbl:"البريد",
+        resp_lbl:"الاستجابة",
         resp_time:"خلال وقت قصير",
-        contact_hint:"نصيحة: اختر الباقة أولاً ليتم تعبئتها تلقائياً.",
+        contact_hint:"اختر الباقة أولاً لتظهر لك خطوة الدفع.",
         form_title:"بيانات الطلب",
         lbl_name:"الاسم",
         lbl_phone:"رقمك للتواصل (واتساب)",
@@ -618,8 +571,11 @@
         lbl_pack:"الباقة",
         lbl_msg:"ملاحظات",
         send:"إرسال الطلب",
+        ph_name:"الاسم الكامل",
+        ph_pack:"اختر باقة من الأعلى",
+        ph_msg:"أي تفاصيل إضافية (اختياري)",
         pay_selected:"المبلغ المختار:",
-        pay_hint:"بعد الدفع أرسل لقطة شاشة/رقم العملية للتأكيد.",
+        pay_hint:"بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.",
         rights:"جميع الحقوق محفوظة",
         sent_ok:"✅ تم إرسال الطلب! يمكنك الآن الدفع.",
         sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
@@ -629,10 +585,10 @@
         nav_pricing:"Packages",
         nav_contact:"Order",
         cta_pricing:"View packages",
-        cta_start:"Top-up now",
+        cta_start:"Order now",
         kicker:"Digital service for Syria internet top-ups — fast & secure",
-        hero_title:"Top-up internet in Syria…<br/>simple steps + instant confirmation",
-        hero_lead:"GO.RASEED provides fast, secure internet top-up/transfer to Syria. Send the details and we’ll process it.",
+        hero_title:"Choose your package…<br/>fill the form and pay instantly",
+        hero_lead:"Pick a package, enter the Syria number details, then the correct Revolut payment button will appear.",
         hero_btn1:"Choose a package",
         hero_btn2:"Go to form",
         trust1:"Fast execution",
@@ -641,33 +597,39 @@
         trust4:"WhatsApp support",
         kpi1v:"Fast", kpi1l:"Short turnaround",
         kpi2v:"Secure", kpi2l:"Your data is safe",
-        kpi3v:"Confirmed", kpi3l:"Confirmation message",
-        badge:"Choose the package, then fill out the order — after that, pay through all payment methods",
+        kpi3v:"Confirmed", kpi3l:"Confirmation notice",
+        badge:"Choose a package, fill the form — the payment button will appear",
 
         pricing_title:"Packages",
-        pricing_desc:"Choose a package and you will be directed to the form with the correct payment link.",
+        pricing_desc:"Click “Select package” to auto-fill the form and show the payment button.",
         p18_tag:"Basic", p18_title:"Package 18€",
         p25_tag:"Most popular", p25_title:"Package 25€",
         p35_tag:"Premium", p35_title:"Package 35€",
         common1:"Single request",
-        common2:"Confirm before execution",
+        common2:"Confirm request details",
         common3:"Confirmation after completion",
         choose:"Select package",
 
         contact_title:"Order form",
-        contact_desc:"Fill the details. After selecting a package you will see the correct payment button.",
+        contact_desc:"Fill the details. The payment button appears after selecting a package.",
         contact_info_title:"Fast contact",
+        wa_lbl:"WhatsApp",
+        mail_lbl:"Email",
+        resp_lbl:"Response",
         resp_time:"Short turnaround",
-        contact_hint:"Tip: select a package first to auto-fill the form.",
+        contact_hint:"Select a package first to enable payment step.",
         form_title:"Request details",
         lbl_name:"Name",
-        lbl_phone:"WhatsApp number",
+        lbl_phone:"Your WhatsApp number",
         lbl_provider:"Syria provider",
         opt_pick:"Pick a provider",
         lbl_target:"Syria number/account",
         lbl_pack:"Package",
         lbl_msg:"Notes",
         send:"Send request",
+        ph_name:"Full name",
+        ph_pack:"Select a package above",
+        ph_msg:"Any additional details (optional)",
         pay_selected:"Selected amount:",
         pay_hint:"After paying, send a screenshot/transaction ID to confirm.",
         rights:"All rights reserved",
@@ -680,67 +642,85 @@
     function applyLang(lang){
       document.documentElement.lang = lang;
       document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const k = el.getAttribute("data-i18n");
-        if(dict[lang] && dict[lang][k] !== undefined) el.innerHTML = dict[lang][k];
+        if(dict[lang] && dict[lang][k] !== undefined){
+          el.innerHTML = dict[lang][k];
+        }
       });
+
+      document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+        const k = el.getAttribute("data-i18n-ph");
+        if(dict[lang] && dict[lang][k] !== undefined){
+          el.setAttribute("placeholder", dict[lang][k]);
+        }
+      });
+
+      // refresh pay button text if selected
+      const savedPlan = localStorage.getItem("selected_plan_amount");
+      if(savedPlan) selectPlan(Number(savedPlan), true);
     }
-    const saved = localStorage.getItem("lang") || "ar";
-    langSelect.value = saved;
-    applyLang(saved);
+
+    const savedLang = localStorage.getItem("lang") || "ar";
+    langSelect.value = savedLang;
+    applyLang(savedLang);
+
     langSelect.addEventListener("change", ()=>{
       localStorage.setItem("lang", langSelect.value);
       applyLang(langSelect.value);
     });
 
-    // ====== Revolut pay links ======
+    // Revolut pay links
     const payLinks = {
       18: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92",
       25: "https://checkout.revolut.com/pay/7c510098-c099-47d8-977b-6da2901385ac",
-      35: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92" // ضع رابط 35 الصحيح هنا إذا مختلف
+      35: "https://checkout.revolut.com/pay/8f42d09d-b794-4ac0-81e1-9be5aa6189fc"
     };
 
-    function selectPlan(amount){
+    function selectPlan(amount, silent=false){
       const link = payLinks[amount];
       if(!link){
-        alert("رابط الدفع غير متوفر لهذه الباقة");
+        if(!silent) alert("Payment link is missing for this plan.");
         return;
       }
 
+      // fill pack input
       const packInput = document.getElementById("pack");
-      if(packInput) packInput.value = (langSelect.value === "en")
-        ? `Package ${amount}€`
-        : `باقة بقيمة ${amount}€`;
+      const lang = langSelect.value || "ar";
+      if(packInput){
+        packInput.value = (lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
+      }
 
+      // show pay box
       const box = document.getElementById("payBox");
       const btn = document.getElementById("payBtn");
       const label = document.getElementById("payLabel");
 
       label.textContent = `${amount}€`;
       btn.href = link;
-      btn.textContent = (langSelect.value === "en")
-        ? `Pay now ${amount}€`
-        : `ادفع الآن ${amount}€`;
+      btn.textContent = (lang === "en") ? `Pay now ${amount}€` : `ادفع الآن ${amount}€`;
 
       box.style.display = "block";
       localStorage.setItem("selected_plan_amount", String(amount));
     }
 
-    // Restore selection
+    // Restore selection on load
     document.addEventListener("DOMContentLoaded", ()=>{
       const savedPlan = localStorage.getItem("selected_plan_amount");
-      if(savedPlan && payLinks[Number(savedPlan)]) selectPlan(Number(savedPlan));
+      if(savedPlan && payLinks[Number(savedPlan)]) selectPlan(Number(savedPlan), true);
     });
 
-    // Formspree AJAX
+    // Formspree AJAX (keeps selected plan)
     const form = document.getElementById("contactForm");
     const msg = document.getElementById("formMsg");
-    const btn = document.getElementById("sendBtn");
+    const sendBtn = document.getElementById("sendBtn");
+
     form.addEventListener("submit", async (e)=>{
       e.preventDefault();
       msg.textContent = "";
-      btn.disabled = true;
-      btn.style.opacity = ".85";
+      sendBtn.disabled = true;
+      sendBtn.style.opacity = ".85";
 
       try{
         const res = await fetch(form.action, {
@@ -750,20 +730,15 @@
         });
 
         const lang = langSelect.value || "ar";
-        if(res.ok){
-          msg.textContent = dict[lang].sent_ok;
-        }else{
-          msg.textContent = dict[lang].sent_err;
-        }
+        msg.textContent = res.ok ? dict[lang].sent_ok : dict[lang].sent_err;
       }catch(err){
         const lang = langSelect.value || "ar";
         msg.textContent = dict[lang].sent_err;
       }finally{
-        btn.disabled = false;
-        btn.style.opacity = "1";
+        sendBtn.disabled = false;
+        sendBtn.style.opacity = "1";
       }
     });
   </script>
 </body>
 </html>
-
