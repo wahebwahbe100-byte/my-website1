@@ -407,7 +407,6 @@
 
         <aside class="hero-right reveal">
           <div class="hero-shot">
-            <!-- ✅ تم تعديل المسار لتقليل أخطاء المسار -->
             <img src="./assets/hero.png" class="hero-img" alt="Hero" />
             <div class="kpi">
               <div class="k"><b data-i18n="kpi1v">سريع</b><span data-i18n="kpi1l">خلال وقت قصير</span></div>
@@ -466,6 +465,29 @@
           <button type="button" class="btn primary full" data-plan="35" data-i18n="choose">اختيار الباقة</button>
         </div>
       </div>
+
+      <!-- ✅ Loyalty program -->
+      <div class="card reveal" style="margin-top:14px">
+        <div class="pill"><span class="dot"></span> <span data-i18n="loyalty_title">برنامج الولاء</span></div>
+
+        <p class="muted" style="margin:10px 0 0" data-i18n="loyalty_desc">
+          بعد <b>5 عمليات شحن مكتملة</b> من GO.RASEED ستحصل على <b>خصم 5€</b> على الطلب القادم.
+        </p>
+
+        <div class="mini-box" style="margin-top:12px">
+          <div class="inline" style="gap:10px">
+            <div class="muted">
+              <b data-i18n="loyalty_progress_label">تقدّمك الحالي:</b>
+              <span id="loyaltyProgress">0/5</span>
+            </div>
+            <button type="button" class="btn" id="loyaltyResetBtn" data-i18n="loyalty_reset">إعادة ضبط</button>
+          </div>
+
+          <div class="hint" data-i18n="loyalty_hint">
+            يتم احتساب التقدّم عندك على نفس الجهاز/المتصفح. بعد كل عملية مكتملة يمكنك الضغط “تم التنفيذ” داخل صندوق الدفع.
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="contact">
@@ -488,7 +510,6 @@
         <div class="card reveal">
           <h3 data-i18n="form_title">بيانات الطلب</h3>
 
-          <!-- ✅ عدّل رابط Formspree هنا -->
           <form id="contactForm" action="https://formspree.io/f/mqedrbgd" method="POST">
             <div>
               <label for="name" data-i18n="lbl_name">الاسم</label>
@@ -548,13 +569,19 @@
               <div class="note" id="waMsg"></div>
             </div>
 
+            <!-- ✅ Loyalty actions -->
+            <div class="inline" style="margin-top:10px; gap:10px;">
+              <button type="button" class="btn" id="doneBtn" data-i18n="loyalty_done">✅ تم التنفيذ (عدّ العملية)</button>
+              <button type="button" class="btn ghost" id="applyDiscountBtn" style="display:none;" data-i18n="loyalty_apply">🎁 استخدم خصم 5€ الآن</button>
+              <div class="note" id="loyaltyMsg"></div>
+            </div>
+
             <div class="hint" data-i18n="pay_hint">بعد الدفع اضغط زر واتساب لإرسال التفاصيل (ويمكنك إرفاق لقطة شاشة).</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ✅ FACEBOOK COMMUNITY (قبل الفوتر) -->
     <section id="community">
       <div class="wrap">
         <div class="section-title">
@@ -639,7 +666,15 @@
         opt_pick:"اختر المزود", lbl_target:"رقم الخط/الحساب داخل سوريا", lbl_pack:"الباقة", lbl_msg:"ملاحظات",
         send:"إرسال الطلب",
         pay_selected:"المبلغ المختار:",
-        pay_hint:"بعد الدفع اضغط زر واتساب لإرسال التفاصيل (ويمكنك إرفاق لقطة شاشة)."
+        pay_hint:"بعد الدفع اضغط زر واتساب لإرسال التفاصيل (ويمكنك إرفاق لقطة شاشة).",
+
+        loyalty_title:"برنامج الولاء",
+        loyalty_desc:"بعد <b>5 عمليات شحن مكتملة</b> من GO.RASEED ستحصل على <b>خصم 5€</b> على الطلب القادم.",
+        loyalty_progress_label:"تقدّمك الحالي:",
+        loyalty_reset:"إعادة ضبط",
+        loyalty_hint:"يتم احتساب التقدّم عندك على نفس الجهاز/المتصفح. بعد كل عملية مكتملة يمكنك الضغط “تم التنفيذ” داخل صندوق الدفع.",
+        loyalty_done:"✅ تم التنفيذ (عدّ العملية)",
+        loyalty_apply:"🎁 استخدم خصم 5€ الآن"
       },
       en:{
         tagline:"Syria Internet Top-Up • Fast & Secure",
@@ -666,7 +701,15 @@
         opt_pick:"Pick a provider", lbl_target:"Syria number/account", lbl_pack:"Package", lbl_msg:"Notes",
         send:"Send request",
         pay_selected:"Selected amount:",
-        pay_hint:"After paying, click WhatsApp button to send details (you may attach a screenshot)."
+        pay_hint:"After paying, click WhatsApp button to send details (you may attach a screenshot).",
+
+        loyalty_title:"Loyalty program",
+        loyalty_desc:"After <b>5 completed top-ups</b> with GO.RASEED, you’ll get <b>5€ off</b> your next order.",
+        loyalty_progress_label:"Your progress:",
+        loyalty_reset:"Reset",
+        loyalty_hint:"Progress is stored on this device/browser. After each completed order, click “Completed” in the payment box.",
+        loyalty_done:"✅ Completed (count this order)",
+        loyalty_apply:"🎁 Apply 5€ discount now"
       }
     };
 
@@ -690,6 +733,7 @@
       applyLang(langSelect.value);
       const saved = localStorage.getItem("selected_plan_amount");
       if(saved) applyPlan(Number(saved), true);
+      updateLoyaltyUI();
     });
 
     // ✅ روابط الدفع (عدّلها عند الحاجة)
@@ -728,6 +772,8 @@
 
       document.getElementById("contact")?.scrollIntoView({behavior:"smooth", block:"start"});
       setTimeout(()=> box.scrollIntoView({behavior:"smooth", block:"center"}), 320);
+
+      updateLoyaltyUI();
     }
 
     // أزرار الباقات
@@ -741,7 +787,7 @@
     const savedPlan = localStorage.getItem("selected_plan_amount");
     if(savedPlan && payLinks[Number(savedPlan)]) applyPlan(Number(savedPlan), true);
 
-    // فتح رابط الدفع
+    // فتح رابط الدفع (يفتح في نفس الصفحة — تركته كما عندك)
     document.getElementById("payBtn").addEventListener("click", (e)=>{
       e.preventDefault();
       const link = e.currentTarget.dataset.link || e.currentTarget.getAttribute("href");
@@ -845,6 +891,93 @@ Notes: ${notes}`
       if(closed === "1") waBubble.style.display = "none";
       if(closed !== "1") setTimeout(()=>{ waBubble.style.display = "none"; }, 12000);
     }
+
+    // ✅ Loyalty program (device/browser local)
+    const LOYALTY_KEY = "loyalty_completed_count"; // 0..5
+    const DISCOUNT_KEY = "loyalty_discount_ready"; // "1" or "0"
+
+    function getLoyaltyCount(){
+      return Number(localStorage.getItem(LOYALTY_KEY) || "0") || 0;
+    }
+    function setLoyaltyCount(n){
+      localStorage.setItem(LOYALTY_KEY, String(Math.max(0, Math.min(999, n))));
+    }
+    function isDiscountReady(){
+      return localStorage.getItem(DISCOUNT_KEY) === "1";
+    }
+    function setDiscountReady(v){
+      localStorage.setItem(DISCOUNT_KEY, v ? "1" : "0");
+    }
+
+    function updateLoyaltyUI(){
+      const count = getLoyaltyCount();
+      const progressEl = document.getElementById("loyaltyProgress");
+      if(progressEl) progressEl.textContent = `${Math.min(count,5)}/5`;
+
+      const applyBtn = document.getElementById("applyDiscountBtn");
+      if(applyBtn) applyBtn.style.display = isDiscountReady() ? "inline-flex" : "none";
+    }
+    updateLoyaltyUI();
+
+    document.getElementById("loyaltyResetBtn")?.addEventListener("click", ()=>{
+      setLoyaltyCount(0);
+      setDiscountReady(false);
+      updateLoyaltyUI();
+      const m = document.getElementById("loyaltyMsg");
+      if(m) m.textContent = "";
+    });
+
+    // زر: تم التنفيذ (يزيد العدّاد، وإذا وصل 5 يجهّز الخصم)
+    document.getElementById("doneBtn")?.addEventListener("click", ()=>{
+      const lang = langSelect.value || "ar";
+      const m = document.getElementById("loyaltyMsg");
+
+      let c = getLoyaltyCount();
+      if(isDiscountReady()){
+        if(m) m.textContent = (lang === "en") ? "🎁 You already have a 5€ discount ready." : "🎁 لديك خصم 5€ جاهز بالفعل.";
+        updateLoyaltyUI();
+        return;
+      }
+
+      c += 1;
+      setLoyaltyCount(c);
+
+      if(c >= 5){
+        setDiscountReady(true);
+        if(m) m.textContent = (lang === "en")
+          ? "✅ Congrats! 5€ discount is ready. Click “Apply discount”."
+          : "✅ مبروك! خصم 5€ صار جاهز. اضغط “استخدم خصم 5€”";
+      }else{
+        if(m) m.textContent = (lang === "en")
+          ? `✅ Counted. Progress: ${Math.min(c,5)}/5`
+          : `✅ تم العد. تقدّمك: ${Math.min(c,5)}/5`;
+      }
+
+      updateLoyaltyUI();
+    });
+
+    // زر: استخدم الخصم الآن (يعطي تعليمات + يكتب ملاحظة تلقائية)
+    document.getElementById("applyDiscountBtn")?.addEventListener("click", ()=>{
+      const lang = langSelect.value || "ar";
+      const m = document.getElementById("loyaltyMsg");
+      const notes = document.getElementById("msg");
+
+      // نضيف ملاحظة تلقائية ليعرف صاحب الخدمة
+      const stamp = (lang === "en") ? "Loyalty discount 5€" : "خصم الولاء 5€";
+      if(notes){
+        const existing = notes.value.trim();
+        notes.value = existing ? (existing + "\n" + stamp) : stamp;
+      }
+
+      // نعمل “حجز” الخصم (مرة واحدة)
+      setDiscountReady(false);
+      setLoyaltyCount(0);
+      updateLoyaltyUI();
+
+      if(m) m.textContent = (lang === "en")
+        ? "🎁 Discount applied (note added). Send details on WhatsApp or submit the form."
+        : "🎁 تم تفعيل الخصم (تم إضافة ملاحظة). أرسل التفاصيل واتساب أو أرسل الطلب.";
+    });
   </script>
 </body>
 </html>
