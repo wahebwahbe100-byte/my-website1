@@ -303,6 +303,27 @@
     /* Reveal */
     .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
     .reveal.show{opacity:1; transform:none}
+
+    /* ✅ Community background (World Map) */
+    #community{
+      position: relative;
+      background: url("assets/world-map-bg.png") center/cover no-repeat; /* غيّر الاسم إذا ملفك مختلف */
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 34px 0;
+    }
+    #community::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(5,8,18,.82);
+      pointer-events:none;
+    }
+    #community .section-title,
+    #community .card{
+      position: relative;
+      z-index: 2;
+    }
   </style>
 </head>
 
@@ -514,7 +535,7 @@
       </div>
     </section>
 
-    <!-- ✅ FACEBOOK GROUP SECTION (added) -->
+    <!-- ✅ FACEBOOK GROUP SECTION -->
     <section id="community">
       <div class="section-title">
         <h2 class="reveal" data-i18n="community_title">مجتمعنا على فيسبوك</h2>
@@ -613,7 +634,6 @@
         sent_ok:"✅ تم إرسال الطلب! يمكنك الآن الدفع.",
         sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree.",
 
-        // ✅ Community section
         community_title:"مجتمعنا على فيسبوك",
         community_desc:"انضم إلى أكثر من 7000+ عضو في مجموعتنا.",
         community_big:"+7000 عضو في المجتمع",
@@ -676,7 +696,6 @@
         sent_ok:"✅ Request sent! You can now pay.",
         sent_err:"❌ Failed to send. Check Formspree setup.",
 
-        // ✅ Community section
         community_title:"Our Facebook community",
         community_desc:"Join 7000+ members in our group.",
         community_big:"7000+ community members",
