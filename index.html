@@ -3,26 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>GO.RASEED | شحن إنترنت إلى سوريا بسرعة وأمان</title>
-  <meta name="description" content="خدمة رقمية لشحن الإنترنت إلى سوريا بسرعة وأمان مع تأكيد بعد التنفيذ." />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <title>GO.RASEED | شحن إنترنت إلى سوريا</title>
 
   <style>
     :root{
-      --bg:#070b14;
-      --bg2:#050812;
-      --text:#eaf0ff;
-      --muted:#b8c7ea;
+      --bg:#070b14; --bg2:#050812;
+      --text:#eaf0ff; --muted:#b8c7ea;
       --line: rgba(255,255,255,.10);
       --panel: rgba(255,255,255,.05);
       --panel2: rgba(255,255,255,.035);
-      --accent:#6ee7ff;
-      --accent2:#a78bfa;
+      --accent:#6ee7ff; --accent2:#a78bfa;
       --shadow: 0 20px 80px rgba(0,0,0,.45);
-      --shadow2: 0 10px 30px rgba(0,0,0,.35);
-      --max: 1120px;
       --r: 18px;
+      --max: 1120px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -37,233 +30,81 @@
       line-height:1.85;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:auto; padding: 18px;}
+    .wrap{max-width:var(--max); margin:auto; padding:18px;}
     .muted{color:var(--muted)}
-    .panel{
-      background: var(--panel);
-      border:1px solid var(--line);
-      border-radius: var(--r);
-      box-shadow: var(--shadow);
-    }
-    .card{
-      background: var(--panel2);
-      border:1px solid var(--line);
-      border-radius: var(--r);
-      padding: 18px;
-      transition: .22s ease;
-    }
-    .card:hover{transform: translateY(-3px); background: rgba(255,255,255,.055);}
-    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
-    @media (max-width: 980px){
-      .grid-3,.grid-2{grid-template-columns:1fr}
-      h1{font-size:34px !important}
-      .hero-grid{grid-template-columns:1fr !important}
-    }
-
     header{
       position: sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
       background: rgba(5,8,18,.55);
       border-bottom:1px solid var(--line);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; flex-wrap:wrap;
-    }
+    .nav{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
     .logo-img{
-      width:40px;height:40px;border-radius:14px;
-      object-fit:cover;
+      width:40px;height:40px;border-radius:14px; object-fit:cover;
       border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 12px 30px rgba(110,231,255,.12);
       background: rgba(255,255,255,.06);
     }
-    .brand strong{display:block; font-size:14px; letter-spacing:.3px}
-    .brand span{display:block; font-size:12px; color:var(--muted)}
     .links{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
     .links a{
-      text-decoration:none;
-      color: var(--muted);
-      padding:10px 12px;
-      border-radius: 14px;
-      transition: .2s ease;
-      border:1px solid transparent;
+      text-decoration:none; color: var(--muted);
+      padding:10px 12px; border-radius:14px;
+      transition:.2s ease; border:1px solid transparent;
     }
-    .links a:hover{
-      color:var(--text);
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.08);
-      transform: translateY(-1px);
-    }
+    .links a:hover{color:var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08);}
     .controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      text-decoration:none;
-      transition: .2s ease;
-      cursor:pointer;
-      font: inherit;
-      color: var(--text);
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#071022;
-      font-weight:800;
-      box-shadow: 0 12px 40px rgba(110,231,255,.15);
-    }
-    .btn.ghost{background: transparent; border: 1px solid rgba(255,255,255,.14);}
-    .btn.full{width:100%; margin-top:14px; font-weight:900;}
-    .btn.danger{border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04);}
-
     select{
       background: rgba(255,255,255,.06);
       border:1px solid var(--line);
       color: var(--text);
       padding:10px 12px;
-      border-radius: 14px;
+      border-radius:14px;
       outline:none;
     }
-    select option{ background:#0b1220; color:#fff; }
+    select option{background:#0b1220; color:#fff}
+
+    .panel{background: var(--panel); border:1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow);}
+    .card{background: var(--panel2); border:1px solid var(--line); border-radius: var(--r); padding:18px;}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+    @media (max-width: 980px){.grid-3,.grid-2{grid-template-columns:1fr} h1{font-size:34px !important}}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 14px; border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      text-decoration:none; cursor:pointer;
+      font: inherit; color: var(--text);
+      transition:.2s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#071022; font-weight:900;
+    }
+    .btn.full{width:100%; margin-top:14px; font-weight:900;}
+    .btn:disabled{opacity:.6; cursor:not-allowed; transform:none}
 
     section{padding: 26px 0}
-    .section-title{
-      display:flex; justify-content:space-between; align-items:flex-end;
-      gap:12px; flex-wrap:wrap;
-      margin: 6px 0 12px;
-    }
-    .section-title h2{margin:0; font-size: 22px}
-    .section-title p{margin:0; color: var(--muted); max-width: 700px}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(110,231,255,.12);
-    }
-
-    .hero{padding: 34px 0 16px;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-    .hero-left{padding: 26px;}
     h1{margin: 14px 0 10px; font-size: 44px; line-height: 1.15;}
-    .lead{margin: 0 0 18px; color: var(--muted); font-size: 16px;}
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
-    .trust{margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap;}
-    .trust .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .hero-right{
-      position:relative;
-      overflow:hidden;
-      padding: 18px;
-      border-radius: var(--r);
-      background:
-        radial-gradient(600px 280px at 85% 20%, rgba(110,231,255,.18), transparent 55%),
-        radial-gradient(700px 300px at 20% 70%, rgba(167,139,250,.18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      box-shadow: var(--shadow2);
-    }
-    .hero-shot{
-      height: 290px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      position:relative;
-      overflow:hidden;
-      background: rgba(255,255,255,.02);
-    }
-    .hero-img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      border-radius:18px;
-    }
-    .hero-shot::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(7,11,20,.12), rgba(7,11,20,.62));
-      pointer-events:none;
-    }
-    .kpi{
-      position:absolute;
-      inset:auto 14px 14px 14px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-      z-index:2;
-    }
-    .kpi .k{
-      padding:12px;
-      border-radius: 16px;
-      background: rgba(7,11,20,.55);
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .k b{display:block; font-size: 16px}
-    .k span{display:block; font-size: 12px; color: var(--muted)}
-    .hero-badge{
-      margin-top: 12px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(7,11,20,.50);
-      border:1px solid rgba(255,255,255,.12);
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .lead{margin:0 0 18px; color: var(--muted); font-size: 16px;}
 
     .tag{
-      display:inline-flex;
-      padding:8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      font-size:12px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
       color: var(--muted);
-      gap:8px;
-      align-items:center;
     }
-    .tag.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.10); color: #c6f6df}
-    .tag.hot{border-color: rgba(110,231,255,.25); background: rgba(110,231,255,.10); color: #d7fbff}
-    .price{display:flex; align-items:flex-end; gap:8px; margin: 10px 0 10px;}
+    .tag.hot{border-color: rgba(110,231,255,.25); background: rgba(110,231,255,.10); color:#d7fbff}
+    .tag.ok{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.10); color:#c6f6df}
+    .price{display:flex; align-items:flex-end; gap:8px; margin: 10px 0;}
     .price b{font-size: 30px}
     .list{margin:0; padding-inline-start: 18px; color: var(--muted); font-size: 14px;}
 
-    .plan-img{
-      width:100%;
-      height:140px;
-      object-fit:cover;
-      border-radius:14px;
-      margin-bottom:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-
-    form{display:grid; gap:10px}
     label{font-size: 13px; color: var(--muted)}
     input, textarea, select.small{
       width:100%;
@@ -275,87 +116,12 @@
       outline:none;
       font-size: 14px;
     }
-    textarea{min-height:130px; resize: vertical}
+    textarea{min-height:120px; resize: vertical}
+    form{display:grid; gap:10px}
     .inline{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;}
-    .note{font-size: 13px; color: var(--muted)}
-    .mini-box{
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .hint{
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,.10);
-      padding-top: 10px;
-    }
-
-    .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
-    .reveal.show{opacity:1; transform:none}
-
-    /* WhatsApp floating */
-    .wa-wrap{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      direction: rtl;
-    }
-    .wa-bubble{
-      background: rgba(7,11,20,.88);
-      border: 1px solid rgba(255,255,255,.14);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: 230px;
-    }
-    .wa-bubble .x{
-      width: 26px; height: 26px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      cursor: pointer;
-      display:flex; align-items:center; justify-content:center;
-      line-height: 1;
-    }
-    .wa-btn{
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #25D366;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
-      transition: .2s ease;
-      animation: waPulse 2s infinite;
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    .wa-btn:hover{transform: scale(1.06)}
-    .wa-btn svg{width: 32px; height: 32px; fill: #fff}
-
-    @keyframes waPulse{
-      0%{box-shadow:0 0 0 0 rgba(37,211,102,.55), 0 12px 30px rgba(0,0,0,.35);}
-      70%{box-shadow:0 0 0 18px rgba(37,211,102,0), 0 12px 30px rgba(0,0,0,.35);}
-      100%{box-shadow:0 0 0 0 rgba(37,211,102,0), 0 12px 30px rgba(0,0,0,.35);}
-    }
-
-    @media (max-width: 600px){
-      .wa-bubble{display:none;}
-      .wa-wrap{right: 14px; bottom: 14px;}
-      .wa-btn{width: 58px; height: 58px;}
-    }
+    .mini-box{padding:14px; border-radius:16px; background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10);}
+    .hint{margin-top:10px; font-size:13px; color: var(--muted); border-top:1px solid rgba(255,255,255,.10); padding-top:10px;}
+    .note{font-size:13px; color: var(--muted)}
   </style>
 </head>
 
@@ -363,157 +129,118 @@
   <header>
     <div class="wrap">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="GO.RASEED">
-          <img src="assets/logo.png" class="logo-img" alt="GO.RASEED logo" />
+        <a class="brand" href="#top">
+          <img src="assets/logo.png" class="logo-img" alt="logo" onerror="this.style.display='none'">
           <div>
             <strong>GO.RASEED</strong>
-            <span class="muted" data-i18n="tagline">شحن إنترنت إلى سوريا • بسرعة وأمان</span>
+            <div class="muted" id="tagline">شحن إنترنت إلى سوريا • بسرعة وأمان</div>
           </div>
         </a>
 
-        <nav class="links" aria-label="Primary">
-          <a href="#pricing" data-i18n="nav_pricing">الباقات</a>
-          <a href="#contact" data-i18n="nav_contact">اطلب الآن</a>
+        <nav class="links">
+          <a href="#pricing">الباقات</a>
+          <a href="#contact">اطلب الآن</a>
         </nav>
 
         <div class="controls">
-          <select id="lang" aria-label="Language">
+          <select id="lang">
             <option value="ar">العربية</option>
             <option value="en">English</option>
           </select>
-          <a class="btn ghost" href="#pricing" data-i18n="cta_pricing">عرض الباقات</a>
-          <a class="btn primary" href="#contact" data-i18n="cta_start">اطلب الآن</a>
+          <a class="btn" href="#pricing" id="ctaPackages">عرض الباقات</a>
+          <a class="btn primary" href="#contact" id="ctaOrder">اطلب الآن</a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="top" class="wrap">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="panel hero-left reveal">
-          <div class="pill"><span class="dot"></span> <span data-i18n="kicker">خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان</span></div>
-
-          <h1 data-i18n="hero_title">اختر باقتك…<br/>ثم املأ الطلب وادفع فورًا</h1>
-
-          <p class="lead" data-i18n="hero_lead">
-            اختر الباقة، املأ البيانات، ثم أرسل الطلب. بعد التأكيد يظهر لك زر الدفع عبر Revolut.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#pricing" data-i18n="hero_btn1">اختر باقة</a>
-            <a class="btn" href="#contact" data-i18n="hero_btn2">اذهب للنموذج</a>
-          </div>
-
-          <div class="trust">
-            <div class="chip">⚡ <span data-i18n="trust1">تنفيذ سريع</span></div>
-            <div class="chip">🛡️ <span data-i18n="trust2">خصوصية وأمان</span></div>
-            <div class="chip">✅ <span data-i18n="trust3">تأكيد بعد الإتمام</span></div>
-            <div class="chip">💬 <span data-i18n="trust4">دعم عبر واتساب</span></div>
-          </div>
-        </div>
-
-        <aside class="hero-right reveal" aria-label="Highlights">
-          <div class="hero-shot" aria-label="Hero image">
-            <img src="assets/hero.png" class="hero-img" alt="GO.RASEED hero" onerror="this.style.display='none'">
-            <div class="kpi">
-              <div class="k"><b data-i18n="kpi1v">سريع</b><span data-i18n="kpi1l">خلال وقت قصير</span></div>
-              <div class="k"><b data-i18n="kpi2v">آمن</b><span data-i18n="kpi2l">بياناتك محفوظة</span></div>
-              <div class="k"><b data-i18n="kpi3v">مؤكد</b><span data-i18n="kpi3l">إشعار بعد الإتمام</span></div>
-            </div>
-          </div>
-          <div class="hero-badge" data-i18n="badge">اختر الباقة ثم املأ الطلب — بعد الإرسال يظهر زر الدفع</div>
-        </aside>
+    <section class="panel" style="padding:22px">
+      <h1 id="heroTitle">اختر باقتك… ثم املأ الطلب وادفع</h1>
+      <p class="lead" id="heroLead">اختر الباقة، املأ البيانات، اضغط إرسال. بعد نجاح الإرسال يظهر زر الدفع عبر Revolut.</p>
+      <div class="inline">
+        <a class="btn primary" href="#pricing" id="heroBtn1">اختر باقة</a>
+        <a class="btn" href="#contact" id="heroBtn2">اذهب للنموذج</a>
       </div>
     </section>
 
     <!-- PRICING -->
     <section id="pricing">
-      <div class="section-title">
-        <h2 class="reveal" data-i18n="pricing_title">الباقات</h2>
-        <p class="reveal" data-i18n="pricing_desc">اضغط “اختيار الباقة” لملء النموذج تلقائيًا.</p>
+      <div class="inline" style="margin-bottom:12px">
+        <h2 style="margin:0">الباقات</h2>
+        <p class="muted" style="margin:0">اضغط اختيار الباقة لملء النموذج.</p>
       </div>
 
       <div class="grid-3">
-        <div class="card reveal">
-          <img class="plan-img" src="assets/plan18.png" alt="18" onerror="this.style.display='none'">
-          <div class="tag" data-i18n="p18_tag">أساسي</div>
-          <h3 data-i18n="p18_title">باقة 18€</h3>
+        <div class="card">
+          <div class="tag">أساسي</div>
+          <h3 style="margin:10px 0 0">باقة 18€</h3>
           <div class="price"><b>18€</b></div>
           <ul class="list">
-            <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
-            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+            <li>طلب واحد</li><li>تأكيد تفاصيل الطلب</li><li>تأكيد بعد الإتمام</li>
           </ul>
-          <button type="button" class="btn primary full" data-plan="18" data-i18n="choose">اختيار الباقة</button>
+          <button type="button" class="btn primary full" data-plan="18">اختيار الباقة</button>
         </div>
 
-        <div class="card reveal">
-          <img class="plan-img" src="assets/plan25.png" alt="25" onerror="this.style.display='none'">
-          <div class="tag hot" data-i18n="p25_tag">الأكثر طلبًا</div>
-          <h3 data-i18n="p25_title">باقة 25€</h3>
+        <div class="card">
+          <div class="tag hot">الأكثر طلبًا</div>
+          <h3 style="margin:10px 0 0">باقة 25€</h3>
           <div class="price"><b>25€</b></div>
           <ul class="list">
-            <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
-            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+            <li>طلب واحد</li><li>تأكيد تفاصيل الطلب</li><li>تأكيد بعد الإتمام</li>
           </ul>
-          <button type="button" class="btn primary full" data-plan="25" data-i18n="choose">اختيار الباقة</button>
+          <button type="button" class="btn primary full" data-plan="25">اختيار الباقة</button>
         </div>
 
-        <div class="card reveal">
-          <img class="plan-img" src="assets/plan35.png" alt="35" onerror="this.style.display='none'">
-          <div class="tag ok" data-i18n="p35_tag">مميز</div>
-          <h3 data-i18n="p35_title">باقة 35€</h3>
+        <div class="card">
+          <div class="tag ok">مميز</div>
+          <h3 style="margin:10px 0 0">باقة 35€</h3>
           <div class="price"><b>35€</b></div>
           <ul class="list">
-            <li data-i18n="common1">طلب واحد</li>
-            <li data-i18n="common2">تأكيد تفاصيل الطلب</li>
-            <li data-i18n="common3">تأكيد بعد الإتمام</li>
+            <li>طلب واحد</li><li>تأكيد تفاصيل الطلب</li><li>تأكيد بعد الإتمام</li>
           </ul>
-          <button type="button" class="btn primary full" data-plan="35" data-i18n="choose">اختيار الباقة</button>
+          <button type="button" class="btn primary full" data-plan="35">اختيار الباقة</button>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="section-title">
-        <h2 class="reveal" data-i18n="contact_title">نموذج الطلب</h2>
-        <p class="reveal" data-i18n="contact_desc">املأ البيانات ثم اضغط إرسال. بعد نجاح الإرسال يظهر زر الدفع.</p>
+      <div class="inline" style="margin-bottom:12px">
+        <h2 style="margin:0">نموذج الطلب</h2>
+        <p class="muted" style="margin:0">بعد نجاح إرسال الطلب يظهر الدفع.</p>
       </div>
 
       <div class="grid-2">
-        <div class="card reveal">
-          <h3 data-i18n="contact_info_title">التواصل السريع</h3>
-          <div class="mini-box muted" style="margin-top:10px">
-            📞 <span data-i18n="wa_lbl">واتساب</span>: <b><a href="https://wa.me/4915213873166" target="_blank" rel="noopener">+4915213873166</a></b><br/>
-            ✉️ <span data-i18n="mail_lbl">البريد</span>: <b>info@yourdomain.com</b><br/>
-            🕒 <span data-i18n="resp_lbl">الاستجابة</span>: <b data-i18n="resp_time">خلال وقت قصير</b>
+        <div class="card">
+          <h3 style="margin-top:0">التواصل السريع</h3>
+          <div class="mini-box muted">
+            📞 واتساب: <b><a href="https://wa.me/4915213873166" target="_blank" rel="noopener">+4915213873166</a></b><br/>
+            ✉️ البريد: <b>info@yourdomain.com</b><br/>
+            🕒 الاستجابة: <b>خلال وقت قصير</b>
           </div>
-          <div class="hint" data-i18n="contact_hint">اختر الباقة أولاً، ثم أرسل الطلب، وبعدها ادفع.</div>
+          <div class="hint">اختر الباقة ثم أرسل الطلب، وبعدها ادفع.</div>
         </div>
 
-        <div class="card reveal">
-          <h3 data-i18n="form_title">بيانات الطلب</h3>
+        <div class="card">
+          <h3 style="margin-top:0">بيانات الطلب</h3>
 
-          <!-- ✅ ضع رابط Formspree الخاص بك هنا -->
-          <form id="contactForm" action="https://formspree.io/f/mqedrbgd" method="POST">
+          <!-- لا تغير IDs -->
+          <form id="contactForm" method="POST">
             <div>
-              <label for="name" data-i18n="lbl_name">الاسم</label>
+              <label for="name">الاسم</label>
               <input id="name" name="name" required placeholder="الاسم الكامل" />
             </div>
 
             <div>
-              <label for="phone" data-i18n="lbl_phone">رقمك للتواصل (واتساب)</label>
-              <input id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="+49..." />
+              <label for="phone">رقمك للتواصل (واتساب)</label>
+              <input id="phone" name="phone" required placeholder="+49..." />
             </div>
 
             <div>
-              <label for="provider" data-i18n="lbl_provider">مزود الخدمة داخل سوريا</label>
+              <label for="provider">مزود الخدمة داخل سوريا</label>
               <select class="small" id="provider" name="provider" required>
-                <option value="" selected disabled data-i18n="opt_pick">اختر المزود</option>
+                <option value="" selected disabled>اختر المزود</option>
                 <option value="Syriatel">Syriatel</option>
                 <option value="MTN">MTN</option>
                 <option value="Other">Other</option>
@@ -521,256 +248,89 @@
             </div>
 
             <div>
-              <label for="target" data-i18n="lbl_target">رقم الخط/الحساب داخل سوريا</label>
-              <input id="target" name="target_number" required inputmode="numeric" autocomplete="off" placeholder="09XXXXXXXX" />
+              <label for="target">رقم الخط/الحساب داخل سوريا</label>
+              <input id="target" name="target_number" required placeholder="09XXXXXXXX" />
             </div>
 
             <div>
-              <label for="pack" data-i18n="lbl_pack">الباقة</label>
+              <label for="pack">الباقة</label>
               <input id="pack" name="pack" required placeholder="اختر باقة من الأعلى" readonly />
             </div>
 
             <div>
-              <label for="msg" data-i18n="lbl_msg">ملاحظات</label>
+              <label for="msg">ملاحظات</label>
               <textarea id="msg" name="message" placeholder="أي تفاصيل إضافية (اختياري)"></textarea>
             </div>
 
-            <!-- ✅ Order ID + Amount (ترسل مع Formspree) -->
+            <!-- تُرسل مع Formspree -->
             <input type="hidden" id="orderId" name="order_id" />
             <input type="hidden" id="amount" name="amount_eur" />
-
-            <!-- honeypot -->
-            <input type="text" name="_gotcha" style="display:none">
             <input type="hidden" name="_subject" value="New Syria Internet Top-Up Request (GO.RASEED)" />
+            <input type="text" name="_gotcha" style="display:none">
 
             <div class="inline">
-              <button class="btn primary" type="submit" id="sendBtn" data-i18n="send">إرسال الطلب</button>
+              <button class="btn primary" type="submit" id="sendBtn">إرسال الطلب</button>
               <div class="note" id="formMsg" role="status" aria-live="polite"></div>
             </div>
           </form>
 
           <div class="mini-box" style="margin-top:10px">
-            <span class="muted" data-i18n="order_lbl">رقم الطلب:</span> <b id="orderIdLabel">—</b>
+            رقم الطلب: <b id="orderIdLabel">—</b>
+            <button type="button" class="btn" id="copyOrderBtn" style="margin-inline-start:10px">نسخ</button>
           </div>
 
-          <!-- Pay box: يظهر فقط بعد نجاح إرسال الطلب -->
+          <!-- الدفع يظهر بعد نجاح الإرسال -->
           <div id="payBox" class="mini-box" style="margin-top:14px; display:none;">
             <div class="inline">
-              <div class="muted">
-                <b data-i18n="pay_selected">المبلغ المختار:</b> <span id="payLabel">—</span>
-              </div>
-
-              <!-- زر الدفع: نفتح Revolut بشكل مضمون -->
+              <div class="muted"><b>المبلغ المختار:</b> <span id="payLabel">—</span></div>
               <button id="payBtn" type="button" class="btn primary">ادفع الآن</button>
             </div>
 
             <div class="inline" style="margin-top:10px">
               <button id="waConfirmBtn" type="button" class="btn">أرسل تأكيد الدفع واتساب</button>
-              <button id="copyOrderBtn" type="button" class="btn danger">نسخ رقم الطلب</button>
             </div>
 
-            <div class="hint" data-i18n="pay_hint">
-              بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.
-            </div>
+            <div class="hint">بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.</div>
           </div>
 
-          <!-- Debug (اختياري) -->
           <div id="debug" class="note" style="margin-top:10px"></div>
         </div>
       </div>
     </section>
 
     <footer class="wrap" style="padding: 22px 0 42px; color: var(--muted); border-top:1px solid var(--line); margin-top: 18px;">
-      © <span id="y"></span> GO.RASEED — <span data-i18n="rights">جميع الحقوق محفوظة</span>
+      © <span id="y"></span> GO.RASEED — جميع الحقوق محفوظة
     </footer>
   </main>
 
-  <!-- WhatsApp Floating -->
-  <div class="wa-wrap" aria-label="WhatsApp Support">
-    <div class="wa-bubble" id="waBubble">
-      <button class="x" id="waClose" type="button" aria-label="إغلاق">×</button>
-      <div id="waBubbleText">تحتاج مساعدة؟ تواصل معنا واتساب</div>
-    </div>
-
-    <a class="wa-btn"
-       href="https://wa.me/4915213873166?text=مرحبا%20اريد%20شحن%20انترنت%20الى%20سوريا"
-       target="_blank" rel="noopener"
-       aria-label="WhatsApp">
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M19.11 17.41c-.27-.14-1.57-.77-1.82-.86-.25-.09-.43-.14-.61.14-.18.27-.7.86-.86 1.04-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.82c.14.18 1.91 2.92 4.63 4.09.65.28 1.15.45 1.54.58.65.21 1.24.18 1.7.11.52-.08 1.57-.64 1.79-1.26.22-.62.22-1.15.16-1.26-.07-.11-.25-.18-.52-.32zM16 28.8c-2.2 0-4.23-.64-5.95-1.75L6 28.8l1.78-3.89A12.72 12.72 0 0 1 3.2 16C3.2 8.93 8.93 3.2 16 3.2S28.8 8.93 28.8 16 23.07 28.8 16 28.8zm0-23.2C10.38 5.6 5.6 10.38 5.6 16c0 2.22.7 4.28 1.9 5.98l-.98 2.16 2.22-.94A10.36 10.36 0 0 0 16 26.4c5.62 0 10.4-4.78 10.4-10.4S21.62 5.6 16 5.6z"/>
-      </svg>
-    </a>
-  </div>
-
   <script>
-    // ====== SETTINGS ======
+    // ========= CONFIG =========
+    const FORMSPREE_URL = "https://formspree.io/f/mqedrbgd"; // ✅ حط رابطك هنا
     const WA_NUMBER = "4915213873166"; // بدون +
-    // ✅ ضع روابط Revolut هنا:
+
     const payLinks = {
       18: "https://checkout.revolut.com/pay/5a922052-2414-46aa-b8ba-a8361c4f0c92",
       25: "https://checkout.revolut.com/pay/7c510098-c099-47d8-977b-6da2901385ac",
       35: "https://checkout.revolut.com/pay/8f42d09d-b794-4ac0-81e1-9be5aa6189fc"
     };
 
-    // ====== UI helpers ======
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // ========= STATE =========
+    const state = { lang: "ar", amount: null, orderId: null };
 
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
-    }, {threshold: .12});
-    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    // ========= DOM =========
+    const $ = (id)=>document.getElementById(id);
+    const debug = (t)=>{ const el=$("debug"); if(el) el.textContent=t; };
+    $("y").textContent = new Date().getFullYear();
 
-    const debugEl = document.getElementById("debug");
-    function debug(t){ if(debugEl) debugEl.textContent = t; }
-
-    // ====== i18n ======
-    const dict = {
-      ar:{
-        tagline:"شحن إنترنت إلى سوريا • بسرعة وأمان",
-        nav_pricing:"الباقات", nav_contact:"اطلب الآن",
-        cta_pricing:"عرض الباقات", cta_start:"اطلب الآن",
-        kicker:"خدمة رقمية لشحن الإنترنت إلى سوريا — بسرعة وأمان",
-        hero_title:"اختر باقتك…<br/>ثم املأ الطلب وادفع فورًا",
-        hero_lead:"اختر الباقة، املأ البيانات، ثم أرسل الطلب. بعد التأكيد يظهر لك زر الدفع عبر Revolut.",
-        hero_btn1:"اختر باقة", hero_btn2:"اذهب للنموذج",
-        trust1:"تنفيذ سريع", trust2:"خصوصية وأمان", trust3:"تأكيد بعد الإتمام", trust4:"دعم عبر واتساب",
-        kpi1v:"سريع", kpi1l:"خلال وقت قصير",
-        kpi2v:"آمن",  kpi2l:"بياناتك محفوظة",
-        kpi3v:"مؤكد", kpi3l:"إشعار بعد الإتمام",
-        badge:"اختر الباقة ثم املأ الطلب — بعد الإرسال يظهر زر الدفع",
-
-        pricing_title:"الباقات",
-        pricing_desc:"اضغط “اختيار الباقة” لملء النموذج تلقائيًا.",
-        p18_tag:"أساسي", p18_title:"باقة 18€",
-        p25_tag:"الأكثر طلبًا", p25_title:"باقة 25€",
-        p35_tag:"مميز", p35_title:"باقة 35€",
-        common1:"طلب واحد",
-        common2:"تأكيد تفاصيل الطلب",
-        common3:"تأكيد بعد الإتمام",
-        choose:"اختيار الباقة",
-
-        contact_title:"نموذج الطلب",
-        contact_desc:"املأ البيانات ثم اضغط إرسال. بعد نجاح الإرسال يظهر زر الدفع.",
-        contact_info_title:"التواصل السريع",
-        wa_lbl:"واتساب",
-        mail_lbl:"البريد",
-        resp_lbl:"الاستجابة",
-        resp_time:"خلال وقت قصير",
-        contact_hint:"اختر الباقة أولاً، ثم أرسل الطلب، وبعدها ادفع.",
-        form_title:"بيانات الطلب",
-        lbl_name:"الاسم",
-        lbl_phone:"رقمك للتواصل (واتساب)",
-        lbl_provider:"مزود الخدمة داخل سوريا",
-        opt_pick:"اختر المزود",
-        lbl_target:"رقم الخط/الحساب داخل سوريا",
-        lbl_pack:"الباقة",
-        lbl_msg:"ملاحظات",
-        send:"إرسال الطلب",
-        order_lbl:"رقم الطلب:",
-        pay_selected:"المبلغ المختار:",
-        pay_hint:"بعد الدفع أرسل لقطة شاشة/رقم العملية لتأكيد الطلب.",
-        rights:"جميع الحقوق محفوظة",
-
-        sent_need_plan:"❌ اختر باقة أولاً.",
-        sent_ok:"✅ تم إرسال الطلب! يمكنك الآن الدفع بالأسفل.",
-        sent_err:"❌ تعذر الإرسال الآن. تأكد من إعداد Formspree."
-      },
-      en:{
-        tagline:"Syria Internet Top-Up • Fast & Secure",
-        nav_pricing:"Packages", nav_contact:"Order",
-        cta_pricing:"View packages", cta_start:"Order now",
-        kicker:"Digital service for Syria internet top-ups — fast & secure",
-        hero_title:"Choose your package…<br/>fill the form and pay instantly",
-        hero_lead:"Choose a package, fill details, then send the request. After it’s sent, the Revolut payment button will appear.",
-        hero_btn1:"Choose a package", hero_btn2:"Go to form",
-        trust1:"Fast execution", trust2:"Privacy & security", trust3:"Confirmation after completion", trust4:"WhatsApp support",
-        kpi1v:"Fast", kpi1l:"Short turnaround",
-        kpi2v:"Secure",  kpi2l:"Your data is safe",
-        kpi3v:"Confirmed", kpi3l:"Confirmation notice",
-        badge:"Choose a package, fill the form — payment appears after sending",
-
-        pricing_title:"Packages",
-        pricing_desc:"Click “Select package” to auto-fill the form.",
-        p18_tag:"Basic", p18_title:"Package 18€",
-        p25_tag:"Most popular", p25_title:"Package 25€",
-        p35_tag:"Premium", p35_title:"Package 35€",
-        common1:"Single request",
-        common2:"Confirm request details",
-        common3:"Confirmation after completion",
-        choose:"Select package",
-
-        contact_title:"Order form",
-        contact_desc:"Fill details and press Send. Payment appears after successful submission.",
-        contact_info_title:"Fast contact",
-        wa_lbl:"WhatsApp",
-        mail_lbl:"Email",
-        resp_lbl:"Response",
-        resp_time:"Short turnaround",
-        contact_hint:"Select a package first, send the request, then pay.",
-        form_title:"Request details",
-        lbl_name:"Name",
-        lbl_phone:"Your WhatsApp number",
-        lbl_provider:"Syria provider",
-        opt_pick:"Pick a provider",
-        lbl_target:"Syria number/account",
-        lbl_pack:"Package",
-        lbl_msg:"Notes",
-        send:"Send request",
-        order_lbl:"Order ID:",
-        pay_selected:"Selected amount:",
-        pay_hint:"After paying, send a screenshot/transaction ID to confirm.",
-        rights:"All rights reserved",
-
-        sent_need_plan:"❌ Please select a package first.",
-        sent_ok:"✅ Request sent! You can now pay below.",
-        sent_err:"❌ Failed to send. Check Formspree setup."
-      }
-    };
-
-    const langSelect = document.getElementById("lang");
-    function applyLang(lang){
-      document.documentElement.lang = lang;
-      document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
-
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const k = el.getAttribute("data-i18n");
-        if(dict[lang] && dict[lang][k] !== undefined) el.innerHTML = dict[lang][k];
-      });
-
-      const bubbleText = document.getElementById("waBubbleText");
-      if(bubbleText){
-        bubbleText.textContent = (lang === "en")
-          ? "Need help? Chat with us on WhatsApp"
-          : "تحتاج مساعدة؟ تواصل معنا واتساب";
-      }
-
-      // تحديث نص زر الدفع إذا كان ظاهر
-      if(state.amount){
-        document.getElementById("payBtn").textContent =
-          (lang === "en") ? `Pay now ${state.amount}€` : `ادفع الآن ${state.amount}€`;
-      }
-    }
-
-    const savedLang = localStorage.getItem("lang") || "ar";
-    langSelect.value = savedLang;
-    applyLang(savedLang);
-    langSelect.addEventListener("change", ()=>{
-      localStorage.setItem("lang", langSelect.value);
-      applyLang(langSelect.value);
-    });
-
-    // ====== Order + state ======
-    const state = { amount: null, orderId: null };
-
+    // ========= ORDER ID =========
     function genOrderId(){
       const s = Math.random().toString(36).slice(2,6).toUpperCase();
       const d = new Date();
       const y = d.getFullYear();
-      const m = String(d.getMonth()+1).padStart(2,'0');
-      const da = String(d.getDate()).padStart(2,'0');
+      const m = String(d.getMonth()+1).padStart(2,"0");
+      const da = String(d.getDate()).padStart(2,"0");
       return `GR-${y}${m}${da}-${s}`;
     }
-
     function ensureOrderId(){
       let id = localStorage.getItem("order_id");
       if(!id){
@@ -778,12 +338,32 @@
         localStorage.setItem("order_id", id);
       }
       state.orderId = id;
-      document.getElementById("orderId").value = id;
-      document.getElementById("orderIdLabel").textContent = id;
+      $("orderId").value = id;
+      $("orderIdLabel").textContent = id;
       return id;
     }
 
-    // ====== Plan selection ======
+    // ========= LANGUAGE (اختياري بسيط) =========
+    function setLang(lang){
+      state.lang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+      // (إذا بدك ترجمة كاملة قولّي، هان تركتها خفيفة)
+    }
+    const savedLang = localStorage.getItem("lang") || "ar";
+    $("lang").value = savedLang;
+    setLang(savedLang);
+    $("lang").addEventListener("change", ()=>{
+      localStorage.setItem("lang", $("lang").value);
+      setLang($("lang").value);
+      // تحديث نص الباقة إذا كانت مختارة
+      if(state.amount){
+        $("pack").value = (state.lang === "en") ? `Package ${state.amount}€` : `باقة بقيمة ${state.amount}€`;
+        $("payBtn").textContent = (state.lang === "en") ? `Pay now` : `ادفع الآن`;
+      }
+    });
+
+    // ========= PLAN SELECT =========
     function selectPlan(amount){
       const link = payLinks[amount];
       if(!link){
@@ -794,63 +374,51 @@
       state.amount = amount;
       ensureOrderId();
 
-      const lang = langSelect.value || "ar";
+      $("amount").value = String(amount);
+      $("pack").value = (state.lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
 
-      // fill pack + amount hidden
-      document.getElementById("pack").value = (lang === "en") ? `Package ${amount}€` : `باقة بقيمة ${amount}€`;
-      document.getElementById("amount").value = String(amount);
+      // اخفي الدفع إلى أن ينجح الإرسال
+      $("payBox").style.display = "none";
+      $("formMsg").textContent = "";
 
-      // Hide pay until request is sent
-      document.getElementById("payBox").style.display = "none";
-      document.getElementById("formMsg").textContent = "";
-
-      // scroll to form
-      document.getElementById("contact").scrollIntoView({behavior:"smooth", block:"start"});
-      debug(`✅ Selected plan: ${amount}€ | Order: ${state.orderId}`);
+      // نزّل إلى الفورم
+      $("contact").scrollIntoView({behavior:"smooth", block:"start"});
+      debug(`✅ Selected: ${amount}€ | Order: ${state.orderId}`);
     }
 
     document.querySelectorAll("[data-plan]").forEach(btn=>{
       btn.addEventListener("click", ()=> selectPlan(Number(btn.getAttribute("data-plan"))));
     });
 
-    // Restore from localStorage (optional)
-    document.addEventListener("DOMContentLoaded", ()=>{
-      ensureOrderId();
-      // WhatsApp bubble
-      const waClose = document.getElementById("waClose");
-      const waBubble = document.getElementById("waBubble");
-      if(waClose && waBubble){
-        waClose.addEventListener("click", ()=>{
-          waBubble.style.display = "none";
-          localStorage.setItem("wa_bubble_closed", "1");
-        });
-        const closed = localStorage.getItem("wa_bubble_closed");
-        if(closed === "1") waBubble.style.display = "none";
-        if(closed !== "1") setTimeout(()=>{ waBubble.style.display = "none"; }, 12000);
+    // ========= COPY ORDER ID =========
+    $("copyOrderBtn").addEventListener("click", async ()=>{
+      const id = ensureOrderId();
+      try{
+        await navigator.clipboard.writeText(id);
+        alert("تم نسخ رقم الطلب ✅");
+      }catch{
+        alert("انسخ رقم الطلب يدويًا: " + id);
       }
     });
 
-    // ====== Formspree submit ======
-    const form = document.getElementById("contactForm");
-    const msg = document.getElementById("formMsg");
-    const sendBtn = document.getElementById("sendBtn");
+    // ========= FORMSPREE SUBMIT =========
+    const form = $("contactForm");
+    form.action = FORMSPREE_URL;
 
     form.addEventListener("submit", async (e)=>{
       e.preventDefault();
-      msg.textContent = "";
-      sendBtn.disabled = true;
-      sendBtn.style.opacity = ".85";
 
-      const lang = langSelect.value || "ar";
+      const sendBtn = $("sendBtn");
+      sendBtn.disabled = true;
+
+      $("formMsg").textContent = "";
+      ensureOrderId();
 
       if(!state.amount){
-        msg.textContent = dict[lang].sent_need_plan;
+        $("formMsg").textContent = "❌ اختر باقة أولاً.";
         sendBtn.disabled = false;
-        sendBtn.style.opacity = "1";
         return;
       }
-
-      ensureOrderId(); // ensures order_id + label + hidden
 
       try{
         const res = await fetch(form.action, {
@@ -860,54 +428,43 @@
         });
 
         if(res.ok){
-          msg.textContent = dict[lang].sent_ok;
-
-          // show pay box now
-          const payBox = document.getElementById("payBox");
-          const payLabel = document.getElementById("payLabel");
-          const payBtn = document.getElementById("payBtn");
-
-          payLabel.textContent = `${state.amount}€`;
-          payBtn.textContent = (lang === "en") ? `Pay now ${state.amount}€` : `ادفع الآن ${state.amount}€`;
-
-          // store revolut link on button
-          payBtn.dataset.link = payLinks[state.amount];
-
-          payBox.style.display = "block";
-          setTimeout(()=> payBox.scrollIntoView({behavior:"smooth", block:"center"}), 250);
-
-          debug(`✅ Form sent. Ready to pay: ${payBtn.dataset.link}`);
+          $("formMsg").textContent = "✅ تم إرسال الطلب! يمكنك الآن الدفع.";
+          // إظهار الدفع
+          $("payLabel").textContent = `${state.amount}€`;
+          $("payBtn").dataset.link = payLinks[state.amount];
+          $("payBox").style.display = "block";
+          setTimeout(()=> $("payBox").scrollIntoView({behavior:"smooth", block:"center"}), 250);
+          debug("✅ Form sent. Payment enabled.");
         }else{
-          msg.textContent = dict[lang].sent_err;
-          debug("❌ Formspree response not OK");
+          $("formMsg").textContent = "❌ تعذر الإرسال الآن. تأكد من Formspree.";
+          debug("❌ Formspree response not ok.");
         }
       }catch(err){
-        msg.textContent = dict[lang].sent_err;
-        debug("❌ Form submit error: " + (err?.message || err));
+        $("formMsg").textContent = "❌ تعذر الإرسال الآن.";
+        debug("❌ Submit error: " + (err?.message || err));
       }finally{
         sendBtn.disabled = false;
-        sendBtn.style.opacity = "1";
       }
     });
 
-    // ====== Pay button (guaranteed open) ======
-    document.getElementById("payBtn").addEventListener("click", ()=>{
-      const link = document.getElementById("payBtn").dataset.link;
+    // ========= PAY (Guaranteed) =========
+    $("payBtn").addEventListener("click", ()=>{
+      const link = $("payBtn").dataset.link;
       if(!link){
         alert("اختر باقة وأرسل الطلب أولاً.");
         return;
       }
-      // Open revolut in same tab (most reliable)
+      // فتح مضمون بنفس الصفحة
       window.location.href = link;
     });
 
-    // ====== WhatsApp confirm ======
-    document.getElementById("waConfirmBtn").addEventListener("click", ()=>{
+    // ========= WhatsApp confirm =========
+    $("waConfirmBtn").addEventListener("click", ()=>{
       const orderId = ensureOrderId();
-      const amount = state.amount || document.getElementById("amount").value || "—";
-      const provider = document.getElementById("provider")?.value || "—";
-      const target = document.getElementById("target")?.value || "—";
-      const name = document.getElementById("name")?.value || "—";
+      const amount = state.amount || $("amount").value || "—";
+      const name = $("name").value || "—";
+      const provider = $("provider").value || "—";
+      const target = $("target").value || "—";
 
       const txt =
 `تم الدفع ✅
@@ -923,15 +480,10 @@
       window.open(wa, "_blank");
     });
 
-    // ====== Copy order ID ======
-    document.getElementById("copyOrderBtn").addEventListener("click", async ()=>{
-      const id = ensureOrderId();
-      try{
-        await navigator.clipboard.writeText(id);
-        alert("تم نسخ رقم الطلب ✅");
-      }catch{
-        alert("انسخ رقم الطلب يدويًا: " + id);
-      }
+    // ========= INIT =========
+    document.addEventListener("DOMContentLoaded", ()=>{
+      ensureOrderId();
+      debug("جاهز ✅ اختر باقة ثم املأ البيانات وأرسل الطلب.");
     });
   </script>
 </body>
